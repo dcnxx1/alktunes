@@ -1,0 +1,39 @@
+// main PINK colors: 
+$pink1: #fff0f3;
+$pink2: #ffccd5 ;
+$pink3: #ffb3c1;
+$pink4: #ff8fa3;
+$pink5: #ff758f;
+$pink6: #ff4d6d;
+$pink7: #c9184a;
+$pink8: #a4133c;
+$pink9: #800f2f;
+$pink10:#590d22;
+
+// main DARK colors: 
+
+$dark1: #0d060f; 
+$dark2: #12100e;
+$dark3: #001220;
+
+
+// font sizes
+
+$body-text: 16px;
+$f-sm: 12pt;
+$f-m: 24pt;
+$f-l: 38pt;
+$f-xl: 52pt;
+
+@font-face {
+    font-family: 'riffic.bold';
+    src: url('../font/riffic.bold.ttf');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+// font cover
+$riffic: 'riffic.bold';
+$poppins: 'Poppins', sans-serif;
+
+

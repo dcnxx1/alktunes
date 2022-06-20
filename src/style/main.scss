@@ -1,0 +1,13 @@
+@import './abstracts/variables';
+@import './abstracts/buttons';
+@import './abstracts/media_query';
+
+
+
+@import './components/entrance';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

@@ -1,0 +1,13 @@
+.button-primary{
+    border: 2px solid $pink1;
+    border-radius: 10px;
+    color: $pink1;
+    font-family: $poppins;
+    background: transparent;
+    font-size: $f-m;
+    
+    &:hover{
+        background: $pink1;
+        color: $dark1;
+    }
+}

@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@font-face {
+  font-family: 'riffic.bold';
+  src: url("../font/riffic.bold.ttf"); }
+
+.button-primary {
+  border: 2px solid #fff0f3;
+  border-radius: 10px;
+  color: #fff0f3;
+  font-family: "Poppins", sans-serif;
+  background: transparent;
+  font-size: 24pt; }
+  .button-primary:hover {
+    background: #fff0f3;
+    color: #0d060f; }
+
+.entrance {
+  width: 100%;
+  height: 100vh;
+  background: url(../../static/entrance_bg_desktop.svg) no-repeat;
+  padding: 1rem; }
+  .entrance .logo {
+    border: 2px solid white;
+    width: 100%;
+    height: fit-content;
+    text-align: right; }
+    .entrance .logo img {
+      width: 250px;
+      padding: 0.5rem; }
+  .entrance .wrapper-entrance {
+    width: 100%;
+    border: 2px solid #fff0f3;
+    display: flex; }
+    .entrance .wrapper-entrance .usr-left {
+      font-family: "riffic.bold";
+      color: #fff0f3;
+      font-size: 38pt;
+      border: 3px solid green;
+      width: 60%; }
+      .entrance .wrapper-entrance .usr-left .heading {
+        border: 2px solid green; }
+        .entrance .wrapper-entrance .usr-left .heading h1:nth-child(2) {
+          text-indent: 1rem; }
+        .entrance .wrapper-entrance .usr-left .heading h1:nth-child(3) {
+          text-indent: 2rem; }
+      .entrance .wrapper-entrance .usr-left .usr-txt {
+        border: 2px solid white;
+        margin-top: 5rem;
+        text-align: center; }
+    .entrance .wrapper-entrance .usr-right {
+      display: flex;
+      font-family: "Poppins", sans-serif;
+      border: 2px solid blue;
+      width: 40%;
+      align-items: center; }
+      .entrance .wrapper-entrance .usr-right .redir {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        border: 2px solid #fff0f3;
+        border-radius: 10px;
+        width: fit-content;
+        margin: 0 auto;
+        height: 450px;
+        padding: 1rem; }
+        .entrance .wrapper-entrance .usr-right .redir__btn {
+          width: 250px;
+          height: fit-content;
+          cursor: pointer; }
+
+@media only screen and (max-height: 751px) {
+  .entrance {
+    min-height: 800px; } }
+
+@media only screen and (max-width: 1229px) {
+  .usr-left .heading {
+    font-size: 24pt; }
+  .usr-left .usr-txt span {
+    font-size: 24pt; } }
+
+@media only screen and (max-width: 849px) {
+  .entrance {
+    min-width: 330px; }
+    .entrance .logo > img {
+      width: 150px; }
+  .wrapper-entrance {
+    flex-direction: column;
+    gap: 1rem; }
+    .wrapper-entrance .usr-left {
+      width: 100% !important; }
+      .wrapper-entrance .usr-left .heading {
+        display: flex;
+        justify-content: center; }
+      .wrapper-entrance .usr-left .usr-txt {
+        font-size: 16pt; }
+    .wrapper-entrance .usr-right {
+      width: 100% !important; }
+      .wrapper-entrance .usr-right .redir {
+        height: fit-content !important;
+        gap: 1rem; } }
+
+@media only screen and (max-width: 480px) {
+  .entrance {
+    background: url(../../static/entrance_bg_mobile.svg) no-repeat;
+    object-fit: cover; } }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
