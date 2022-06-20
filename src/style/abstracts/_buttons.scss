@@ -11,3 +11,17 @@
         color: $dark1;
     }
 }
+
+
+// @@ Links @@@
+
+.link-primary{
+    text-decoration: none;
+    border: none;
+    &:active{ 
+        text-decoration: none;
+    }
+    &:visited{
+        text-decoration: none;
+    }
+}

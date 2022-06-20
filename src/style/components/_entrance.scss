@@ -7,7 +7,6 @@
     padding: 1rem;
 
     .logo{
-        border: 2px solid white;
         width: 100%;
         height: fit-content;
         text-align: right;
@@ -20,18 +19,18 @@
 
     .wrapper-entrance{
         width: 100%;
-        border: 2px solid $pink1;
+
         display: flex;
         
         .usr-left {
             font-family: $riffic;
             color: $pink1;
             font-size: $f-l;
-            border: 3px solid green;
+
             width: 60%;
             
             .heading{
-                border: 2px solid green;
+
                 h1{
                     &:nth-child(2){text-indent: 1rem;}
                     &:nth-child(3){text-indent: 2rem;}  
@@ -39,7 +38,6 @@
             }
     
             .usr-txt{
-                border: 2px solid white;
                 margin-top: 5rem;
                 text-align: center;
             }
@@ -49,7 +47,7 @@
         .usr-right {
             display: flex;
             font-family: $poppins;
-            border: 2px solid blue;
+
             width: 40%;
             align-items: center;
 
@@ -109,7 +107,7 @@
     .entrance{
        min-width: 330px;
         .logo > img {width: 150px;}
-      
+     
     }
 
     
@@ -135,7 +133,7 @@
 
            .redir{
             height: fit-content !important;
-            gap: 1rem;
+            gap: 4rem;
            }
         }
     }

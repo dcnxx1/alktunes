@@ -1,0 +1,120 @@
+.entrance-container{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    min-height: 900px;
+    background: $dark1;
+    justify-content: center;
+    align-items: center;
+    
+    .form-control{
+        display: flex;
+        flex-direction: column;
+        background: $pink1;
+        width: 550px;
+        height: 650px;
+        border-radius: 20px;
+        animation: fadeIn 0.3s ease-in;
+        padding: 1rem;
+        align-items: center;
+        gap: 1rem;
+        font-family: $poppins;
+        .logo {
+            width: 100%;
+            text-align: right;
+            img {
+                width: 150px;
+            }
+        }
+
+        .form-type{
+            padding-bottom: 1rem;
+            font-size: $f-m;
+            width: 90%;
+            border-bottom: 2px solid $dark1;
+            text-align: center;
+        }
+
+        .form-register{
+            text-align: center;
+            width: 100%;
+            height: 70%;
+            
+            
+            .input-message{
+                display: flex;
+                flex-direction: column;
+                border: 2px solid black;
+                height: fit-content;
+                &:not(p){
+                    align-items: center;
+                }
+                
+                p{
+                    color:#a31818;
+                }
+            }
+
+
+            .input {
+                margin-top: 1rem;
+                width: 100%;
+                max-width: 80%;
+                font-family: $poppins;
+                height: 50px;
+               
+                border: 2px solid grey;
+                border-radius: 0.5rem;
+                background: $pink1;
+
+                &:not(input[type=submit]){
+                    text-indent: 1rem;
+                }
+            }
+
+            .submit{
+                color: $dark1;
+                cursor: pointer;
+                font-size: $f-sm;
+                text-align: center;
+            }
+
+            
+            
+        }
+
+        
+    }
+}
+
+
+@keyframes fadeIn {
+    0%{
+        transform: translateX(300px);
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+// Mobile
+@media only screen and (max-width: 320px){
+
+}
+@media only screen and (max-width: 480px){
+
+}
+
+
+// Ipads, Tablets
+@media only screen and (max-width: 481px){
+
+}
+@media only screen and (max-width: 768px){
+.entrance-container{
+    padding: 2rem;
+}
+}

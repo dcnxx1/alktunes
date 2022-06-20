@@ -1,12 +1,14 @@
 import React from 'react'
-import AlkTunesLogo from '../static/alktune_logo_Svg.svg'
+import {Link, useLocation} from 'react-router-dom'
+import Logo from '../compound/Logo'
+
+
+
 function Entrance() {
+  const location = useLocation()
   return (
     <div className='entrance'>
-        <div className='logo'>
-            <img draggable='false' src={AlkTunesLogo} alt="Logo AlkTunes" />
-            
-        </div>
+    <Logo />
           <div className='wrapper-entrance'>
             <div className='usr-left'>
                 <div className='heading'>
@@ -25,8 +27,12 @@ function Entrance() {
             </div>
             <div className='usr-right'>
               <div className='redir'>
-                <button className='button-primary redir__btn'>Login {'>'}</button>
-                <button className='button-primary redir__btn'>Register {'>'}</button>
+              <Link to={{pathname: '/login', state: {prevPath: location.pathname}}} className='link-primary'>
+                 <button className='button-primary redir__btn'>Login {'>'}</button>
+              </Link>
+              <Link to={{pathname: '/register', state: {prevPath: location.pathname}}} className='link-primary'>
+                 <button className='button-primary redir__btn'>Register {'>'}</button>
+              </Link>
               </div>
             </div>
           </div>
