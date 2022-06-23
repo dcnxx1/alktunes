@@ -2,7 +2,7 @@
     width: 100%;
     height: 100vh;
     background: url(../../static/entrance_bg_desktop.svg) no-repeat;
-    
+    min-height: 900px;
     
     padding: 1rem;
 
@@ -80,9 +80,9 @@
 // fix height issue when resizing window. 
 //The svg background will reduce in height. this media query makes the background height larger to prevent background shortcoming. 
 
-@media only screen and (max-height: 751px) {
+@media only screen and (min-height: 751px) {
     .entrance{
-        min-height: 800px;
+        min-height: 690px;
     }
 }
 
