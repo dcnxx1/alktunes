@@ -12,7 +12,8 @@
         flex-direction: column;
         background: $pink1;
         width: 550px;
-        height: 650px;
+        height: fit-content;
+        
         border-radius: 20px;
         animation: fadeIn 0.3s ease-in;
         padding: 1rem;
@@ -44,14 +45,14 @@
             .input-message{
                 display: flex;
                 flex-direction: column;
-                border: 2px solid black;
+              
                 height: fit-content;
                 &:not(p){
                     align-items: center;
                 }
                 
                 p{
-                    color:#a31818;
+                    color:#a31818;    
                 }
             }
 
@@ -62,7 +63,7 @@
                 max-width: 80%;
                 font-family: $poppins;
                 height: 50px;
-               
+             
                 border: 2px solid grey;
                 border-radius: 0.5rem;
                 background: $pink1;

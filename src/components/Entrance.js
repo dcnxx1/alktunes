@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link, useLocation} from 'react-router-dom'
-import Logo from '../static/alktune_logo_png.png'
+import AlkTunesLogo from '../static/alktune_logo_png.png'
 
 
 
@@ -8,7 +8,9 @@ function Entrance() {
   const location = useLocation()
   return (
     <div className='entrance'>
-    <Logo />
+    <div className="logo">
+      <img src={AlkTunesLogo} alt='AlkTunes Logo' />
+    </div>
           <div className='wrapper-entrance'>
             <div className='usr-left'>
                 <div className='heading'>

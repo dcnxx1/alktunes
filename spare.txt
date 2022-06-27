@@ -1,0 +1,22 @@
+ // if username & password & repeatPassword has no input
+        //   if(username?.length == 0 || password.length == 0 || repeatPassword?.length == 0 ){
+        //     setErrors(prevValue => ([...prevValue, {ERR: codesRequest.FORM_ERR.ERR_NO_INPUT.ERR, message: codesRequest.FORM_ERR.ERR_NO_INPUT.message}]))           
+        //     // if filled in input has less than 5 chars, set error
+        // } if(username?.length < 5){
+        //     setErrors(prevValue => ([...prevValue, {ERR: codesRequest.FORM_ERR.ERR_MIN_CHARS.ERR, message: codesRequest.FORM_ERR.ERR_MIN_CHARS.message('Username')}]))
+        // // if filled in input has less than 5 chars, set error
+        // }if(password?.length < 5) {
+        //     setErrors(prevValue => ([...prevValue, {ERR: codesRequest.FORM_ERR.ERR_MIN_CHARS.ERR, message: codesRequest.FORM_ERR.ERR_MIN_CHARS.message('Password')}]))
+        //   // if filled in input contains special characters, set error
+        // } if(password?.match(statics.INPUT_VALIDATION.RESTRICT_CHARS)){
+        //     setErrors(prevValue => ([...prevValue, {ERR: codesRequest.FORM_ERR.ERR_SPECIAL_CHARS.ERR, message: codesRequest.FORM_ERR.ERR_SPECIAL_CHARS.message}]))
+            
+            
+        //     // if filled in input has contains special characters, set error
+        // } if(password !== repeatPassword) {
+        //     setErrors(prevValue => ([...prevValue, {ERR: codesRequest.FORM_ERR.ERR_PASS_DONT_MATCH.ERR, message: codesRequest.FORM_ERR.ERR_PASS_DONT_MATCH.message}]))
+        // }
+        
+        // if(username?.match(statics.INPUT_VALIDATION.RESTRICT_CHARS)){
+        //     setErrors(prevValue => ([...prevValue, {ERR: codesRequest.FORM_ERR.ERR_SPECIAL_CHARS.ERR, message: codesRequest.FORM_ERR.ERR_SPECIAL_CHARS.message }]))
+        // }

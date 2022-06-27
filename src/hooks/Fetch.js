@@ -3,7 +3,7 @@ import {API_URL} from '../static/statics'
 
 function Fetch() {
   return axios.create({
-    baseUrl: API_URL
+    baseUrl: process.env.API_URL
   })
 }
 

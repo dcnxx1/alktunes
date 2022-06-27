@@ -119,7 +119,7 @@
     flex-direction: column;
     background: #fff0f3;
     width: 550px;
-    height: 650px;
+    height: fit-content;
     border-radius: 20px;
     animation: fadeIn 0.3s ease-in;
     padding: 1rem;
@@ -144,7 +144,6 @@
       .entrance-container .form-control .form-register .input-message {
         display: flex;
         flex-direction: column;
-        border: 2px solid black;
         height: fit-content; }
         .entrance-container .form-control .form-register .input-message:not(p) {
           align-items: center; }
