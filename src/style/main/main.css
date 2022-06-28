@@ -178,6 +178,11 @@
   .entrance-container {
     padding: 2rem; } }
 
+.react-player {
+  width: 359px;
+  height: 259px;
+  border: 2px solid black; }
+
 * {
   margin: 0;
   padding: 0;
