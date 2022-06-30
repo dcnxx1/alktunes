@@ -7,11 +7,11 @@ function Home() {
       <Search />
 
       <div className='featured'>
-
+        Featured
       </div>
       
       <div className='trending'>
-
+        Trending
       </div>
     </div>
   )

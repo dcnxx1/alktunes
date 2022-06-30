@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link, useLocation} from 'react-router-dom'
-import AlkTunesLogo from '../static/alktune_logo_png.png'
+import AlkTunesLogo from '../static/logo_new/alktune_full_png.png'
 
 
 
