@@ -202,6 +202,11 @@
   font-family: "PTSans-Regular", "Poppins", sans-serif, sans-serif;
   display: grid; }
 
+@media only screen and (max-width: 600px) {
+  .App {
+    grid-template-columns: 100%;
+    grid-template-rows: 15% 65% 15%; } }
+
 * {
   margin: 0;
   padding: 0;

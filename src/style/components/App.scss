@@ -12,7 +12,11 @@
 @media only screen and (max-width: 600px){
 
 .App{
+    grid-template-columns: 100%;
+    grid-template-rows: 15% 65% 15%;
+    // grid-template-areas: 
     
+    // ;
 }
 
 }
