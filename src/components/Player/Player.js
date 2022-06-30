@@ -5,7 +5,7 @@ import Controller from '../../compound/Controller'
 function Player() {
   return (
     <div className='Player'>
-      <Nexton />
+      {/* <Nexton /> */}
       <Controller />
     </div>
   )

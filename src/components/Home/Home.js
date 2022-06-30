@@ -2,6 +2,11 @@ import React from 'react'
 import Search from '../../compound/Search'
 import Track from '../../compound/Track'
 function Home() {
+  const imitator = [
+    {img: 'https://unsplash.it/100/500'},
+    {img: 'https://unsplash.it/100/500'},
+    {img: 'https://unsplash.it/100/500'},
+  ]
   return (
     <div className='Home'>
       <Search />
@@ -9,27 +14,20 @@ function Home() {
       <div className='featured'>
         <span className='featured__text'>Featured</span>
         <div className='featured__holder'>
-
-          <div className='featured__container'>
-            <img className='featured__cover' src='https://unsplash.it/200/200' />
-            <span className='featured__name-artist'>Artist name</span>
-          </div>  
-
-          <div className='featured__container'>
-            <img className='featured__cover' src='https://unsplash.it/200/200' />
-            <span className='featured__name-artist'>Artist name</span>
-          </div>  
-
-          <div className='featured__container'>
-            <img className='featured__cover' src='https://unsplash.it/200/200' />
-            <span className='featured__name-artist'>Artist name</span>
-          </div>  
+          {imitator.forEach((img) => (
+            <div className='featured__container'>
+              <span>Artist Name</span>
+            </div> 
+          ))}
+             
          </div>
       </div>
       
       <div className='trending'>
         <ul className='trending__holder'>
-          <Track addClass="imgwidth100"  />
+          <Track addClass='track-home' />
+          <Track addClass='track-home' />
+          <Track addClass='track-home' />
           
         </ul>
       </div>
