@@ -5,6 +5,7 @@
     color: $pink1;
     font-family: $pt-regular;
     display: grid;
+    min-height: 700px;
 }
 
 
@@ -13,11 +14,11 @@
 
 .App{
     grid-template-columns: 100%;
-    grid-template-rows: 15% 65% 15%;
+    grid-template-rows: 15% 70% 15%;
     grid-template-areas: 
     "Search"
     "Home"
-    "Playing";
+    "Playing"
 }
 
 }

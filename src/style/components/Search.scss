@@ -3,4 +3,35 @@
     height: 100%;
     border: 2px solid $pink1;
     grid-area: Search;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_input {
+        width: 90%;
+        background: $gray1;
+        color: white;
+        font-family: $pt-italic;        
+        border: none;
+        text-indent: 1rem;
+
+        &:focus{
+            outline: 1px solid $pink1;
+        }
+    }
+
+    &_icon{
+        background: url();
+    }
+}
+
+@media only screen and(max-width: 600px){
+
+.Search {
+    &_input{
+        height: 35px;
+        border-radius: 10px;
+    }
+}
+
 }

@@ -200,13 +200,51 @@
   height: 100vh;
   color: #fff0f3;
   font-family: "PTSans-Regular", "Poppins", sans-serif, sans-serif;
-  display: grid; }
+  display: grid;
+  min-height: 700px; }
 
 @media only screen and (max-width: 600px) {
   .App {
     grid-template-columns: 100%;
-    grid-template-rows: 15% 65% 15%;
+    grid-template-rows: 15% 70% 15%;
     grid-template-areas: "Search" "Home" "Playing"; } }
+
+.Search {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fff0f3;
+  grid-area: Search;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .Search_input {
+    width: 90%;
+    background: #131313;
+    color: white;
+    font-family: "PTSans-Italic", "Poppins", sans-serif, sans-serif;
+    border: none;
+    text-indent: 1rem; }
+    .Search_input:focus {
+      outline: 1px solid #fff0f3; }
+  .Search_icon {
+    background: url(); }
+
+@media only screen and (max-width: 600px) {
+  .Search_input {
+    height: 35px;
+    border-radius: 10px; } }
+
+.Home {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fff0f3;
+  grid-area: Home; }
+
+.Playing {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #fff0f3;
+  grid-area: Playing; }
 
 * {
   margin: 0;
