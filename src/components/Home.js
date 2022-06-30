@@ -1,8 +1,10 @@
 import React from 'react'
-
+import HomeComponent from '../compound/Home/HomeComponent'
 function Home() {
   return (
-    <div>Home</div>
+   <HomeComponent>
+    Yo
+   </HomeComponent>
   )
 }
 

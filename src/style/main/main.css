@@ -200,7 +200,8 @@
   height: 100vh;
   color: #fff0f3;
   font-family: "PTSans-Regular", "Poppins", sans-serif, sans-serif;
-  display: grid; }
+  display: grid;
+  padding: 0.5rem; }
 
 @media only screen and (max-width: 600px) {
   .App {

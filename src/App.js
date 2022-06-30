@@ -1,12 +1,11 @@
 import React from 'react';
-import {Home, Queue, Bar, Nav,} from './imports'
+import {Home, Queue, Playing, Nav, Search} from './imports'
 function App() {
   return (
     <div className="App">
-   <Home />
-   <Queue />
-   <Bar />
-   <Nav />
+    <Search />
+    <Home />
+    <Playing />
     </div>
   );
 }
