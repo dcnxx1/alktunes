@@ -5,7 +5,7 @@
     display: grid;
     font-family: $pt-bold;
     color: aliceblue;
-   
+    
     grid-template-columns: 15% 70% 15%;
     grid-template-rows: 100%;
     grid-template-areas: 
@@ -17,6 +17,8 @@
 
 @media only screen and (max-width: 600px){
     .App{
+        
+        
         grid-template-columns: 100%;
         grid-template-rows: 80% 20%;
         grid-template-areas: 

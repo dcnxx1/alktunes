@@ -4,7 +4,7 @@ function Search() {
   return (
     <form className='search'>
       <input className='search__input' type='text' placeholder='Artist / Music / Album' />
-      <button className='search_icon'></button>
+      <button className='search__icon'></button>
     </form>
   )
 }
