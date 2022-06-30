@@ -201,7 +201,7 @@
   display: grid;
   font-family: "PTSans-Bold", "Poppins", sans-serif;
   color: aliceblue;
-  grid-template-columns: 15% 70% 15%;
+  grid-template-columns: 20% 60% 20%;
   grid-template-rows: 100%;
   grid-template-areas: "Nav Home Player"; }
 
@@ -327,56 +327,25 @@
   width: 100%;
   height: 100%;
   grid-area: Player;
+  display: flex;
+  flex-direction: column;
   border: 2px solid #fff0f3; }
-
-.track {
-  width: 100%;
-  display: flex; }
-  .track__cover {
-    width: 100px; }
-  .track__holder {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 1rem;
-    flex: 1; }
-  .track__artist {
-    color: #676765ff;
-    padding-left: 0.5rem; }
-  .track__album {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-  .track__length {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-  .track__more {
-    flex: 0 1 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer; }
-  .track__icon {
-    background: url(../../static/icons/more_white.png) no-repeat center;
-    display: block;
-    width: 25px;
-    height: 25px;
-    background-size: 20px; }
 
 @media only screen and (max-width: 600px) {
   .track {
-    font-size: 9pt; }
-    .track__holder {
-      padding-left: 0.2rem; }
-    .track__cover {
-      width: 55px; }
-    .track__artist {
-      color: #676765ff;
-      padding-left: 0.2rem; } }
+    font-size: 9pt; } }
+
+.Nexton {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  border: 2px solid white;
+  padding: 1rem; }
+
+.Controller {
+  width: 100%;
+  height: 100%;
+  flex: 1; }
 
 * {
   margin: 0;

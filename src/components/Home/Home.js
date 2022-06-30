@@ -29,9 +29,8 @@ function Home() {
       
       <div className='trending'>
         <ul className='trending__holder'>
-          <Track />
-          <Track />
-          <Track />
+          <Track addClass="imgwidth100"  />
+          
         </ul>
       </div>
     </div>
