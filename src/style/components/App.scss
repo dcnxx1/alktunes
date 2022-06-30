@@ -14,9 +14,10 @@
 .App{
     grid-template-columns: 100%;
     grid-template-rows: 15% 65% 15%;
-    // grid-template-areas: 
-    
-    // ;
+    grid-template-areas: 
+    "Search"
+    "Home"
+    "Playing";
 }
 
 }
