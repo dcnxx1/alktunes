@@ -2,4 +2,17 @@
     width: 100%;
     height: 100%;
     grid-area: Nav;
+
+
+    // TESTING
+    border: 2px solid $pink1;
+}
+
+
+
+
+@media only screen and (max-width: 600px){
+    .Nav {
+        display: none;
+    }
 }

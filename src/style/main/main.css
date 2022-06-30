@@ -211,6 +211,29 @@
     grid-template-rows: 80% 20%;
     grid-template-areas: "Home" "Player"; } }
 
+.Nav {
+  width: 100%;
+  height: 100%;
+  grid-area: Nav;
+  border: 2px solid #fff0f3; }
+
+@media only screen and (max-width: 600px) {
+  .Nav {
+    display: none; } }
+
+.Home {
+  width: 100%;
+  height: 100%;
+  grid-area: Home;
+  display: flex;
+  border: 2px solid #fff0f3; }
+
+.Player {
+  width: 100%;
+  height: 100%;
+  grid-area: Player;
+  border: 2px solid #fff0f3; }
+
 * {
   margin: 0;
   padding: 0;
