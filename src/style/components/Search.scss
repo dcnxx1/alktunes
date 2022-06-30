@@ -21,7 +21,11 @@
     }
 
     &_icon{
-        background: url();
+        background: url('../../static/icons/search_white.png') no-repeat center;
+        background-size: 15px;
+        width: 25px;
+        height: 25px;
+        border: none;
     }
 }
 
