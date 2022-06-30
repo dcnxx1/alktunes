@@ -41,10 +41,33 @@ $f-xl: 52pt;
     src: url('../font/riffic.bold.ttf');
 }
 
+@font-face{
+    font-family: 'PTSans-Bold', sans-serif;
+    src: url('../font/PTSans-Bold.ttf')
+}
+
+@font-face{
+    font-family: 'PTSans-BoldItalic', sans-serif;
+    src: url('../font/PTSans-BoldItalic.ttf');
+}
+
+@font-face{
+    font-family: 'PTSans-Italic', sans-serif;
+    src: url('../font/PTSans-Italic.ttf');
+}
+
+@font-face{
+    font-family: 'PTSans-Regular', sans-serif;
+    src: url('../font/PTSans-Regular.ttf');
+}
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 // font cover
-$riffic: 'riffic.bold';
+$riffic: 'riffic.bold', sans-serif;
 $poppins: 'Poppins', sans-serif;
-
+$pt-bold: 'PTSans-Bold', $poppins;
+$pt-italic: 'PTSans-Italic', $poppins, sans-serif;
+$pt-regular: 'PTSans-Regular', $poppins, sans-serif;
 
