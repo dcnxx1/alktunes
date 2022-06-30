@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react'
-import TunesLogo from '../static/alktune_logo_png.png'
+import TunesLogo from '../static/logo_new/alktune_full_png.png'
 import {Link} from 'react-router-dom';
 import statics from '../static/statics';
 import useForm from '../hooks/useForm';

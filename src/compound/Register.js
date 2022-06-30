@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import { Link } from 'react-router-dom';
-import AlkTunesLogo from '../static/alktune_logo_png.png';
+import AlkTunesLogo from '../static/logo_new/alktune_full_png.png';
 import useForm from '../hooks/useForm';
 import statics from '../static/statics';
 import codesRequest from '../errors/codes.request';
