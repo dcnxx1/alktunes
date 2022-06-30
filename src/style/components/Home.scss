@@ -41,7 +41,7 @@
         cursor: pointer;
 
         // TESTING
-        border: 2px solid black
+
     }
 
     // TESTING
@@ -106,12 +106,15 @@
     padding: 1rem;
     flex: 2;
     // TESTING
-    border: 2px solid white;
+   
 
     &__holder{
     //TESTING
     list-style: none;
-    border: 2px solid white; 
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
     height: 100%;
     }
 }
