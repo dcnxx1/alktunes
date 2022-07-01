@@ -1,24 +1,50 @@
 .App {
-    background: $dark1;
+    background: $full-black;
     width: 100%;
     height: 100vh;
     color: $pink1;
     font-family: $pt-regular;
     display: grid;
-    min-height: 700px;
+    grid-template-columns: 15% 65% 20%;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+    "Nav Home Playing"
+    ;
 }
 
+// Icon config for desktop [normal]
+.Icon {
+    width: 35px;
+    height: 35px;
+}
+
+.b-test {
+    border: 2px solid white;
+}
+
+@media only screen and (max-width: 1200px){
+    .App{
+        grid-template-columns: 20% 80%;
+        grid-template-rows: 80% 20%;
+        grid-template-areas: 
+        "Nav Home"
+        "Playing Playing"
+        ;
+    }
+}
 
 
 @media only screen and (max-width: 600px){
 
-.App{
+   .App{
     grid-template-columns: 100%;
     grid-template-rows: 15% 70% 15%;
     grid-template-areas: 
-    "Search"
+    "Nav"
     "Home"
     "Playing"
-}
+    ;
+   }
 
 }
+

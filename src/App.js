@@ -1,11 +1,12 @@
 import React from 'react';
-import {Home,Playing, Search} from './imports'
+import {Home,Playing, Search, Icon, Nav} from './imports'
+import iconer from './static/icons/search_white.png'
 function App() {
   return (
     <div className="App">
-    <Search />
-    <Home />
-    <Playing />
+      <Nav />
+      <Home />
+      <Playing />
     </div>
   );
 }

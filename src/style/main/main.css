@@ -195,19 +195,34 @@
     padding: 2rem; } }
 
 .App {
-  background: #0d060f;
+  background: #000000;
   width: 100%;
   height: 100vh;
   color: #fff0f3;
   font-family: "PTSans-Regular", "Poppins", sans-serif, sans-serif;
   display: grid;
-  min-height: 700px; }
+  grid-template-columns: 15% 65% 20%;
+  grid-template-rows: 100%;
+  grid-template-areas: "Nav Home Playing"; }
+
+.Icon {
+  width: 35px;
+  height: 35px; }
+
+.b-test {
+  border: 2px solid white; }
+
+@media only screen and (max-width: 1200px) {
+  .App {
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 80% 20%;
+    grid-template-areas: "Nav Home" "Playing Playing"; } }
 
 @media only screen and (max-width: 600px) {
   .App {
     grid-template-columns: 100%;
     grid-template-rows: 15% 70% 15%;
-    grid-template-areas: "Search" "Home" "Playing"; } }
+    grid-template-areas: "Nav" "Home" "Playing"; } }
 
 .Search {
   width: 100%;
@@ -219,7 +234,7 @@
   align-items: center; }
   .Search_input {
     width: 90%;
-    background: #131313;
+    background: #1C1C1C;
     color: white;
     font-family: "PTSans-Italic", "Poppins", sans-serif, sans-serif;
     border: none;
