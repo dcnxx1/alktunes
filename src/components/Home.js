@@ -4,21 +4,21 @@ import Feature from '../compound/Feature'
 
 function Home() {
   return (
-    <div className='Home b-test'>
+    <div className='Home '>
         <Search className="b-test" />
       <div className='component-featured '>
         <div className='featured-header'>
           <h2>Featured</h2>
         </div>
-          <div className='feature-holder'>
-            <div className='item-content'>
-              <Feature imgSrc='https://unsplash.it/300/300' />
+          <div className='feature-holder '>
+            <div className='item-content b-test'>
+              <Feature artistName="Default" imgSrc='https://unsplash.it/200/200' />
             </div>
-            <div className='item-content'>
-              <Feature imgSrc='https://unsplash.it/300/300' />
+            <div className='item-content b-test'>
+              <Feature artistName="Default" imgSrc='https://unsplash.it/200/200' />
             </div>
-            <div className='item-content'>
-              <Feature imgSrc='https://unsplash.it/300/300' />
+            <div className='item-content b-test'>
+              <Feature artistName="Default" imgSrc='https://unsplash.it/200/200' />
             </div>
           </div>
             
