@@ -11,6 +11,10 @@ export default {
         STARTS_WITH_NUM: /^\d/
     },
 
-    USR_COOKIE: "USRCOOKIEE"
+    USR_COOKIE: "USRCOOKIEE",
 
+    SCREEN_SIZE: {
+        DESKTOP_MEDIUM: "1200px",
+        MOBILE: "600px"
+    }
 }

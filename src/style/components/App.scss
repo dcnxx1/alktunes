@@ -38,13 +38,13 @@
 
    .App{
     grid-template-columns: 100%;
-    grid-template-rows: 15% 70% 15%;
+    grid-template-rows: 85% 15%;
     grid-template-areas: 
-    "Nav"
     "Home"
     "Playing"
     ;
    }
+
 
 }
 

@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import React from 'react';
-
+import statics from '../static/statics'
 const IconTooltip = styled.div`
 /* background: #333; */
 border: 2px solid white;
@@ -14,9 +14,15 @@ user-select: none;
 
 const IconContainer = styled.span`
 background: url(${({ pathToIcon }) => pathToIcon}) center no-repeat;
-display: block;
+display: ${({hide}) => hide == true ? 'none' : 'block'};
 width: 45px;
 height: 45px;
+
+@media (max-width: ${statics.SCREEN_SIZE.MOBILE}){
+ background-size: 15px;  
+ display : ${({hide}) => hide == true ? 'block' : 'none'}
+}
+
 cursor: pointer;
  /* show icon tooltip on hover */
  &:hover ${IconTooltip}{
@@ -31,9 +37,9 @@ cursor: pointer;
 
 `
 
-export default function Icon ( { children, toolTip, path, ...args } ){
-    return( <IconContainer {...args} pathToIcon={path}>
-       {toolTip && (<IconTooltip {...args}>{toolTip}</IconTooltip>) }
+export default function Icon ( { children, toolTip, path, hide = false, ...args  } ){
+    return( <IconContainer hide={hide} {...args} pathToIcon={path}>
+       {toolTip && (<Icon.Tooltip {...args}>{toolTip}</Icon.Tooltip>) }
     </IconContainer>)
 }
 

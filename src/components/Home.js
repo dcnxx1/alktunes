@@ -1,12 +1,28 @@
 import React from 'react'
 import Search from './Search'
+import Feature from '../compound/Feature'
 
 function Home() {
   return (
-    <div className='Home'>
-        <Search />
-      <div className='component-featured'>
-
+    <div className='Home b-test'>
+        <Search className="b-test" />
+      <div className='component-featured '>
+        <div className='featured-header'>
+          <h2>Featured</h2>
+        </div>
+          <div className='feature-holder'>
+            <div className='item-content'>
+              <Feature imgSrc='https://unsplash.it/300/300' />
+            </div>
+            <div className='item-content'>
+              <Feature imgSrc='https://unsplash.it/300/300' />
+            </div>
+            <div className='item-content'>
+              <Feature imgSrc='https://unsplash.it/300/300' />
+            </div>
+          </div>
+            
+        
       </div>
       <div className='component-trending'>
 
