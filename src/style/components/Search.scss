@@ -1,41 +1,10 @@
 .Search {
-    width: 100%;
-    height: 100%;
-    border: 2px solid $pink1;
-    grid-area: Search;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &_input {
-        width: 90%;
-        background: $gray1;
-        color: white;
-        font-family: $pt-italic;        
-        border: none;
-        text-indent: 1rem;
-
-        &:focus{
-            outline: 1px solid $pink1;
-        }
-    }
-
-    &_icon{
-        background: url('../../static/icons/search_white.png') no-repeat center;
-        background-size: 15px;
-        width: 25px;
-        height: 25px;
-        border: none;
-    }
+   width: 100%;
+   height: 100%;
 }
 
 @media only screen and(max-width: 600px){
 
-.Search {
-    &_input{
-        height: 35px;
-        border-radius: 10px;
-    }
-}
+
 
 }

@@ -3,4 +3,9 @@
     height: 100%;
     border: 2px solid $pink1;
     grid-area: Home;
+    display: flex;
+    flex-direction: column;
 }
+
+@media only screen and (max-width: 1200px){}
+@media only screen and (max-width: 600px){}

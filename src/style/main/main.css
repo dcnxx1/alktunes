@@ -233,7 +233,8 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 1rem;
-  padding-bottom: 1rem; }
+  padding-bottom: 1rem;
+  min-height: max-content; }
 
 .tooltip {
   padding: 0.2rem 0.5rem;
@@ -249,38 +250,15 @@
 
 .Search {
   width: 100%;
-  height: 100%;
-  border: 2px solid #fff0f3;
-  grid-area: Search;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  .Search_input {
-    width: 90%;
-    background: #1C1C1C;
-    color: white;
-    font-family: "PTSans-Italic", "Poppins", sans-serif, sans-serif;
-    border: none;
-    text-indent: 1rem; }
-    .Search_input:focus {
-      outline: 1px solid #fff0f3; }
-  .Search_icon {
-    background: url("../../static/icons/search_white.png") no-repeat center;
-    background-size: 15px;
-    width: 25px;
-    height: 25px;
-    border: none; }
-
-@media only screen and (max-width: 600px) {
-  .Search_input {
-    height: 35px;
-    border-radius: 10px; } }
+  height: 100%; }
 
 .Home {
   width: 100%;
   height: 100%;
   border: 2px solid #fff0f3;
-  grid-area: Home; }
+  grid-area: Home;
+  display: flex;
+  flex-direction: column; }
 
 .Playing {
   width: 100%;
