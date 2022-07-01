@@ -26,9 +26,10 @@ function Home() {
       <div className='trending-holder'>
         <h2>Trending</h2>
       </div>
-      <Track>
-        <Track.Icon path='https://unsplash.it/150/150' />
-      </Track>
+      <div className="trending-track-holder">
+        
+      </div>
+      
       </div>
     </div>
   )
