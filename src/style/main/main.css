@@ -201,7 +201,7 @@
   color: #fff0f3;
   font-family: "PTSans-Regular", "Poppins", sans-serif, sans-serif;
   display: grid;
-  grid-template-columns: 15% 65% 20%;
+  grid-template-columns: 10% 70% 20%;
   grid-template-rows: 100%;
   grid-template-areas: "Nav Home Playing"; }
 
@@ -214,7 +214,7 @@
 
 @media only screen and (max-width: 1200px) {
   .App {
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 10% 90%;
     grid-template-rows: 80% 20%;
     grid-template-areas: "Nav Home" "Playing Playing"; } }
 
@@ -234,6 +234,18 @@
   align-items: center;
   padding-top: 1rem;
   padding-bottom: 1rem; }
+
+.tooltip {
+  padding: 0.2rem 0.5rem;
+  background: #1C1C1C; }
+
+@media only screen and (max-width: 1200px) {
+  .tooltip {
+    padding: 0.2rem; } }
+
+@media only screen and (max-width: 600px) {
+  .Nav {
+    display: none; } }
 
 .Search {
   width: 100%;

@@ -9,3 +9,25 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+
+.tooltip{
+    padding: 0.2rem 0.5rem;
+    background: $gray1;
+    
+}
+
+@media only screen and (max-width: 1200px){
+    .Nav{
+
+    }
+
+    .tooltip{
+        padding: 0.2rem;
+    }
+}
+
+@media only screen and (max-width: 600px){
+ .Nav{
+    display: none;
+ }   
+}
