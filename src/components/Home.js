@@ -1,7 +1,7 @@
 import React from 'react'
 import Search from './Search'
 import Feature from '../compound/Feature'
-
+import Track from '../compound/Track'
 function Home() {
   return (
     <div className='Home '>
@@ -11,21 +11,24 @@ function Home() {
           <h2>Featured</h2>
         </div>
           <div className='feature-holder '>
-            <div className='item-content b-test'>
+            <div className='item-content'>
               <Feature artistName="Default" imgSrc='https://unsplash.it/200/200' />
             </div>
-            <div className='item-content b-test'>
+            <div className='item-content '>
               <Feature artistName="Default" imgSrc='https://unsplash.it/200/200' />
             </div>
-            <div className='item-content b-test'>
+            <div className='item-content '>
               <Feature artistName="Default" imgSrc='https://unsplash.it/200/200' />
             </div>
           </div>
-            
-        
       </div>
-      <div className='component-trending'>
-
+      <div className='component-trending b-test'>
+      <div className='trending-holder'>
+        <h2>Trending</h2>
+      </div>
+      <Track>
+        <Track.Icon path='https://unsplash.it/150/150' />
+      </Track>
       </div>
     </div>
   )

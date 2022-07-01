@@ -307,7 +307,8 @@
 .component-trending {
   flex: 3;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  padding: 0.5rem; }
 
 @media only screen and (max-width: 1200px) {
   .featured-header {
