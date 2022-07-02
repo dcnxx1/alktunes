@@ -3,8 +3,8 @@ export {default as Nav} from './components/Nav'
 export {default as Bar} from './components/Bar'
 export {default as Queue} from './components/Queue'
 export {default as Playing} from './components/Playing'
-export {default as Search} from './components/Search'
 export {default as Icon} from './compound/Icon'
+export {default as Search} from './components/Search'
 
 
 

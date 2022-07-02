@@ -1,6 +1,7 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import React from 'react';
 import statics from '../static/statics'
+
 const IconTooltip = styled.div`
 /* background: #333; */
 border: 2px solid white;

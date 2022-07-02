@@ -256,6 +256,8 @@
   gap: 0.2rem;
   flex: 0 0 25px;
   align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
   justify-content: center; }
 
 .search-holder {
@@ -279,7 +281,7 @@
 
 @media only screen and (max-width: 1200px) {
   .Search {
-    padding: 0rem; } }
+    padding: 1rem; } }
 
 .Home {
   width: 100%;
@@ -291,7 +293,8 @@
   grid-template-areas: "Search" "Featured" "Trending"; }
 
 .Featured {
-  grid-area: Featured; }
+  grid-area: Featured;
+  padding: 1rem; }
 
 .Trending {
   grid-area: Trending; }

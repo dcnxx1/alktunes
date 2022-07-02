@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { Icon, SearchWhite, ArrowFullWhite } from '../imports'
 
-const SearchIcon = styled(Icon)`
+const SearchIcon = styled.span`
 width: 35px;
 height: 35px;
-background-size: 30px;
+background-size: 25px;
+background: url(${({path}) => path}) no-repeat center;
 align-self: center;
-&:hover{transform: none; transition: none}
+cursor: pointer;
 `
 
 function Search() {
