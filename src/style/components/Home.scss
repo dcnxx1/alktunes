@@ -2,8 +2,23 @@
     width: 100%;
     height: 100%;
     grid-area: Home;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 45% 45% ;
+    grid-template-areas: 
+    "Search"
+    "Featured"
+    "Trending"
+    ;
 }
 
+.Featured {
+    grid-area: Featured;
+}
+
+
+.Trending {
+    grid-area: Trending;
+    
+}
 

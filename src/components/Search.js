@@ -1,11 +1,20 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Icon, SearchWhite, ArrowFullWhite } from '../imports'
+
+const SearchIcon = styled(Icon)`
+width: 35px;
+height: 35px;
+background-size: 25px;
+&:hover{transform: none; transition: none}
+`
+
 function Search() {
   return (
     <form className='Search'>
       <div className='search-holder'>
         <input className='searchbar' type='text' placeholder='Search artist, song, album...' />
-        <Icon type="submit" className="Icon" path={SearchWhite} />
+        <SearchIcon className="Icon" path={SearchWhite} />
       </div>
       <Icon className="Icon" hide={true}  path={ArrowFullWhite} />
     </form>

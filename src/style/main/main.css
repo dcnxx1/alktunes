@@ -251,18 +251,21 @@
 .Search {
   width: 100%;
   height: 100%;
+  grid-area: Search;
   display: flex;
   gap: 0.2rem;
   flex: 0 0 25px;
-  padding: 1rem; }
+  align-items: center;
+  justify-content: center; }
 
 .search-holder {
   width: 100%;
-  height: 100%;
+  height: 45px;
   display: flex;
   background: #1C1C1C;
   border-radius: 40px;
-  padding-right: 1rem; }
+  padding-right: 1rem;
+  border: 2px solid white; }
 
 .searchbar {
   width: 100%;
@@ -275,12 +278,24 @@
   .searchbar:focus {
     outline: none; }
 
+@media only screen and (max-width: 1200px) {
+  .Search {
+    padding: 0rem; } }
+
 .Home {
   width: 100%;
   height: 100%;
   grid-area: Home;
-  display: flex;
-  flex-direction: column; }
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 45% 45%;
+  grid-template-areas: "Search" "Featured" "Trending"; }
+
+.Featured {
+  grid-area: Featured; }
+
+.Trending {
+  grid-area: Trending; }
 
 .Playing {
   width: 100%;
