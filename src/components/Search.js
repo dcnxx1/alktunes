@@ -5,7 +5,8 @@ import { Icon, SearchWhite, ArrowFullWhite } from '../imports'
 const SearchIcon = styled(Icon)`
 width: 35px;
 height: 35px;
-background-size: 25px;
+background-size: 30px;
+align-self: center;
 &:hover{transform: none; transition: none}
 `
 
