@@ -1,12 +1,42 @@
 .Track{
-
+width: 100%;
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 1rem;
+border-bottom: 2px solid white;
 }
 
 .track-holder{
-    
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    padding: 0.4rem;
 }
 
 .track-cover-img {
-    width: 65px;
-    
+    width: 90px;
+    max-width: 100px;
+    background-size: 100% 100%;
+}
+
+.track-name{
+
+}
+.artist-name{
+    color: #ACADAF;
+}
+.t-flex-col{
+    flex-direction: column;
+}
+
+.f-1{
+    flex: 1;
+}
+
+@media only screen and (max-width: 1200px){
+    .track-cover-img{
+        width: 55px;
+    }
 }

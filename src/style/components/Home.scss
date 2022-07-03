@@ -4,7 +4,7 @@
     grid-area: Home;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 10% 45% 45% ;
+    grid-template-rows: minmax(100px, 10%) minmax(350px, 45%) minmax(250px, 45%) ;
     grid-template-areas: 
     "Search"
     "Featured"
@@ -63,12 +63,12 @@
 }
 
 .trending-holder{
-border: 2px solid white;
+    
 }
 
 .trending-ul{
     width: 100%;
     height: 100%;
-    background: green;
     list-style: none;
+    
 }

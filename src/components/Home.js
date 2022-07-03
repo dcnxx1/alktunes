@@ -32,6 +32,8 @@ function Home() {
         <div className='trending-holder'>
           <ul className='trending-ul'>
             <Track />
+            <Track />
+            <Track />
           </ul>
         </div>
       </div>

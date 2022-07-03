@@ -198,6 +198,7 @@
   background: #000000;
   width: 100%;
   height: 100vh;
+  max-height: fit-content;
   color: #fff0f3;
   font-family: "PTSans-Regular", "Poppins", sans-serif, sans-serif;
   display: grid;
@@ -289,7 +290,7 @@
   grid-area: Home;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 10% 45% 45%;
+  grid-template-rows: minmax(100px, 10%) minmax(350px, 45%) minmax(250px, 45%);
   grid-template-areas: "Search" "Featured" "Trending"; }
 
 .Featured {
@@ -330,13 +331,9 @@
   grid-area: Trending;
   padding: 1rem; }
 
-.trending-holder {
-  border: 2px solid white; }
-
 .trending-ul {
   width: 100%;
   height: 100%;
-  background: green;
   list-style: none; }
 
 .Playing {
@@ -345,8 +342,38 @@
   border: 2px solid #fff0f3;
   grid-area: Playing; }
 
+.Track {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 2px solid white; }
+
+.track-holder {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  padding: 0.4rem; }
+
 .track-cover-img {
-  width: 45px; }
+  width: 90px;
+  max-width: 100px;
+  background-size: 100% 100%; }
+
+.artist-name {
+  color: #ACADAF; }
+
+.t-flex-col {
+  flex-direction: column; }
+
+.f-1 {
+  flex: 1; }
+
+@media only screen and (max-width: 1200px) {
+  .track-cover-img {
+    width: 55px; } }
 
 * {
   margin: 0;
