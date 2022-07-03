@@ -202,7 +202,7 @@
   color: #fff0f3;
   font-family: "PTSans-Regular", "Poppins", sans-serif, sans-serif;
   display: grid;
-  grid-template-columns: 10% 70% 20%;
+  grid-template-columns: 10% 70% minmax(200px 20%);
   grid-template-rows: 100%;
   grid-template-areas: "Nav Home Playing"; }
 
@@ -340,7 +340,33 @@
   width: 100%;
   height: 100%;
   border: 2px solid #fff0f3;
-  grid-area: Playing; }
+  grid-area: Playing;
+  padding: 0.5rem; }
+
+.nexton {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 450px; }
+
+.playing-track {
+  outline: 2px solid white;
+  height: 450px;
+  overflow-y: scroll;
+  padding: 0.2rem; }
+  .playing-track img {
+    width: 55px; }
+  .playing-track .track-album {
+    display: none; }
+  .playing-track .track-name {
+    width: 100%; }
+  .playing-track .track-length {
+    display: none; }
+  .playing-track span {
+    font-size: 12pt; }
+
+@media only screen and (max-width: 1200px) {
+  .playing-track span {
+    font-size: 12pt; } }
 
 .Track {
   width: 100%;

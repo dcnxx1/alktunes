@@ -3,5 +3,44 @@
     height: 100%;
     border: 2px solid $pink1;
     grid-area: Playing;
+    padding: 0.5rem;
+}
+.nexton{
+   display: flex;
+   flex-direction: column;
+   flex: 1 0 450px;
+}
+.playing-track{
+   outline: 2px solid white;
+ height: 450px;
+ overflow-y: scroll;
+ padding: 0.2rem;
+ img{
+    width: 55px;
+ }
 
+ .track-holder{
+   
+ }
+ .track-album {
+    display: none;
+ }
+ .track-name{
+   width: 100%;
+ }
+
+ .track-length{
+    display: none;
+ }
+ span{
+    font-size: 12pt;
+ }
+}
+
+@media only screen and (max-width: 1200px){
+  .playing-track{
+   span {
+      font-size: 12pt;
+   }
+  }
 }
