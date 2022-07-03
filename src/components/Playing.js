@@ -13,7 +13,10 @@ function Playing() {
           <Track/>
           <Track/>
           <Track/>
-          
+          <Track/>
+          <Track/>
+          <Track/>
+          <Track/>
         </div>
       </div>
       <div className='Player'>
