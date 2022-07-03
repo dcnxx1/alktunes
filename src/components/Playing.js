@@ -1,5 +1,6 @@
 import React from 'react'
 import Track from '../compound/Track'
+import Controller from './Controller'
 function Playing() {
   return (
     <div className='Playing'>
@@ -15,7 +16,11 @@ function Playing() {
           
         </div>
       </div>
-      
+      <div className='Player'>
+        <div className='player-holder b-test'>
+          <Controller />
+        </div>
+      </div>
     </div>
   )
 }

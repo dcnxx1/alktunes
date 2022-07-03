@@ -6,7 +6,7 @@
     color: $pink1;
     font-family: $pt-regular;
     display: grid;
-    grid-template-columns: 10% 70% minmax(200px 20%);
+    grid-template-columns: 5% 75% 20%;
     grid-template-rows: 100%;
     grid-template-areas: 
     "Nav Home Playing"
