@@ -3,6 +3,7 @@ import Search from './Search'
 import Feature from '../compound/Feature'
 import Track from '../compound/Track'
 import {MoreWhite} from '../imports'
+import {Splide} from '@splidejs/react-splide'
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
           <h2 className=''>Featured</h2>
         </div>
         <div className='feature-holder'>
+         <Splide>
           <div className='item-holder'>
             <Feature pathToImg={'https://unsplash.it/500/500'}></Feature>
           </div>
@@ -22,6 +24,7 @@ function Home() {
           <div className='item-holder'>
             <Feature pathToImg={'https://unsplash.it/500/500'}></Feature>
           </div>
+          </Splide>
         </div>
       </div>
       <div className='Trending b-test'>
