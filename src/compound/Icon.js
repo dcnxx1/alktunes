@@ -21,7 +21,7 @@ height: 45px;
 
 @media (max-width: ${statics.SCREEN_SIZE.MOBILE}){
  background-size: 15px;  
- display : ${({hide}) => hide == true ? 'block' : 'none'}
+ display : ${({hide}) => hide ? ( hide == true ? 'block' : 'none') : (hide !== undefined && "none")}
 }
 
 cursor: pointer;
