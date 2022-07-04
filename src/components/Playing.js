@@ -1,10 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Track from '../compound/Track'
-import Controller from './Controller'
+
+import {Icon,Controller, MobileController, MediumController, PlaylistWhite } from '../imports'
+
+
 function Playing() {
+  
   return (
     <div className='Playing'>
-      <div className='nexton'>
+      <div className={`nexton`}>
           <div className='playing-header'>
           <h2>Next on playlist</h2>
         </div>
@@ -21,8 +25,12 @@ function Playing() {
       </div>
       <div className='Player'>
         <div className='player-holder b-test'>
-          <Controller />
         </div>
+     
+        <Controller/>
+    <div className='show-playlist'>
+      <Icon path={PlaylistWhite} />
+    </div>
       </div>
     </div>
   )

@@ -5,7 +5,9 @@ export {default as Queue} from './components/Queue'
 export {default as Playing} from './components/Playing'
 export {default as Icon} from './compound/Icon'
 export {default as Search} from './components/Search'
-
+export {default as Controller} from './components/Controller'
+export {default as MediumController} from './components/ControllerMedium'
+export {default as MobileController} from './components/ControllerMobile'
 
 
 

@@ -1,0 +1,45 @@
+.Controller {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.31);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.3px);
+    -webkit-backdrop-filter: blur(7.3px);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    bottom: 75px;
+}
+
+
+@media only screen and (max-width: 1200px){
+    .Controller{
+        top: 1%;
+        width: calc(79vw - 150px);
+        height: 100px;
+        top: 20%;
+        left: 150px;
+      
+        // background: $full-black;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .Controller{
+        width: 70%;
+        left: 20%;
+        top: 20%;
+        height: 75px;
+    }
+
+    //  .Playing{
+    //     transform: translateY(-83.5%);
+    //     height: 90vh;
+    //     background: black;
+
+    // }
+
+    
+}
