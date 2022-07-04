@@ -20,3 +20,12 @@
         // if(username?.match(statics.INPUT_VALIDATION.RESTRICT_CHARS)){
         //     setErrors(prevValue => ([...prevValue, {ERR: codesRequest.FORM_ERR.ERR_SPECIAL_CHARS.ERR, message: codesRequest.FORM_ERR.ERR_SPECIAL_CHARS.message }]))
         // }
+
+
+
+      <div className='feature-holder'>
+         <div className='item-holder'>
+              <Feature pathToImg={'https://unsplash.it/500/500'}></Feature>
+          </div>
+      
+        </div>
