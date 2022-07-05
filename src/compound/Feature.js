@@ -1,13 +1,41 @@
 import React from 'react'
 import styled from 'styled-components';
+const FeatureContainer = styled.div`
+background: url(${({pathToImg}) => pathToImg}) no-repeat center;
+width: 100%;
+display: flex;
+align-items: flex-end;
+justify-content: center;
+background-size: 100% 100%;
+border: 2px solid white;
+height: 100%;
 
 
-function Feature({pathToImg, children}) {
+`
+
+const GlassEffect = styled.span`
+  /* From https://css.glass */
+background: ${({feel}) => feel == "light" ? "rgba(255, 255, 255, 0.04)" : "background: rgba(16, 16, 16, 0.42)" };
+color: ${({feel}) => feel == "dark" ? "#FFF" : "#000"};
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(6.1px);
+-webkit-backdrop-filter: blur(6.1px);
+height: 40%;
+width: 70%;
+display: flex;
+justify-content: center;
+text-align: center;
+align-items: center;
+padding-bottom: 1rem;
+font-size: 20pt;
+`
+
+function Feature({pathToImg, artist, feel}) {
   return (
-    <div className='item-holder'>
-        <img className='img-cover' src="https://unsplash.it/400/400" />
-        
-    </div>
+    <FeatureContainer pathToImg={pathToImg}>    
+    <GlassEffect feel={feel}>{artist}</GlassEffect>    
+    </FeatureContainer>
   )
 }
 

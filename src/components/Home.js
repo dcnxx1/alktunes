@@ -15,6 +15,16 @@ function Home() {
         </div>
         <div className='feature-holder'>
         <Roller />
+        <div className='item-holder'>
+              <Feature artist="Lil Tjay" feel="dark" pathToImg={'https://unsplash.it/500/500'}></Feature>
+          </div>
+          <div className='item-holder'>
+              <Feature pathToImg={'https://unsplash.it/500/500'}></Feature>
+          </div>
+          <div className='item-holder'>
+              <Feature pathToImg={'https://unsplash.it/500/500'}></Feature>
+          </div>
+      
         </div>
       </div>
       <div className='Trending b-test'>
