@@ -302,8 +302,7 @@
 
 .feature-holder {
   width: 100%;
-  height: 100%;
-  max-height: 300px; }
+  height: 100%; }
 
 .feature-header {
   padding-left: 1rem; }
@@ -439,7 +438,8 @@
   flex-direction: row;
   align-items: center;
   gap: 1rem;
-  border-bottom: 2px solid white; }
+  background: #1C1C1C;
+  border-bottom: 2px solid gray; }
 
 .track-holder {
   width: fit-content;
@@ -467,8 +467,14 @@
     width: 55px; } }
 
 @media only screen and (max-width: 600px) {
+  .Track {
+    gap: 0rem; }
   .track-holder {
-    font-size: 8pt; } }
+    font-size: 8pt; }
+  .track-name {
+    flex: 1; }
+  .track-album {
+    text-align: center; } }
 
 .Controller {
   /* From https://css.glass */
@@ -555,12 +561,18 @@
 .Roller {
   border: 2px solid yellow;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  display: none; }
 
 .item-roller {
-  width: 100%;
-  text-align: center;
-  height: 100%; }
+  width: fit-content;
+  background: red; }
+  .item-roller img {
+    object-fit: cover; }
+
+@media only screen and (max-width: 600px) {
+  .Roller {
+    display: block; } }
 
 * {
   margin: 0;

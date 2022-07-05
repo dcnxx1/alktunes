@@ -14,9 +14,7 @@ function Home() {
           <h2 className=''>Featured</h2>
         </div>
         <div className='feature-holder'>
-        <div className='feature-holder'>
         <Roller />
-        </div>
         </div>
       </div>
       <div className='Trending b-test'>

@@ -2,12 +2,22 @@
     border: 2px solid yellow;
     height: 100%;
     width: 100%;
-    
+    display: none;
 }
 
 .item-roller{
-    width: 100%;
-    text-align: center;
-    height: 100%;
-    
-}
+
+width: fit-content;
+ background: red;
+    img{
+
+        object-fit: cover;
+    }
+  }
+
+
+  @media only screen and (max-width: 600px){
+    .Roller{
+        display: block;
+    }
+  }
