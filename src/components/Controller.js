@@ -34,9 +34,9 @@ function Controller() {
           </div>
           </div>
           <div className='controller-toggle'>
-          <ControllerComponents path={BackButton} />
-            <ControllerComponents path={Pause} />
-            <ControllerComponents path={NextButton} />
+            <ControllerComponents className="mini back" path={BackButton} />
+            <ControllerComponents className="mini action"  path={Pause} />
+            <ControllerComponents className="mini forward" path={NextButton} />
           </div>
           <div className='controller-action'>
           <span>0:25</span>

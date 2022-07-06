@@ -7,7 +7,7 @@ const Ranger = styled.input.attrs({type: 'range'})`
     background: transparent; 
     border-color: transparent;
     color: transparent;
-
+    max-width: 350px;
 `
 
 function Range() {

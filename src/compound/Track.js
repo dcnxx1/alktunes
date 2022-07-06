@@ -20,7 +20,7 @@ function Track() {
             <span>2:15</span>
         </div>
         <div className='track-holder track-icon'>
-            <Icon  path={MoreWhite}/>
+            <Icon hide={false}  path={MoreWhite}/>
         </div>
     </div>
   )
