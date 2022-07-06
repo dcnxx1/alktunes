@@ -86,8 +86,26 @@
   .nexton{
    display: none;
   }
-
-
+  .show-nexton{
+   display: block;
+   width: 350px;
+   height: 350px;
+   overflow-y: scroll;
+   position: absolute;
+   bottom: 20%;
+   right: 1%;
+   z-index: 6;
+   /* From https://css.glass */
+   background: rgba(255, 255, 255, 0);
+   border-radius: 15px;
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+   backdrop-filter: blur(10.6px);
+   -webkit-backdrop-filter: blur(10.6px);
+   
+  }
+   .playlist-medium{
+      display: block;
+   }
   .Playing{
    
   }
@@ -113,6 +131,9 @@
       
       
       position: relative;
+   }
+   .playlist-medium{
+      display: none;
    }
    .arrow-up{
       background: url(../../static/icons/pointup_white.png) center no-repeat;
@@ -165,7 +186,9 @@
       flex-direction: column-reverse;
       max-height: 85%;
       border-radius: 10px;
-      translate: height 0.4s ease-in forwards;
+      
+
+      
       .line{
          display: none;
       }
@@ -176,7 +199,7 @@
      .nexton{
       display: flex;
       flex: 1;
-      height: 10%;
+      height: 40%;
      }
      
      .Controller{
@@ -223,11 +246,10 @@
       height: 35px;
       width: 35px;
    }
-
-   
  }
 }
 
 }
+
 
 

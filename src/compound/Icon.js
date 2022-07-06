@@ -15,13 +15,12 @@ user-select: none;
 
 const IconContainer = styled.span`
 background: url(${({ pathToIcon }) => pathToIcon}) center no-repeat;
-/* display: ${({hide}) => hide == true ? 'none' : 'block'}; */
+
 width: 45px;
 height: 45px;
 
 @media (max-width: ${statics.SCREEN_SIZE.MOBILE}){
  background-size: 15px;  
- display : ${({hide}) => hide ? ( hide == true ? 'block' : 'none') : (hide !== undefined && "none")}
 }
 
 cursor: pointer;

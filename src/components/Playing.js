@@ -5,11 +5,12 @@ import {Icon,Controller,  PlaylistWhite } from '../imports'
 
 function Playing() {
   const [showMiniPlayer, setShowMiniPlayer] = useState(false)  
+  const [showNexton, setNexton] = useState(false)
   return (
     <div className={`Playing ${showMiniPlayer == true ? "showMiniPlayer" : ""}`}>
       <span onClick={() => setShowMiniPlayer(prevValue => !prevValue)} className='arrow-up'></span>
       <span className='line'></span>
-      <div className='nexton'>
+      <div className={`nexton ${showNexton == true ? 'show-nexton' : ""}`}>
           <div className='playing-header'>
            <h2>Next on playlist</h2>
           </div>
@@ -30,7 +31,7 @@ function Playing() {
         </div>
         <Controller/>
         <div className='show-playlist'>
-          <Icon hide={false} path={PlaylistWhite} />
+          <Icon  onClick={() => setNexton(prevValue => !prevValue)} className="playlist-medium" path={PlaylistWhite} />
         </div>
       </div>
     </div>
