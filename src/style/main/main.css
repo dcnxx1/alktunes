@@ -198,7 +198,6 @@
   background: #000000;
   width: 100%;
   height: 100vh;
-  min-height: 900px;
   color: #fff0f3;
   font-family: "PTSans-Regular", "Poppins", sans-serif, sans-serif;
   display: grid;
@@ -344,7 +343,9 @@
 
 @media only screen and (max-width: 600px) {
   .Home {
-    grid-template-rows: 10% 35% 55%; }
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 35% 55%;
+    grid-template-areas: "Search" "Featured" "Trending"; }
   .item-holder {
     display: none; }
   .trending-ul {
@@ -394,6 +395,7 @@
   background-size: 100% 100%;
   padding: 1rem;
   width: 100%;
+  border-radius: 25px;
   max-width: 450px;
   height: 70%; }
 
@@ -436,7 +438,8 @@
     height: 25px;
     position: absolute;
     left: 50%;
-    top: -20%; }
+    top: -20%;
+    cursor: grab; }
   .line {
     width: 80%;
     position: absolute;
@@ -453,7 +456,8 @@
     display: none; }
   .player-holder {
     width: 85px;
-    height: 85px; } }
+    height: 85px;
+    border-radius: 0px; } }
 
 .Track {
   width: 100%;
@@ -510,7 +514,7 @@
   position: absolute;
   width: 90%;
   height: 150px;
-  bottom: 75px; }
+  bottom: 100px; }
 
 .controller-setting {
   width: 100%;
