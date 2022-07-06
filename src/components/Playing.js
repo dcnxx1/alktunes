@@ -4,10 +4,10 @@ import {Icon,Controller, MobileController, MediumController, PlaylistWhite } fro
 
 
 function Playing() {
-  
+  const [showMiniPlayer, setShowMiniPlayer] = useState(false)  
   return (
-    <div className='Playing'>
-    <span className='arrow-up'></span>
+    <div className={`Playing ${showMiniPlayer == true ? "showMiniPlayer" : ""}`}>
+    <span onClick={() => setShowMiniPlayer(prevValue => !prevValue)} className='arrow-up'></span>
     <span className='line'></span>
       <div className={`nexton`}>
           <div className='playing-header'>

@@ -69,7 +69,14 @@
 }
 
 @media only screen and (max-width: 1200px){
- 
+    .Home{
+        grid-template-columns: 100%;
+        grid-template-rows: 15% 45% 45%;
+        grid-template-areas: 
+        "Search"
+        "Featured"
+        "Trending";
+    }
   
     .item-holder{
         height: 70%;
@@ -77,6 +84,8 @@
         resize: horizontal;
         box-sizing: border-box;
     }
+
+
 }
 
 
