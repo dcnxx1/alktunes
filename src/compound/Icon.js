@@ -15,7 +15,7 @@ user-select: none;
 
 const IconContainer = styled.span`
 background: url(${({ pathToIcon }) => pathToIcon}) center no-repeat;
-display: ${({hide}) => hide == true ? 'none' : 'block'};
+/* display: ${({hide}) => hide == true ? 'none' : 'block'}; */
 width: 45px;
 height: 45px;
 

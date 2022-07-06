@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Track from '../compound/Track'
-import {Icon,Controller, MobileController, MediumController, PlaylistWhite } from '../imports'
+import {Icon,Controller,  PlaylistWhite } from '../imports'
 
 
 function Playing() {
@@ -30,7 +30,7 @@ function Playing() {
         </div>
         <Controller/>
         <div className='show-playlist'>
-          <Icon path={PlaylistWhite} />
+          <Icon hide={false} path={PlaylistWhite} />
         </div>
       </div>
     </div>
