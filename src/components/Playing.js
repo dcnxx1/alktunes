@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import Track from '../compound/Track'
-
 import {Icon,Controller, MobileController, MediumController, PlaylistWhite } from '../imports'
 
 
@@ -8,6 +7,8 @@ function Playing() {
   
   return (
     <div className='Playing'>
+    <span className='arrow-up'></span>
+    <span className='line'></span>
       <div className={`nexton`}>
           <div className='playing-header'>
           <h2>Next on playlist</h2>
@@ -24,7 +25,7 @@ function Playing() {
         </div>
       </div>
       <div className='Player'>
-        <div className='player-holder b-test'>
+        <div className='player-holder'>
         </div>
      
         <Controller/>

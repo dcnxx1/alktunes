@@ -7,7 +7,7 @@ display: flex;
 align-items: flex-end;
 justify-content: center;
 background-size: 100% 100%;
-border: 2px solid white;
+
 height: 100%;
 
 

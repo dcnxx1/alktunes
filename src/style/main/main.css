@@ -296,7 +296,6 @@
 .Featured {
   grid-area: Featured;
   display: flex;
-  border: 2px solid white;
   flex-direction: column;
   gap: 0.5rem; }
 
@@ -313,7 +312,6 @@
 .item-holder {
   width: 40%;
   height: 70%;
-  border: 2px solid white;
   max-width: 250px;
   flex: 1 1 50%; }
 
@@ -330,14 +328,12 @@
 .trending-holder {
   display: flex;
   align-content: center;
-  border: 2px solid yellow;
   height: 100%; }
 
 .trending-ul {
   width: 100%;
   height: 100%;
-  list-style: none;
-  border: 2px solid green; }
+  list-style: none; }
 
 @media only screen and (max-width: 1200px) {
   .item-holder {
@@ -359,7 +355,6 @@
 .Playing {
   width: 100%;
   height: 100%;
-  border: 2px solid #fff0f3;
   grid-area: Playing;
   padding: 0.5rem;
   display: flex;
@@ -428,16 +423,37 @@
   .Player {
     justify-content: flex-start; }
   .player-holder {
-    width: 125px;
-    border: 2px solid green; } }
+    width: 125px; } }
 
 @media only screen and (max-width: 600px) {
+  .Playing {
+    padding: 1rem;
+    position: relative; }
+  .arrow-up {
+    background: url(../../static/icons/pointup_white.png) center no-repeat;
+    display: block;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 50%;
+    top: -20%; }
+  .line {
+    width: 80%;
+    position: absolute;
+    display: block;
+    width: 90%;
+    top: 3%;
+    height: 1px;
+    background: #FFF;
+    align-self: center; }
   .Player {
+    padding: 0.3rem;
     justify-content: space-between; }
   .nexton {
     display: none; }
   .player-holder {
-    width: 85px; } }
+    width: 85px;
+    height: 85px; } }
 
 .Track {
   width: 100%;
@@ -445,7 +461,6 @@
   flex-direction: row;
   align-items: center;
   gap: 1rem;
-  background: #1C1C1C;
   border-bottom: 2px solid gray; }
 
 .track-holder {
@@ -559,14 +574,16 @@
     width: 70%;
     left: 27%;
     top: 5%;
-    height: calc(100% - 10%); }
+    height: calc(100% - 10%);
+    background: #000000; }
   .logo-alk {
     display: none; }
   .controller-info {
-    font-size: 9pt; } }
+    font-size: 9pt; }
+  .controller-artist {
+    color: #FFF; } }
 
 .Roller {
-  border: 2px solid yellow;
   height: 100%;
   width: 100%;
   display: none; }

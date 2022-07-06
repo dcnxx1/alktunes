@@ -24,6 +24,7 @@ const urler = 'https://alktunes.s3.eu-central-1.amazonaws.com/destined_2_win/07.
 function Controller() {
   return (
     <div className='Controller'>
+
       <div className='controller-setting '>
         <div className='controller-info'>
           <i className="logo-alk"></i>

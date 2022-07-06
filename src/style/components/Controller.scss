@@ -95,15 +95,20 @@
         left: 27%;
         top: 5%;
         height: calc(100% - 10%);
-        
+        background: $full-black;
+      
     }
 
     .logo-alk{
         display: none;
     }
 
+    
     .controller-info{
         font-size: 9pt;
+    }
+    .controller-artist{
+        color: $full-white;
     }
 
     //  .Playing{

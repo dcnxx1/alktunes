@@ -1,7 +1,6 @@
 .Playing {
     width: 100%;
     height: 100%;
-    border: 2px solid $pink1;
     grid-area: Playing;
     padding: 0.5rem;
     display: flex;
@@ -110,7 +109,6 @@
 
   .player-holder{
    width: 125px;
-   border: 2px solid green;
   }
 }
 
@@ -119,9 +117,34 @@
 
 
 @media only screen and (max-width: 600px){
-   
+   .Playing{
+      padding: 1rem;
+      
+      
+      position: relative;
+   }
+   .arrow-up{
+      background: url(../../static/icons/pointup_white.png) center no-repeat;
+      display: block;
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      left: 50%;
+      top: -20%;
+   }
+   .line{
+      width: 80%;
+      position: absolute;
+      display: block;
+      width: 90%;
+      top: 3%;
+      height: 1px;
+      background: $full-white;
+      align-self: center;
+   }
    .Player{
-
+      padding: 0.3rem;
+      
       justify-content: space-between
    }
    
@@ -132,6 +155,7 @@
 
    .player-holder{
       width:  85px;
+      height:  85px;
    }
 }
 

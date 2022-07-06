@@ -27,7 +27,7 @@ function Home() {
       
         </div>
       </div>
-      <div className='Trending b-test'>
+      <div className='Trending'>
         <div className='trending-header'>
           <h2>Trending</h2>
         </div>
