@@ -1,10 +1,13 @@
-
-import React from 'react';
+import React, {useState} from 'react';
 import Icon from './Icon';
 import statics from "../static/statics";
-import {MoreWhite} from '../imports'
+import {MoreWhite, Pause} from '../imports'
+import useOutsideClick from '../hooks/useOutsideClick';
+
 function Track() {
-  return (
+   
+
+ return (
     <div className='Track'>
         <div className='track-holder '>
             <img className='track-cover-img' src='https://unsplash.it/500/500' />
@@ -19,8 +22,11 @@ function Track() {
         <div className='track-holder track-length f-1'>
             <span>2:15</span>
         </div>
-        <div className='track-holder track-icon'>
-            <Icon hide={true}  path={MoreWhite}/>
+        <div  className='track-holder track-icon'>
+            <Icon  path={MoreWhite}/>
+            <div  className={`more-options ${false ? 'show-more-options' : ""}`}>
+                <Icon path={Pause}/>
+            </div>
         </div>
     </div>
   )

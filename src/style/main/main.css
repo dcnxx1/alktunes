@@ -292,7 +292,7 @@
   display: none;
   width: 150px;
   right: 5%;
-  top: 60px;
+  top: 65px;
   z-index: 2;
   text-align: right; }
   .show-menu ul {
@@ -589,6 +589,17 @@
 
 .artist-name {
   color: #ACADAF; }
+
+.more-options {
+  display: none;
+  position: relative; }
+
+.show-more-options {
+  display: flex;
+  position: absolute;
+  background: red;
+  color: #000000;
+  padding: 1rem; }
 
 .t-flex-col {
   flex-direction: column; }

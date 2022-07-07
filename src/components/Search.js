@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import styled from 'styled-components'
 import { Icon, SearchWhite, ArrowFullWhite, HomeWhite, QueueWhite, PlaylistWhite, LogoutWhite  } from '../imports'
-
+import useOutsideClick from '../hooks/useOutsideClick'
 
 const SearchIcon = styled.span`
 width: 35px;
@@ -17,17 +17,21 @@ cursor: pointer;
 `
 
 function Search() {
-  const [showMenu, setMenu] = useState(false)
+    const [showMenu, setMenu] = useState(false)
+    const ref = useRef(null)
+    useOutsideClick(ref, () => setMenu(false))
   return (
-    <form className='Search'>
+    <form   className='Search'>
       <div className='search-holder'>
         <input className='searchbar' type='text' placeholder='Search artist, song, album...' />
         <SearchIcon className="Icon" path={SearchWhite} />
       </div>
-      <Icon onClick={() => setMenu(prevValue => !prevValue)} className="Icon search-menu-icon" hide="true"  path={ArrowFullWhite} />
+      <div ref={ref} >
+      <Icon onClick={() => setMenu(!showMenu)} className="Icon search-menu-icon" hide="true"  path={ArrowFullWhite} />
+      </div>
       <div className={`show-menu ${showMenu == true ? 'show-m' : ''}`}>
-        <ul>
-          <li>Home</li>
+        <ul >
+          <li> <SearchIcon path={LogoutWhite} /> Home</li>
           <li>Playlist</li>
           <li>Queue</li>
           <li>Logout</li>

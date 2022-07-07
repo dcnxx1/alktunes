@@ -45,7 +45,7 @@
     display: none;
     width: 150px;
     right: 5%;
-    top: 60px;
+    top: 65px;
     z-index: 2;
     text-align: right;
     ul{
@@ -73,6 +73,7 @@
 @media only screen and(max-width: 600px){
     .search-menu-icon{
         display: block;
+
     }
     .show-m{
         display: block;

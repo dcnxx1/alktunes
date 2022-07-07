@@ -1,13 +1,10 @@
 .Track{
-width: 100%;
-display: flex;
-flex-direction: row;
-align-items: center;
-
-gap: 1rem;
-
-
-border-bottom: 2px solid gray;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 2px solid gray;
 }
 
 .track-holder{
@@ -25,12 +22,25 @@ border-bottom: 2px solid gray;
     background-size: 100% 100%;
 }
 
-.track-name{
-
-}
 .artist-name{
     color: #ACADAF;
 }
+
+.more-options{
+  
+    display: none;
+    position: relative;
+}
+.show-more-options{
+    display: flex;
+    position: absolute;
+    background: red;
+    color: $full-black;
+    padding: 1rem;
+}
+
+    
+
 .t-flex-col{
     flex-direction: column;
 }
