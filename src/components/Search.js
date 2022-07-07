@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
-import { Icon, SearchWhite, ArrowFullWhite } from '../imports'
+import { Icon, SearchWhite, ArrowFullWhite, HomeWhite, QueueWhite, PlaylistWhite, LogoutWhite  } from '../imports'
+
 
 const SearchIcon = styled.span`
 width: 35px;
@@ -16,13 +17,22 @@ cursor: pointer;
 `
 
 function Search() {
+  const [showMenu, setMenu] = useState(false)
   return (
     <form className='Search'>
       <div className='search-holder'>
         <input className='searchbar' type='text' placeholder='Search artist, song, album...' />
         <SearchIcon className="Icon" path={SearchWhite} />
       </div>
-      <Icon className="Icon" hide={false}  path={ArrowFullWhite} />
+      <Icon onClick={() => setMenu(prevValue => !prevValue)} className="Icon search-menu-icon" hide="true"  path={ArrowFullWhite} />
+      <div className={`show-menu ${showMenu == true ? 'show-m' : ''}`}>
+        <ul>
+          <li>Home</li>
+          <li>Playlist</li>
+          <li>Queue</li>
+          <li>Logout</li>
+        </ul>
+      </div>
     </form>
   )
 }

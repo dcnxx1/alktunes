@@ -29,6 +29,7 @@ text-align: center;
 align-items: center;
 padding-bottom: 1rem;
 font-size: 20pt;
+user-select: none;
 `
 
 function Feature({pathToImg, artist, feel}) {

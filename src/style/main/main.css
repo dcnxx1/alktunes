@@ -260,7 +260,8 @@
   align-items: center;
   padding-left: 1rem;
   padding-right: 1rem;
-  justify-content: center; }
+  justify-content: center;
+  position: relative; }
 
 .search-holder {
   width: 100%;
@@ -281,9 +282,38 @@
   .searchbar:focus {
     outline: none; }
 
+.search-menu-icon {
+  display: none; }
+
+.show-menu {
+  background: white;
+  position: absolute;
+  border-radius: 10px;
+  display: none;
+  width: 150px;
+  right: 5%;
+  top: 60px;
+  z-index: 2;
+  text-align: right; }
+  .show-menu ul {
+    list-style: none; }
+  .show-menu li {
+    user-select: none;
+    cursor: pointer;
+    color: black;
+    padding: 1rem; }
+
 @media only screen and (max-width: 1200px) {
+  .show-m {
+    display: none; }
   .Search {
     padding: 1rem; } }
+
+@media only screen and (max-width: 600px) {
+  .search-menu-icon {
+    display: block; }
+  .show-m {
+    display: block; } }
 
 .Home {
   width: 100%;
@@ -308,7 +338,8 @@
   align-items: center; }
 
 .feature-header {
-  padding-left: 1rem; }
+  padding-left: 1rem;
+  user-select: none; }
 
 .item-holder {
   width: 40%;
@@ -330,6 +361,9 @@
   display: flex;
   align-content: center;
   height: 100%; }
+
+.trending-header {
+  user-select: none; }
 
 .trending-ul {
   width: 100%;
@@ -365,14 +399,16 @@
   grid-area: Playing;
   padding: 0.5rem;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  position: relative; }
 
 .nexton {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  overflow-y: scroll;
+  flex: 1; }
 
 .playing-track {
-  overflow-y: scroll;
   border-radius: 10px;
   padding: 0.2rem; }
   .playing-track img {
@@ -391,6 +427,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  flex: 0 1 350px;
   height: 100%;
   position: relative; }
 
@@ -420,7 +457,8 @@
     height: 350px;
     overflow-y: scroll;
     position: absolute;
-    bottom: 20%;
+    bottom: 160px;
+    padding: 0.5rem;
     right: 1%;
     z-index: 6;
     /* From https://css.glass */
@@ -429,6 +467,8 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10.6px);
     -webkit-backdrop-filter: blur(10.6px); }
+    .show-nexton .playing-track {
+      overflow: hidden; }
   .playlist-medium {
     display: block; }
   .Player {
@@ -539,7 +579,8 @@
   height: fit-content;
   display: flex;
   justify-content: center;
-  padding: 0.4rem; }
+  padding: 0.4rem;
+  user-select: none; }
 
 .track-cover-img {
   width: 90px;

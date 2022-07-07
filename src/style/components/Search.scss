@@ -9,6 +9,7 @@
    padding-left: 1rem;
    padding-right: 1rem;
    justify-content: center;
+   position: relative;
 }
 
 .search-holder{
@@ -32,10 +33,49 @@
     }
 }
 
-@media only screen and(max-width: 1200px){
+.search-menu-icon{
+    display: none;
+}
 
+
+.show-menu{
+    background: white;
+    position: absolute;
+    border-radius: 10px;
+    display: none;
+    width: 150px;
+    right: 5%;
+    top: 60px;
+    z-index: 2;
+    text-align: right;
+    ul{
+        list-style: none;
+    }
+
+    li{
+        user-select: none;
+        cursor: pointer;
+        color: black;
+        padding: 1rem;
+    }
+}
+
+@media only screen and(max-width: 1200px){
+.show-m{
+    display: none;
+}
 .Search {
     padding: 1rem;
 }
 
+}
+
+@media only screen and(max-width: 600px){
+    .search-menu-icon{
+        display: block;
+    }
+    .show-m{
+        display: block;
+    }
+    
 }

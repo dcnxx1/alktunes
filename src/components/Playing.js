@@ -15,14 +15,9 @@ function Playing() {
            <h2>Next on playlist</h2>
           </div>
         <div className='playing-track'>
-          <Track/>
-          <Track/>
-          <Track/>
-          <Track/>
-          <Track/>
-          <Track/>
-          <Track/>
-          <Track/>
+          <Track />
+          <Track />
+          <Track />
         </div>
       </div>
       <div className='Player'>
