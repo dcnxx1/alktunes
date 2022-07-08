@@ -28,7 +28,7 @@ function Search() {
         <SearchIcon className="Icon" path={SearchWhite} />
       </div>
      
-      <Icon onClick={() => setMenu(prevValue => !prevValue)} id="menu-btn"  className={`Icon ${showMenu == true ? 'search-menu-icon' : ''}`} hide="true"  path={ArrowFullWhite} />
+      <Icon onClick={() => setMenu(prevValue => !prevValue)} id="menu-btn"  className='Icon search-menu-icon' hide="true"  path={ArrowFullWhite} />
     
       <div ref={ref} className={`show-menu ${showMenu == true ? 'show-m' : ''}`}>
         <ul >
