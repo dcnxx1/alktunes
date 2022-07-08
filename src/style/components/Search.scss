@@ -39,7 +39,7 @@
 
 
 .show-menu{
-    background: white;
+    background: $full-white;
     position: absolute;
     border-radius: 10px;
     display: none;
@@ -48,6 +48,8 @@
     top: 65px;
     z-index: 2;
     text-align: right;
+    opacity: 0;
+    animation: showMenu 0.2s ease-in forwards;
     ul{
         list-style: none;
     }
@@ -57,6 +59,13 @@
         cursor: pointer;
         color: black;
         padding: 1rem;
+
+    }
+}
+
+@keyframes showMenu {
+    to {
+        opacity: 1;
     }
 }
 
@@ -73,8 +82,8 @@
 @media only screen and(max-width: 600px){
     .search-menu-icon{
         display: block;
-
     }
+    
     .show-m{
         display: block;
     }

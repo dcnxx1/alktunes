@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Track from '../compound/Track'
 import {Icon,Controller,  PlaylistWhite } from '../imports'
-
+import SwipeableBottomSheet from 'react-swipeable-bottom-sheet'
 
 function Playing() {
   const [showMiniPlayer, setShowMiniPlayer] = useState(false)  
@@ -19,6 +19,7 @@ function Playing() {
           <Track />
           <Track />
         </div>
+        
       </div>
       <div className='Player'>
         <div className='player-holder'>

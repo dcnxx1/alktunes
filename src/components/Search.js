@@ -19,6 +19,7 @@ cursor: pointer;
 function Search() {
     const [showMenu, setMenu] = useState(false)
     const ref = useRef(null)
+
     useOutsideClick(ref, () => setMenu(false))
   return (
     <form   className='Search'>
@@ -26,15 +27,15 @@ function Search() {
         <input className='searchbar' type='text' placeholder='Search artist, song, album...' />
         <SearchIcon className="Icon" path={SearchWhite} />
       </div>
-      <div ref={ref} >
-      <Icon onClick={() => setMenu(!showMenu)} className="Icon search-menu-icon" hide="true"  path={ArrowFullWhite} />
-      </div>
-      <div className={`show-menu ${showMenu == true ? 'show-m' : ''}`}>
+     
+      <Icon onClick={() => setMenu(prevValue => !prevValue)} id="menu-btn"  className={`Icon ${showMenu == true ? 'search-menu-icon' : ''}`} hide="true"  path={ArrowFullWhite} />
+    
+      <div ref={ref} className={`show-menu ${showMenu == true ? 'show-m' : ''}`}>
         <ul >
-          <li> <SearchIcon path={LogoutWhite} /> Home</li>
-          <li>Playlist</li>
-          <li>Queue</li>
-          <li>Logout</li>
+          <li className='li-menu'>Home</li>
+          <li className='li-menu'>Playlist</li>
+          <li className='li-menu'>Queue</li>
+          <li className='li-menu'>Logout</li>
         </ul>
       </div>
     </form>

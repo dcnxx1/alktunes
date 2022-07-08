@@ -18,7 +18,8 @@
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
     "swiper": "^8.2.6",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "react-swipeable-bottom-sheet": "1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",

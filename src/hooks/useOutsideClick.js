@@ -1,23 +1,25 @@
 import {useEffect} from 'react'
 
-function useOutsideClick(ref, handler) {
+function useOutsideClick(ref, onClickOutside) {
     useEffect(() => {
         const listener = event => {
-            const element = ref?.current
-            if(!element || element.contains(event.target)){
-                return
+            
+            if(ref.current && !ref.current.contains(event.target)){
+                if(event.target.id == "menu-btn"){
+                    return
+                } else {
+                    onClickOutside()
+                }
             }
-            handler(event)
-        }
-        document.addEventListener('mousedown', listener)
-        document.addEventListener('touchstart', listener)
-
-        return () => {
-            document.removeEventListener('mousedown', listener)
-            document.removeEventListener('touchstart', listener)
         }
         
-    }, [ref, handler])
+        document.addEventListener('mousedown', listener)
+
+        return () => {            
+            document.addEventListener('mousedown', listener)
+        }
+
+    }, [ref, onClickOutside])
 }
 
 export default useOutsideClick

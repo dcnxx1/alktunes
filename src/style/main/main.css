@@ -286,7 +286,7 @@
   display: none; }
 
 .show-menu {
-  background: white;
+  background: #FFF;
   position: absolute;
   border-radius: 10px;
   display: none;
@@ -294,7 +294,9 @@
   right: 5%;
   top: 65px;
   z-index: 2;
-  text-align: right; }
+  text-align: right;
+  opacity: 0;
+  animation: showMenu 0.2s ease-in forwards; }
   .show-menu ul {
     list-style: none; }
   .show-menu li {
@@ -302,6 +304,10 @@
     cursor: pointer;
     color: black;
     padding: 1rem; }
+
+@keyframes showMenu {
+  to {
+    opacity: 1; } }
 
 @media only screen and (max-width: 1200px) {
   .show-m {
