@@ -1,11 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import Track from '../compound/Track'
 import {Icon,Controller,  PlaylistWhite } from '../imports'
-
+import useOutsideClick from '../hooks/useOutsideClick'
 
 function Playing() {
   const [showMiniPlayer, setShowMiniPlayer] = useState(false)  
   const [showNexton, setNexton] = useState(false)
+  const playlistRef = useRef(null)
+  useOutsideClick(playlistRef, () => setNexton(false))
   return (
     // ${showMiniPlayer == true ? "showMiniPlayer" : "" <- inslide player
     <div className={`Playing ${showMiniPlayer == true ? "showMiniPlayer" : ""}`}>
@@ -29,7 +31,7 @@ function Playing() {
         {/* image cover */}
         </div>
         <Controller/>
-        <div className='show-playlist playlist-mobile'>
+        <div ref={playlistRef} className='show-playlist '>
           <Icon  onClick={() => setNexton(prevValue => !prevValue)} className="playlist-medium" path={PlaylistWhite} />
         </div>
       </div>
