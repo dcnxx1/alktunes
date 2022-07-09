@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
 import Track from '../compound/Track'
 import {Icon,Controller,  PlaylistWhite } from '../imports'
-import SwipeableBottomSheet from 'react-swipeable-bottom-sheet'
+
 
 function Playing() {
   const [showMiniPlayer, setShowMiniPlayer] = useState(false)  
   const [showNexton, setNexton] = useState(false)
   return (
+    // ${showMiniPlayer == true ? "showMiniPlayer" : "" <- inslide player
     <div className={`Playing ${showMiniPlayer == true ? "showMiniPlayer" : ""}`}>
       <span onClick={() => setShowMiniPlayer(prevValue => !prevValue)} className='arrow-up'></span>
       <span className='line'></span>
@@ -21,15 +22,18 @@ function Playing() {
         </div>
         
       </div>
+
       <div className='Player'>
+    
         <div className='player-holder'>
         {/* image cover */}
         </div>
         <Controller/>
-        <div className='show-playlist'>
+        <div className='show-playlist playlist-mobile'>
           <Icon  onClick={() => setNexton(prevValue => !prevValue)} className="playlist-medium" path={PlaylistWhite} />
         </div>
       </div>
+      
     </div>
   )
 }
