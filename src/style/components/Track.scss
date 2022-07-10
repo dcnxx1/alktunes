@@ -5,6 +5,8 @@
     align-items: center;
     gap: 1rem;
     border-bottom: 2px solid gray;
+    position: relative;
+    cursor: pointer;
 }
 
 .track-holder{
@@ -14,6 +16,18 @@
     justify-content: center;
     padding: 0.4rem;
     user-select: none;
+    
+}
+
+.show-more{
+    position: absolute;
+    background: yellow;
+    width: 0%;
+    // transform: translate(-49%);
+    right: 2%;
+    // border-radius: 25px;
+    height: 60%;
+    animation: show-options-more .25s ease-in forwards;
 }
 
 .track-cover-img {
@@ -31,15 +45,16 @@
     display: none;
     position: relative;
 }
-.show-more-options{
-    display: flex;
-    position: absolute;
-    background: red;
-    color: $full-black;
-    padding: 1rem;
+
+
+
+
+@keyframes show-options-more{
+    to{
+        width: 70%;
+    }
 }
 
-    
 
 .t-flex-col{
     flex-direction: column;

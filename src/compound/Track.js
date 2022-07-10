@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import Icon from './Icon';
 import statics from "../static/statics";
 import {MoreWhite, Pause} from '../imports'
 import useOutsideClick from '../hooks/useOutsideClick';
 
 function Track() {
-   
-
+   const [showOptions, setOptions] = useState(false)
+   const moreRef = useRef(null)
+    useOutsideClick(moreRef, () => setOptions(false))
  return (
     <div className='Track'>
         <div className='track-holder '>
@@ -23,9 +24,9 @@ function Track() {
             <span>2:15</span>
         </div>
         <div  className='track-holder track-icon'>
-            <Icon  path={MoreWhite}/>
-            <div  className={`more-options ${false ? 'show-more-options' : ""}`}>
-                <Icon path={Pause}/>
+            <Icon onClick={() => setOptions(!showOptions)}  path={MoreWhite}/>
+            <div ref={moreRef} className={`${showOptions == true ? 'show-more' : ''}`}>
+                
             </div>
         </div>
     </div>

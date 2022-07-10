@@ -7,9 +7,9 @@ function useOutsideClick(ref, onClickOutside) {
             if(ref.current && !ref.current.contains(event.target)){
                 if(event.target.id == "menu-btn"){
                     return
-                } else {
-                    onClickOutside()
                 }
+                onClickOutside()
+                
             }
         }
         

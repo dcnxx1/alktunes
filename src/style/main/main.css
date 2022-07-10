@@ -584,7 +584,9 @@
   flex-direction: row;
   align-items: center;
   gap: 1rem;
-  border-bottom: 2px solid gray; }
+  border-bottom: 2px solid gray;
+  position: relative;
+  cursor: pointer; }
 
 .track-holder {
   width: fit-content;
@@ -593,6 +595,14 @@
   justify-content: center;
   padding: 0.4rem;
   user-select: none; }
+
+.show-more {
+  position: absolute;
+  background: yellow;
+  width: 0%;
+  right: 2%;
+  height: 60%;
+  animation: show-options-more .25s ease-in forwards; }
 
 .track-cover-img {
   width: 90px;
@@ -606,12 +616,9 @@
   display: none;
   position: relative; }
 
-.show-more-options {
-  display: flex;
-  position: absolute;
-  background: red;
-  color: #000000;
-  padding: 1rem; }
+@keyframes show-options-more {
+  to {
+    width: 70%; } }
 
 .t-flex-col {
   flex-direction: column; }
