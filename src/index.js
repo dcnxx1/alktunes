@@ -18,7 +18,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
-        <Route path='/' element={<Guard> <App /> </Guard>} />
+        <Route exact path='/*' element={<Guard> <App /> </Guard>} />
         
         <Route path='/entrance' element={ <Redirector><Entrance/></Redirector> } />  
         <Route path='/login' element={ <Redirector><Login /></Redirector>} />

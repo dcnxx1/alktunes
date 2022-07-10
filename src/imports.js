@@ -6,7 +6,7 @@ export {default as Icon} from './compound/Icon'
 export {default as Search} from './components/Search'
 export {default as Controller} from './components/Controller'
 export {default as Range} from './components/Range'
-
+export {default as PlayListComp} from './components/Playlist'
 
 
 //  ICON EXPORT
