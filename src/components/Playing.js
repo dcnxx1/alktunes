@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useCallback} from 'react'
 import Track from '../compound/Track'
 import {Icon,Controller,  PlaylistWhite } from '../imports'
 import useOutsideClick from '../hooks/useOutsideClick'
@@ -11,19 +11,25 @@ function Playing() {
   const miniPlayerRef = useRef(null)
   useOutsideClick(playlistRef, () => setNexton(false))
   useOutsideClick(miniPlayerRef, () => setShowMiniPlayer(false))
-  useMediaQuery(() => setNexton(false))
 
+  useMediaQuery(() => setNexton(false))
+  
+ 
 
   return (
     // ${showMiniPlayer == true ? "showMiniPlayer" : "" <- inslide player
     <div ref={miniPlayerRef} className={`Playing ${showMiniPlayer == true ? "showMiniPlayer" : ""}`}>
       <span onClick={() => setShowMiniPlayer(prevValue => !prevValue)} className='arrow-up'></span>
       <span className='line'></span>
-      <div className={`nexton ${showNexton == true ? 'show-nexton' : ""}`}>
+      <div ref={playlistRef} className={`nexton ${showNexton == true ? 'show-nexton' : ""}`}>
           <div className='playing-header'>
            <h2>Next on playlist</h2>
           </div>
         <div className='playing-track'>
+          <Track />
+          <Track />
+          <Track />
+          <Track />
           <Track />
           <Track />
           <Track />
@@ -37,8 +43,8 @@ function Playing() {
         {/* image cover */}
         </div>
         <Controller/>
-        <div ref={playlistRef} className='show-playlist '>
-          <Icon  onClick={() => setNexton(prevValue => !prevValue)} className="playlist-medium" path={PlaylistWhite} />
+        <div className='show-playlist '>
+          <Icon id="show-play"  onClick={() => {setNexton(prevValue => !prevValue)}} className="playlist-medium" path={PlaylistWhite} />
         </div>
       </div>
       

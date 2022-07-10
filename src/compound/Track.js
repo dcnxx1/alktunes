@@ -1,7 +1,6 @@
 import React, {useState, useRef} from 'react';
-import Icon from './Icon';
-import statics from "../static/statics";
-import {MoreWhite, Pause} from '../imports'
+
+import {MoreWhite, Pause, Playlist, PointUpWhite, Close, Icon, QueueBlack, PlayBlack} from '../imports'
 import useOutsideClick from '../hooks/useOutsideClick';
 
 function Track() {
@@ -23,10 +22,13 @@ function Track() {
         <div className='track-holder track-length f-1'>
             <span>2:15</span>
         </div>
-        <div  className='track-holder track-icon'>
-            <Icon onClick={() => setOptions(!showOptions)}  path={MoreWhite}/>
-            <div ref={moreRef} className={`${showOptions == true ? 'show-more' : ''}`}>
-                
+        <div className='track-holder track-icon'>
+            <Icon onClick={() => setOptions(!showOptions)} path={MoreWhite}/>
+            <div ref={moreRef} className={`${showOptions == true ? 'show-more' : 'ds-none'}`}>
+                <Icon className="icon-more" path={PlayBlack} />
+                <Icon className="icon-more" path={Playlist} />
+                <Icon className="icon-more" path={QueueBlack} />
+                <Icon onClick={() => setOptions(false)} className="icon-more" path={Close} />
             </div>
         </div>
     </div>

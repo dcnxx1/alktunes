@@ -13,6 +13,7 @@ export {default as Range} from './components/Range'
 export {default as HomeWhite} from './static/icons/home_white.png'
 export {default as SearchWhite} from './static/icons/search_white.png'
 export {default as ArrowFullWhite} from './static/icons/arrow_full_white.png'
+export {default as Playlist} from './static/icons/playlist.png'
 export {default as ListWhite} from './static/icons/list_white.png'
 export {default as LogoutWhite} from './static/icons/logout_white.png'
 export {default as MoreWhite} from './static/icons/more_white.png'
@@ -22,7 +23,9 @@ export {default as PlaylistWhite} from './static/icons/playlist_white.png'
 export {default as PointUpWhite} from './static/icons/pointup_white.png'
 export {default as QueueWhite} from './static/icons/queue_white.png'
 export {default as BackButton} from './static/icons/backwardbutton.png'
-
+export {default as Close} from './static/icons/close.png'
+export {default as QueueBlack} from './static/icons/queueblack.png'
+export {default as PlayBlack} from './static/icons/playblack.png'
 
 // LOGO
 export {default as LogoFull} from './static/logo_new/alktune_full_png.png'

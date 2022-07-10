@@ -21,13 +21,32 @@
 
 .show-more{
     position: absolute;
-    background: yellow;
+    background: $full-white;
     width: 0%;
     // transform: translate(-49%);
     right: 2%;
     // border-radius: 25px;
     height: 60%;
     animation: show-options-more .25s ease-in forwards;
+ 
+   display: flex;
+   justify-content: space-evenly;
+
+   
+}
+
+.icon-more{
+    display: block;
+    background-size: 20px !important;
+    width: 35px !important;
+    height: 100% !important;
+    background: red;
+    &:nth-child(2), &:nth-child(3){
+        background-size: 25px !important;
+    }
+}
+.ds-none{
+    display: none;
 }
 
 .track-cover-img {
@@ -41,7 +60,6 @@
 }
 
 .more-options{
-  
     display: none;
     position: relative;
 }
@@ -51,7 +69,7 @@
 
 @keyframes show-options-more{
     to{
-        width: 70%;
+        width: 40%;
     }
 }
 
@@ -86,6 +104,12 @@
         // flex: 1;
         // border: 2px solid white;
         text-align: center;
+    }
+    
+    @keyframes show-options-more{
+        to{
+            width: 70%;
+        }
     }
     
 }

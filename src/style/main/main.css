@@ -261,7 +261,8 @@
   padding-left: 1rem;
   padding-right: 1rem;
   justify-content: center;
-  position: relative; }
+  position: relative;
+  z-index: 5; }
 
 .search-holder {
   width: 100%;
@@ -411,10 +412,11 @@
 .nexton {
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
   flex: 1; }
 
 .playing-track {
+  overflow-y: auto;
+  overflow-x: hidden;
   border-radius: 10px;
   padding: 0.2rem; }
   .playing-track img {
@@ -531,7 +533,7 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10.6px);
     -webkit-backdrop-filter: blur(10.6px);
-    z-index: 2;
+    z-index: 16;
     bottom: 0px;
     display: flex;
     flex-direction: column-reverse;
@@ -598,11 +600,25 @@
 
 .show-more {
   position: absolute;
-  background: yellow;
+  background: #FFF;
   width: 0%;
   right: 2%;
   height: 60%;
-  animation: show-options-more .25s ease-in forwards; }
+  animation: show-options-more .25s ease-in forwards;
+  display: flex;
+  justify-content: space-evenly; }
+
+.icon-more {
+  display: block;
+  background-size: 20px !important;
+  width: 35px !important;
+  height: 100% !important;
+  background: red; }
+  .icon-more:nth-child(2), .icon-more:nth-child(3) {
+    background-size: 25px !important; }
+
+.ds-none {
+  display: none; }
 
 .track-cover-img {
   width: 90px;
@@ -618,7 +634,7 @@
 
 @keyframes show-options-more {
   to {
-    width: 70%; } }
+    width: 40%; } }
 
 .t-flex-col {
   flex-direction: column; }
@@ -638,7 +654,10 @@
   .track-name {
     flex: 1; }
   .track-album {
-    text-align: center; } }
+    text-align: center; }
+  @keyframes show-options-more {
+    to {
+      width: 70%; } } }
 
 .Controller {
   /* From https://css.glass */

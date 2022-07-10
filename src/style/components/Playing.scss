@@ -10,14 +10,15 @@
 .nexton{
    display: flex;
    flex-direction: column;
-   overflow-y: scroll;
    flex: 1;
 }
+
 .playing-track{
  
 //  height: 450px;
 
-
+ overflow-y: auto;
+ overflow-x: hidden;
  border-radius: 10px;
  padding: 0.2rem;
  img{
@@ -194,7 +195,7 @@
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(10.6px);
       -webkit-backdrop-filter: blur(10.6px);
-      z-index: 2;
+      z-index: 16;
       bottom: 0px;
       display: flex;
       flex-direction: column-reverse;

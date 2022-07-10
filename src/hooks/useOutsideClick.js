@@ -8,8 +8,10 @@ function useOutsideClick(ref, onClickOutside) {
                 if(event.target.id == "menu-btn"){
                     return
                 }
+                if(event.target.id == "show-play"){
+                    return
+                }
                 onClickOutside()
-                
             }
         }
         
