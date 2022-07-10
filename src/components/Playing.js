@@ -2,15 +2,21 @@ import React, {useState, useRef} from 'react'
 import Track from '../compound/Track'
 import {Icon,Controller,  PlaylistWhite } from '../imports'
 import useOutsideClick from '../hooks/useOutsideClick'
+import useMediaQuery from '../hooks/useMediaQuery'
 
 function Playing() {
   const [showMiniPlayer, setShowMiniPlayer] = useState(false)  
   const [showNexton, setNexton] = useState(false)
   const playlistRef = useRef(null)
+  const miniPlayerRef = useRef(null)
   useOutsideClick(playlistRef, () => setNexton(false))
+  useOutsideClick(miniPlayerRef, () => setShowMiniPlayer(false))
+  useMediaQuery(() => setNexton(false))
+
+
   return (
     // ${showMiniPlayer == true ? "showMiniPlayer" : "" <- inslide player
-    <div className={`Playing ${showMiniPlayer == true ? "showMiniPlayer" : ""}`}>
+    <div ref={miniPlayerRef} className={`Playing ${showMiniPlayer == true ? "showMiniPlayer" : ""}`}>
       <span onClick={() => setShowMiniPlayer(prevValue => !prevValue)} className='arrow-up'></span>
       <span className='line'></span>
       <div className={`nexton ${showNexton == true ? 'show-nexton' : ""}`}>
