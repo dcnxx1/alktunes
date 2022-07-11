@@ -1,0 +1,16 @@
+.portal{
+position: absolute;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 50%;
+height: 350px;
+background: $gray1;
+top: 50%;
+font-family: $poppins;
+color: white;
+display: flex;
+}
+
+.portal-header{
+    
+}

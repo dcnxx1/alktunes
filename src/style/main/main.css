@@ -32,7 +32,9 @@
 
 .link-primary {
   text-decoration: none;
-  border: none; }
+  border: none;
+  border: 2px solid white;
+  width: 100%; }
   .link-primary:active {
     text-decoration: none; }
   .link-primary:visited {
@@ -758,6 +760,35 @@
 @media only screen and (max-width: 600px) {
   .Roller {
     display: block; } }
+
+.Playlist-Comp {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 80%;
+  grid-template-areas: "Search" "Playlist";
+  position: relative; }
+
+.pl-s {
+  width: 80%;
+  height: 35px; }
+
+.playlist-container {
+  grid-area: Playlist;
+  padding: 1rem; }
+
+.portal {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 350px;
+  background: #1C1C1C;
+  top: 50%;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  display: flex; }
 
 * {
   margin: 0;

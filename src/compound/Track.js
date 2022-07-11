@@ -3,7 +3,7 @@ import React, {useState, useRef} from 'react';
 import {MoreWhite, Pause, Playlist, PointUpWhite, Close, Icon, QueueBlack, PlayBlack} from '../imports'
 import useOutsideClick from '../hooks/useOutsideClick';
 
-function Track() {
+function Track({defineOptions = true}) {
    const [showOptions, setOptions] = useState(false)
    const moreRef = useRef(null)
     useOutsideClick(moreRef, () => setOptions(false))
@@ -13,7 +13,7 @@ function Track() {
             <img className='track-cover-img' src='https://unsplash.it/500/500' />
         </div>
         <div className='track-holder t-flex-col track-name'>
-            <span className='track-name'>SHOTTA FLOW 6</span>
+            <span className='track-name'>Certified Loverboy</span>
             <span className='artist-name'>NLE CHOPPA</span>
         </div>
         <div className='track-holder track-album f-1'>
@@ -23,7 +23,7 @@ function Track() {
             <span>2:15</span>
         </div>
         <div className='track-holder track-icon'>
-            <Icon onClick={() => setOptions(!showOptions)} path={MoreWhite}/>
+        {defineOptions && <Icon onClick={() => setOptions(!showOptions)} path={MoreWhite}/> }
             <div ref={moreRef} className={`${showOptions == true ? 'show-more' : 'ds-none'}`}>
                 <Icon className="icon-more" path={PlayBlack} />
                 <Icon className="icon-more" path={Playlist} />

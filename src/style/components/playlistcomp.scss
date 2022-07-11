@@ -2,5 +2,23 @@
     // grid-area: Home;
     width: 100%;
     height: 100%;
-    background: red;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 80%;
+    grid-template-areas: 
+    "Search"
+    "Playlist"
+    ;
+    position: relative;
+}
+
+.pl-s{
+    width: 80%;
+    height: 35px;
+}
+
+.playlist-container {
+   
+    grid-area: Playlist;
+    padding: 1rem;
 }
