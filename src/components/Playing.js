@@ -26,11 +26,11 @@ function Playing() {
            <h2>Next on playlist</h2>
           </div>
         <div className='playing-track'>
-          <Track defineOptions={false} />
-          <Track defineOptions={false} />
-          <Track defineOptions={false} />
-          <Track defineOptions={false} />
-          <Track defineOptions={false} />
+          <Track  />
+          <Track  />
+          <Track  />
+          <Track  />
+          <Track  />
         </div>
         
       </div>

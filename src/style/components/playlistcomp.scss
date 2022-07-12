@@ -12,6 +12,31 @@
     position: relative;
 }
 
+.playlist-img{
+    width: 75px ;
+}
+
+.addbox{
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid $full-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checktrue{
+    background: $full-white;
+    display: block;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+}
+
+
 .pl-s{
     width: 80%;
     height: 35px;
@@ -21,4 +46,15 @@
    
     grid-area: Playlist;
     padding: 1rem;
+}
+
+@media only screen and (max-width: 600px){
+    .addbox{
+        width: 20px;
+        height: 20px;
+    }
+
+    .playlist-img{
+        width: 55px;
+    }
 }

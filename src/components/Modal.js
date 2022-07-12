@@ -1,16 +1,19 @@
 import React, {useState, useEffect} from 'react'
 import ReactDom from 'react-dom'
+import Track from '../compound/Track'
 
-
-const Modal = React.forwardRef((props, ref) => {
+const Modal = React.forwardRef(({header, children}, ref) => {
    return ReactDom.createPortal(
       <>
       <div  className='body-back'>
          <div ref={ref} className='portal'>
-         <div  className='portal-header'>
-          Header
-         </div>
-          Expl
+            <div  className='portal-header'>
+               {header}
+            </div>
+
+            <div className='portal-body'>
+               {children}
+            </div>
          </div> 
       </div>
       </>,

@@ -591,6 +591,9 @@
   border-bottom: 2px solid gray;
   position: relative;
   cursor: pointer; }
+  .Track:hover {
+    outline: 2px solid #FFF;
+    border-bottom: 2px solid transparent; }
 
 .track-holder {
   width: fit-content;
@@ -770,6 +773,27 @@
   grid-template-areas: "Search" "Playlist";
   position: relative; }
 
+.playlist-img {
+  width: 75px; }
+
+.addbox {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.checktrue {
+  background: #FFF;
+  display: block;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%; }
+
 .pl-s {
   width: 80%;
   height: 35px; }
@@ -778,22 +802,12 @@
   grid-area: Playlist;
   padding: 1rem; }
 
-.portal {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30%;
-  height: 350px;
-  background: #1C1C1C;
-  top: 50%;
-  font-family: "Poppins", sans-serif;
-  color: white;
-  display: flex;
-  right: 50%;
-  max-width: 20%;
-  min-width: 450px;
-  border-radius: 20px;
-  padding: 1rem; }
+@media only screen and (max-width: 600px) {
+  .addbox {
+    width: 20px;
+    height: 20px; }
+  .playlist-img {
+    width: 55px; } }
 
 .body-back {
   width: 100%;
@@ -810,8 +824,44 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.04);
-  animation: appearModal 0.5s ease-in forwards;
+  animation: appearModal 0.2s ease-in forwards;
   opacity: 0; }
+
+.portal {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 350px;
+  background: #1C1C1C;
+  top: 50%;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  display: flex;
+  right: 50%;
+  max-width: 20%;
+  min-width: 450px;
+  border-radius: 20px;
+  padding: 1rem;
+  flex-direction: column;
+  gap: 1rem; }
+
+.portal-body {
+  height: 95%; }
+  .portal-body ul {
+    list-style: none; }
+
+.portal-track {
+  height: 100%;
+  width: 100%;
+  font-size: 10pt;
+  display: flex;
+  height: fit-content;
+  cursor: pointer; }
+  .portal-track:hover {
+    outline: 2px solid #FFF; }
+  .portal-track img {
+    width: 75px; }
 
 @keyframes appearModal {
   to {
