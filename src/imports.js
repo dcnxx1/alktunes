@@ -26,6 +26,11 @@ export {default as BackButton} from './static/icons/backwardbutton.png'
 export {default as Close} from './static/icons/close.png'
 export {default as QueueBlack} from './static/icons/queueblack.png'
 export {default as PlayBlack} from './static/icons/playblack.png'
+export {default as TrashWhite} from './static/icons/trash-white.png'
+export {default as TrashDefect} from './static/icons/trash-def.png'
+export {default as Options} from './static/icons/settings.png'
+export {default as Plus} from './static/icons/plus.png'
+export {default as EditButton} from './static/icons/edit-button.png'
 
 // LOGO
 export {default as LogoFull} from './static/logo_new/alktune_full_png.png'

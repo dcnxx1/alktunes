@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import ReactDom from 'react-dom'
-import Track from '../compound/Track'
+
 
 const Modal = React.forwardRef(({header, children}, ref) => {
    return ReactDom.createPortal(

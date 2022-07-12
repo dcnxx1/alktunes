@@ -785,7 +785,9 @@
   border: 2px solid #FFF;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  opacity: 0;
+  animation: transitionOptions .2s ease-in forwards; }
 
 .checktrue {
   background: #FFF;
@@ -798,9 +800,71 @@
   width: 80%;
   height: 35px; }
 
+.pl-img {
+  width: 95px; }
+
 .playlist-container {
   grid-area: Playlist;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; }
+
+.playlist-options {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 10%;
+  border-bottom: 2px solid #FFF; }
+
+.opt-info {
+  align-self: center;
+  width: 80%;
+  text-align: right;
+  opacity: 0;
+  animation: transitionOptions 0.2s ease-in forwards; }
+
+@keyframes transitionOptions {
+  to {
+    opacity: 1; } }
+
+.playlist-holder {
+  height: 100%;
   padding: 1rem; }
+
+.input {
+  width: 100%;
+  height: fit-content;
+  padding: 0.5rem;
+  font-size: 14pt;
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+  border: 0px;
+  color: #FFF; }
+
+.text {
+  border: 2px solid #FFF; }
+
+.add-playlist-holder {
+  height: 100%; }
+  .add-playlist-holder label {
+    margin-bottom: 1rem; }
+  .add-playlist-holder form {
+    height: 100%;
+    display: flex;
+    flex-direction: column; }
+  .add-playlist-holder .add-playlist-btns {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    gap: 6rem; }
+    .add-playlist-holder .add-playlist-btns input {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      cursor: pointer; }
+      .add-playlist-holder .add-playlist-btns input:hover {
+        outline: 2px solid white; }
 
 @media only screen and (max-width: 600px) {
   .addbox {
