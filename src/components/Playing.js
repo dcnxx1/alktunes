@@ -26,11 +26,18 @@ function Playing() {
            <h2>Next on playlist</h2>
           </div>
         <div className='playing-track'>
-          <Track  />
-          <Track  />
-          <Track  />
-          <Track  />
-          <Track  />
+          <Track>
+          <Track.Holder className="track-holder">
+            <img className='img-track' src='https://unsplash.it/200/200' />
+          </Track.Holder>
+            <Track.Holder >
+              <span className='playing-song'>Song name</span> <br/>
+              <span className='artist-name'>Artist name</span>
+            </Track.Holder>
+            <Track.Holder className="track-holder now-playing f-1">
+              Now playing
+            </Track.Holder>
+          </Track>
         </div>
         
       </div>

@@ -33,12 +33,13 @@
 .link-primary {
   text-decoration: none;
   border: none;
-  border: 2px solid white;
   width: 100%; }
   .link-primary:active {
-    text-decoration: none; }
+    text-decoration: none;
+    color: inherit; }
   .link-primary:visited {
-    text-decoration: none; }
+    text-decoration: none;
+    color: inherit; }
 
 .entrance {
   width: 100%;
@@ -409,7 +410,8 @@
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  position: relative; }
+  position: relative;
+  background: #1C1C1C; }
 
 .nexton {
   display: flex;
@@ -420,17 +422,9 @@
   overflow-y: auto;
   overflow-x: hidden;
   border-radius: 10px;
-  padding: 0.2rem; }
-  .playing-track img {
+  padding: 0.5rem; }
+  .playing-track .img-track {
     width: 55px; }
-  .playing-track .track-album {
-    display: none; }
-  .playing-track .track-name {
-    width: 100%; }
-  .playing-track .track-length {
-    display: none; }
-  .playing-track span {
-    font-size: 12pt; }
 
 .Player {
   display: flex;
@@ -602,16 +596,6 @@
   justify-content: center;
   padding: 0.4rem;
   user-select: none; }
-
-.show-more {
-  position: absolute;
-  background: #FFF;
-  width: 0%;
-  right: 2%;
-  height: 60%;
-  animation: show-options-more .25s ease-in forwards;
-  display: flex;
-  justify-content: space-evenly; }
 
 .icon-more {
   display: block;
@@ -832,7 +816,7 @@
   height: 100%;
   padding: 1rem; }
 
-.input {
+.pl-input {
   width: 100%;
   height: fit-content;
   padding: 0.5rem;
@@ -934,6 +918,38 @@
 @media only screen and (max-width: 600px) {
   .portal {
     min-width: 80%; } }
+
+.APlaylist {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem; }
+
+.apl-search {
+  width: 100%;
+  flex: 0 0 10%; }
+
+.APlaylist-container {
+  width: 100%;
+  height: 100%;
+  flex: 1 0 550px;
+  display: flex;
+  flex-direction: column; }
+
+.APlaylist-header {
+  width: 100%; }
+
+.APlaylist-options {
+  width: 100%;
+  height: 100%;
+  flex: 0 1 80px;
+  border: 2px solid white; }
+
+.APlaylist-holder {
+  border: 2px solid white;
+  width: 100%;
+  height: 100%;
+  flex: 5; }
 
 * {
   margin: 0;

@@ -9,6 +9,10 @@ export {default as Range} from './components/Range'
 export {default as PlayListComp} from './components/Playlist'
 
 
+
+//  NESTED ROUTES
+export {default as APlaylist} from './components/APlaylist'
+
 //  ICON EXPORT
 export {default as HomeWhite} from './static/icons/home_white.png'
 export {default as SearchWhite} from './static/icons/search_white.png'

@@ -23,21 +23,7 @@
     user-select: none;
 }
 
-.show-more{
-    position: absolute;
-    background: $full-white;
-    width: 0%;
-    // transform: translate(-49%);
-    right: 2%;
-    // border-radius: 25px;
-    height: 60%;
-    animation: show-options-more .25s ease-in forwards;
- 
-   display: flex;
-   justify-content: space-evenly;
 
-   
-}
 
 .icon-more{
     display: block;

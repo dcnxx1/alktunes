@@ -1,5 +1,5 @@
 import React from 'react';
-import {Home,Playing, Search, Icon, Nav, PlayListComp} from './imports'
+import {Home,Playing, Search, Icon, Nav, PlayListComp, APlaylist} from './imports'
 import {Route, Routes} from 'react-router-dom'
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
       <Nav />
       <Routes>
         <Route  path='/playlist' element={<PlayListComp />} />
+        <Route  exact path='/playlist/:id' element={<APlaylist />} />
         <Route  path='/' element={<Home />} />
       </Routes>
       <Playing />

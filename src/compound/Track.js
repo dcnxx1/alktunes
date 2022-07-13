@@ -7,7 +7,7 @@ function Track({ defineOptions = true, children, ...args}) {
    const [showOptions, setOptions] = useState(false)
    const moreRef = useRef(null)
    useOutsideClick(moreRef, () => setOptions(false))
- 
+    
    return (
     <div className='Track' {...args}>
        {children}

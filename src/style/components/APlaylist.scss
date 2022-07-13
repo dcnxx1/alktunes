@@ -1,0 +1,38 @@
+.APlaylist{
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+.apl-search{
+    width: 100%;
+    flex: 0 0 10%;
+}
+
+.APlaylist-container{
+    width: 100%;
+    height: 100%;
+    flex: 1 0 550px ;
+    display: flex;
+    flex-direction: column;
+}
+
+.APlaylist-header{
+    width: 100%;
+}
+
+.APlaylist-options{
+    width: 100%;
+    height: 100%;
+    flex: 0 1 80px;
+    border: 2px solid white;
+}
+
+.APlaylist-holder{
+    border: 2px solid white;
+    width: 100%;
+    height: 100%;
+    flex: 5;
+}
