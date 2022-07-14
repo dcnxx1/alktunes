@@ -17,6 +17,7 @@
     flex: 1 0 550px ;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
 .APlaylist-header{
@@ -24,15 +25,39 @@
 }
 
 .APlaylist-options{
-    width: 100%;
+    width: 95%;
     height: 100%;
     flex: 0 1 80px;
-    border: 2px solid white;
+    border-bottom: 2px solid white;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 0.5rem;
+}
+
+.apl-info{
+    font-size: 12pt;
 }
 
 .APlaylist-holder{
-    border: 2px solid white;
-    width: 100%;
+    width: 95%;
     height: 100%;
     flex: 5;
+}
+
+.apl-img{
+    width: 75px;
+
+}
+.apl-song{
+    width: 100%;
+}
+
+.apl-artist{
+    color: #ADADAD ;
+}
+
+@media only screen and (max-width: 600px){
+    .apl-img{
+        width: 55px;
+    }
 }

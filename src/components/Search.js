@@ -1,4 +1,5 @@
 import React, {useState, useRef} from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Icon, SearchWhite, ArrowFullWhite, HomeWhite, QueueWhite, PlaylistWhite, LogoutWhite  } from '../imports'
 import useOutsideClick from '../hooks/useOutsideClick'
@@ -18,25 +19,30 @@ cursor: pointer;
 
 function Search() {
     const [showMenu, setMenu] = useState(false)
+    const [showSearchResult, setResult] = useState(false)
     const ref = useRef(null)
+    const [search, setSearch] = useState([])
 
-    useOutsideClick(ref, () => setMenu(false))
+    useOutsideClick(ref, () => {
+      setMenu(false)})
   return (
-    <form   className='Search'>
+    <form  className='Search'>
       <div className='search-holder'>
-        <input className='searchbar' type='text' placeholder='Search artist, song, album...' />
+        <input  className='searchbar' type='text' placeholder='Search artist, song, album...' />
         <SearchIcon className="Icon" path={SearchWhite} />
       </div>
-     
+      <div  className='seach-result'>
+
+      </div>
       <Icon onClick={() => setMenu(prevValue => !prevValue)} id="menu-btn"  className='Icon search-menu-icon' hide="true"  path={ArrowFullWhite} />
-    
+      
       <div ref={ref} className={`show-menu ${showMenu == true ? 'show-m' : ''}`}>
-        <ul >
-          <li className='li-menu'>Home</li>
-          <li className='li-menu'>Playlist</li>
-          <li className='li-menu'>Queue</li>
-          <li className='li-menu'>Logout</li>
-        </ul>
+ 
+          <Link to="/" className='mobile-link'>Home</Link>
+          <Link to="/playlist" className='mobile-link'>Playlist</Link>
+          <Link to="/queue" className='mobile-link'>Queue</Link>
+          <Link to="/logout" className='mobile-link'>Logout</Link>
+       
       </div>
     </form>
   )

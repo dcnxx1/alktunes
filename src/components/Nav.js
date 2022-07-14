@@ -9,10 +9,15 @@ function Nav() {
 
   return (
     <nav className='Nav'> 
-      <Icon className="Icon tooltip nav-icon" path={HomeWhite} toolTip="Home" />
-      <Icon className="Icon tooltip" toolTip="Playlists" path={PlaylistWhite} />
-      <Icon className="Icon tooltip" toolTip="Queue" path={QueueWhite} />
-      <Icon className="Icon tooltip" toolTip="Logout" path={LogoutWhite} />
+      <Link className="nav-link" to="/">
+        <Icon className="Icon tooltip nav-icon" path={HomeWhite}/>
+      </Link>
+
+      <Link className="nav-link" to="/playlist">
+        <Icon className="Icon tooltip"  path={PlaylistWhite} /> 
+      </Link>
+      <Icon className="Icon tooltip" path={QueueWhite} />
+      <Icon className="Icon tooltip"  path={LogoutWhite} />
     </nav>
   )
 }

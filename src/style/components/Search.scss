@@ -48,19 +48,24 @@
     right: 5%;
     top: 65px;
     z-index: 2;
+    flex-direction: column;
     text-align: right;
     opacity: 0;
     animation: showMenu 0.2s ease-in forwards;
-    ul{
-        list-style: none;
-    }
+    
 
-    li{
+    .mobile-link{
         user-select: none;
         cursor: pointer;
         color: black;
         padding: 1rem;
-
+        text-decoration: none;
+        &:visited{
+            color: black;
+        }
+        &:active{
+            color: black;
+        }
     }
 }
 
@@ -86,7 +91,7 @@
     }
     
     .show-m{
-        display: block;
+        display: flex;
     }
     
 }

@@ -5,8 +5,9 @@
    padding: 0.5rem;
    display: flex;
    flex-direction: column;
-    position: relative;
-    background: $gray1;
+   position: relative;
+   background: $gray1;
+   box-shadow: 5px 10px 3px 2px;
 }
 .nexton{
    display: flex;
@@ -125,7 +126,7 @@
 @media only screen and (max-width: 600px){
    .Playing{
       padding: 1rem;
-      
+      background: none;
       
       position: relative;
    }

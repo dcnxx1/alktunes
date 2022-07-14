@@ -67,11 +67,11 @@
 }
 
 .opt-info{
-   align-self: center;
+   align-self: flex-end;
    width: 80%;
    text-align: right;
-    opacity: 0;
-    animation: transitionOptions 0.2s ease-in forwards;
+   opacity: 0;
+   animation: transitionOptions 0.2s ease-in forwards;
 }
 
 @keyframes transitionOptions{
@@ -134,6 +134,6 @@
     }
 
     .playlist-img{
-        width: 55px;
+        width: 35px;
     }
 }

@@ -39,7 +39,7 @@ cursor: pointer;
 
 export default function Icon ( { children, toolTip, path, ...args  } ){
     return( <IconContainer {...args} pathToIcon={path}>
-       {toolTip && (<Icon.Tooltip {...args}>{toolTip}</Icon.Tooltip>) }
+       {toolTip && (<Icon.Tooltip {...args}>{children}</Icon.Tooltip>) }
     </IconContainer>)
 }
 

@@ -19,7 +19,7 @@ height: 25px;
 
 `
 
-const urler = 'https://alktunes.s3.eu-central-1.amazonaws.com/destined_2_win/07.%20Headshot.mp3?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFAaDGV1LWNlbnRyYWwtMSJHMEUCICBUL3eRDbrFYobTMKc5Qoc%2BAHIkwVpDZaDan3Ahq2%2F9AiEA4r%2BaEVy8G13yM3A4jByyJwYgaPWutxsA9tUnvJG9LmUq%2FwIIeRAAGgw5NDM5Njk2NTQxODMiDMUGes4vINiqxG7UkSrcAnGAOLpRfoxV67v6DE8djMiuPOXuwcGBnyrPGgvuvBUvsUoVfhq%2BbRgM0qumjEchbCpIMa2cQnMHVQQr0Xxgcj25%2BqcLrFNgvDzmE6qXX%2BdPaNq%2Bn50fyDf7P9AVaCFJDU0Rw%2FrTwWrTRnBKqOOYi%2FhSl4Rjuf6XXep9Hd3xfwUEycmGvFAVJrk11xyksoA7ojtEfld%2FQgsiVsBjlW3Zq3YVfEgFV1ufZ41OpF51Sl3fpdH14QiiorWBIjE2ffRTMIokNQE464PqTYbLmMEcaPMsIaL5N%2FMR%2Bm8zaE8jq8vn8eSUcNdxQY6TooGUj0XDK%2B6%2BzG%2BHX5AT%2BuBuYlpwLuYecJD%2Fo%2BWiAm5w0Ak6jHuzca5VFYByoScVWtsPI9vW39LikLNPU9c16vNreuN2LjnFR04QrwfmgRMy%2B7azL69DtVNJFUxIFl9SdBbMRzia0p5sanQzt7Ayn67RBjD%2BgYeWBjqzAjS2bagociG9XQ0JS%2F0jllEN6TIdXXCVTvZLrCqScHSyzXimQsOttiKzwebFF4imn3BRacMzbiF6smhyyKrXj7RhoALiTdHjrvyZkzYfADElUeDtwEWVkD%2BRqK2tLZNj0YUAPWRjx1nxVKeIFdRuWJ08Q0D80PbmF6YmI70UVj8j98jz5HetXAJAD0MOs99SX4Bl%2Bx7r960C%2Fk4gJbUY9UBaTX4SpkJWuEFgjA2l3C8a%2B6fdpIDPV4pXE%2B%2FZBqF%2FZwg1ShYZlZ7YkMOla%2F4Bw3461kDbs9L8qZJOclJCtYsSJY5xgKiXSOUC8UOrjXtPgEJBN9qRHJLcKkPjfDJK8gA9ZkYaEbh1UeEMwSKmFNwbzzzS44QFth03eDR1Ilx8Yn5JOS7Z2w2%2Bn9Ts1DX3Hp2RLnc%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220703T161942Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIA5XSHZ2WTWJS6KRMZ%2F20220703%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Signature=770a6405d46f1a8d785e65931a9d7c6f2d0be8d6a81f3e8b356cf08b7b3acda4'
+// const urler = 'https://cf-hls-media.sndcdn.com/media/159660/79411/159240/ZN6AZgnTN6v5.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLWhscy1tZWRpYS5zbmRjZG4uY29tL21lZGlhLzE1OTY2MC8qLyovWk42QVpnblRONnY1LjEyOC5tcDMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE2NTc3Mjc2MTB9fX1dfQ__&Signature=VsyTHxvR8lV2tWNmLOTaN7d5vS7kfZD-K9EgslAcAbjl70B~tYC4uhLvKjL~HKTxU~UqQjsBiiUi1bmW4pmjbqHkMbJDBqKIVazinJP6TI8flaKrgMT7F7-Yekm9qnePiqiYW1Nm7ek6dvE2dlPNzZNoreMC68ZE5s-r5Rh-VjDN-MvvgHNrlJeHQw0OpWVRBg0deyGs6NlGwvSB0-3b9LNk2KswhSU5pN1dz6CQyS3vMM3VMslGFZ~vztWQfPRDD37lOmyydFefI~Bffjq-5IV0QiSWxqhcB1nPl9tu~gWHCvJd6ZBHAGsiRDt-jOPfHmLf2UC6tqsVuHDo9TnOJg__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ'
 
 function Controller() {
   return (
@@ -43,9 +43,9 @@ function Controller() {
             <Range />
             <span>2:41</span>
           </div>
-        
+  
       </div>
-      <ReactPlayer  width="20px" height="20px" playIcon={PlaylistWhite} playing={true} url={urler}></ReactPlayer>
+      <ReactPlayer  width="20px" height="20px" playIcon={PlaylistWhite} ></ReactPlayer>
     </div>
   )
 }

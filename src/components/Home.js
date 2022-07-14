@@ -34,9 +34,52 @@ function Home() {
 
         <div className='trending-holder'>
           <ul className='trending-ul'>
-            <Track />
-            <Track />
-            <Track />
+            <Track>
+              <Track.Holder className="track-holder">
+                <img src="https://unsplash.it/200/200" className="track-cover-img" />
+              </Track.Holder>
+              <Track.Holder className="track-holder t-flex-col">
+                <span>Song name</span>
+                <span>Artist name</span>
+              </Track.Holder>
+              <Track.Holder className="track-holder f-1">
+                <span>Album name</span>
+              </Track.Holder>
+              <Track.Holder className="track-holder f-1">
+                <span>2:21</span>
+              </Track.Holder>
+            </Track>
+            <Track>
+              <Track.Holder className="track-holder">
+                <img src="https://unsplash.it/200/200" className="track-cover-img" />
+              </Track.Holder>
+              <Track.Holder className="track-holder t-flex-col">
+                <span>Song name</span>
+                <span>Artist name</span>
+              </Track.Holder>
+              <Track.Holder className="track-holder f-1">
+                <span>Album name</span>
+              </Track.Holder>
+              <Track.Holder className="track-holder f-1">
+                <span>2:21</span>
+              </Track.Holder>
+            </Track>
+            <Track>
+              <Track.Holder className="track-holder">
+                <img src="https://unsplash.it/200/200" className="track-cover-img" />
+              </Track.Holder>
+              <Track.Holder className="track-holder t-flex-col">
+                <span>Song name</span>
+                <span>Artist name</span>
+              </Track.Holder>
+              <Track.Holder className="track-holder f-1">
+                <span>Album name</span>
+              </Track.Holder>
+              <Track.Holder className="track-holder f-1">
+                <span>2:21</span>
+              </Track.Holder>
+            </Track>
+            
           </ul>
         </div>
       </div>

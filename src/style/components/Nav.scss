@@ -18,7 +18,22 @@
 }
 
 
-
+.nav-link{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    text-decoration: none;
+    color: $full-black;
+    border: 1px solid black;
+    
+    &:active{
+        color: none;
+    }
+    &:visited{
+        color: none;
+    }
+    
+}
 
 @media only screen and (max-width: 1200px){
     .Nav{
