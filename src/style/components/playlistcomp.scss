@@ -63,8 +63,9 @@
     flex-direction: row;
     height: 10%;
     border-bottom: 2px solid $full-white;
-   
 }
+
+
 
 .opt-info{
    align-self: flex-end;
@@ -83,6 +84,8 @@
 .playlist-holder{
     height: 100%;
     padding: 1rem;
+   
+    overflow-y: auto;
 }
 
 .pl-input{
@@ -98,6 +101,14 @@
 }
 .text{
     border: 2px solid $full-white;
+}
+
+
+
+@keyframes selected{
+    to{
+        opacity: 1;
+    }
 }
 
 .add-playlist-holder{

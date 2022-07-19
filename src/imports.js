@@ -35,7 +35,7 @@ export {default as TrashDefect} from './static/icons/trash-def.png'
 export {default as Options} from './static/icons/settings.png'
 export {default as Plus} from './static/icons/plus.png'
 export {default as EditButton} from './static/icons/edit-button.png'
-
+export {default as CloseWhite} from './static/icons/closewhite.png'
 // LOGO
 export {default as LogoFull} from './static/logo_new/alktune_full_png.png'
 export {default as LogoMedium} from './static/logo_new/alktune_medium_png.png'

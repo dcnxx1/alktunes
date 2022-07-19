@@ -3,7 +3,7 @@ import React, {useState, useRef} from 'react';
 import {MoreWhite, Pause, Playlist, PointUpWhite, Close, Icon, QueueBlack, PlayBlack} from '../imports'
 import useOutsideClick from '../hooks/useOutsideClick';
 
-function Track({ defineOptions = true, children, ...args}) {
+function Track({  children, ...args}) {
    const [showOptions, setOptions] = useState(false)
    const moreRef = useRef(null)
    useOutsideClick(moreRef, () => setOptions(false))

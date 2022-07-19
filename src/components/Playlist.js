@@ -1,22 +1,22 @@
-import React, {useRef, useState, forwardRef, createRef} from 'react'
+import React, {useRef, useState, forwardRef, createRef, useEffect} from 'react'
 import Search from './Search'
 import { Link } from 'react-router-dom'
 import Modal from './Modal'
 import useOutsideClick from '../hooks/useOutsideClick'
 import Track from '../compound/Track'
-import {Icon, Logo, TrashWhite, TrashDefect, Plus, Options} from '../imports'
+import {Icon, Logo, TrashWhite, TrashDefect, Plus, Options, CloseWhite} from '../imports'
+import usePlaylist from '../hooks/usePlaylist'
 
 function Playlist() {
   const modalRef = createRef()
-  const [checkBox, setCheckBox] = useState(false)
   const [addPlaylistModal, setAddModal] = useState(false)
-  const [showOptions, setOptions] = useState(false)
-  const [selectedPlaylists , setPlaylists] = useState([])
-
+  const [{showOptions, setOptions}, {selectedPlaylists, playlistHandler}, {checkBox, setCheckBox} , {selectedBy, setSelected}, handleLink, showModal, handlePlaylistDelete] = usePlaylist()
+  
   useOutsideClick(modalRef, () => setAddModal(false))
 
   const checkPlaylistsNoneSelected = () => selectedPlaylists.length == 0 ? true : false
 
+ 
 
   return (
     <div className='Playlist-Comp'>
@@ -26,31 +26,28 @@ function Playlist() {
           <h2>Playlists</h2>
         </div>
         <div className='playlist-options'>
-           <Icon onClick={() => setAddModal(prevValue => !prevValue)} style={{backgroundSize: "20px", visibility: showOptions == true ? "hidden" : "visible"}} path={Plus} />
+           {showOptions === false ? <Icon onClick={() => {
+            setAddModal(prevValue => !prevValue)
+            setSelected('add')
+            }} style={{backgroundSize: "20px"}} path={Plus} /> : <Icon  style={{backgroundSize: "20px"}} onClick={() => setOptions(prevValue => !prevValue)} path={CloseWhite}  />}
             {/* MODAL */}
-            {addPlaylistModal && <Modal header="Create Playlist" ref={modalRef}>
-              <div className='add-playlist-holder'>
-                 <form>
-                <label htmlFor='input-playlist' >Playlist name: </label>
-                     <input placeholder='Playlist name' id="input-playlist" className='pl-input text' type="text" />
-                     {/* <span style={{alignSelf: "center", color: "red"}}>Please fill in </span> */}
-                     <div className='add-playlist-btns'>
-                      <input onClick={() => setAddModal(false)} className="pl-input btn" value="Cancel" type="button" />
-                      <input className="pl-input btn" value="OK" type="submit"/>
-                     </div> 
-                 </form>            
-              </div>
-            </Modal>}
+            {addPlaylistModal && selectedBy == 'add' ? showModal('playlistadd', setAddModal, modalRef) : addPlaylistModal == true &&  selectedBy == 'delete' && showModal('playlistdelete', setAddModal, modalRef) }
           {/* !MODAL! */}
             <Icon onClick={() => setOptions(prevValue => !prevValue)} style={{backgroundSize: "20px"}} path={Options} />
-           {showOptions == true ? checkPlaylistsNoneSelected() == true ? <Icon style={{backgroundSize: "20px"}}  path={TrashDefect} /> : <Icon style={{backgroundSize: "20px"}} path={TrashWhite} /> : ""}
+           {showOptions == true ?  <Icon style={{backgroundSize: "20px"}} onClick={(e) => {
+            handlePlaylistDelete(e, setAddModal)
+            }} path={selectedPlaylists.length === 0 ? TrashDefect : TrashWhite} /> : "" }
+          
           {showOptions == true && <span className='opt-info'>Select playlist to remove</span>}
         </div>
         <div className='playlist-holder'>
-          {showOptions !== true ? <Link className='link-primary' to="/playlist/55">
-          <Track onClick={() => {
-            setCheckBox(prevValue => !prevValue)
-            }}>
+        
+         {Array(8).fill(null).map((obj, indx) => (
+          <div key={indx} data-key={indx} onClick={(e) => {
+              playlistHandler(e)
+            }} className="track-select">
+          <Link onClick={e => handleLink(e)} className='link-primary' to="/playlist/55">
+          <Track>
             <Track.Holder className="track-holder">
               <img className="playlist-img" src={Logo} alt="" />
             </Track.Holder>
@@ -61,30 +58,14 @@ function Playlist() {
               <span>2:61</span>
             </Track.Holder>
             <Track.Holder className="track-holder f-1">
-              {showOptions && <span className='addbox'>
-              {checkBox && <span className='checktrue'></span>}
+              {showOptions && <span data-key={indx}  className='addbox'>
+              {selectedPlaylists.some((obj) => obj.keyId == indx) === true && <span className='checktrue'></span>}
               </span>}
             </Track.Holder>
           </Track>
-          </Link> : 
-          <Track onClick={() => {
-            setCheckBox(prevValue => !prevValue)
-            }}>
-            <Track.Holder className="track-holder">
-              <img className="playlist-img" src={Logo} alt="" />
-            </Track.Holder>
-            <Track.Holder className="track-holder f-1">
-              <span>Playlist name</span>
-            </Track.Holder>
-            <Track.Holder className="track-holder f-1">
-              <span>2:61</span>
-            </Track.Holder>
-            <Track.Holder className="track-holder f-1">
-              {showOptions && <span className='addbox'>
-              {checkBox && <span className='checktrue'></span>}
-              </span>}
-            </Track.Holder>
-          </Track> }
+          </Link> 
+          </div>
+         ))}
         </div>
       </div>
     </div>

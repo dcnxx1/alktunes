@@ -457,6 +457,7 @@
   background-size: 100% 100%;
   padding: 1rem;
   width: 100%;
+  border-radius: 15px;
   max-width: 450px;
   height: 90%; }
 
@@ -832,7 +833,8 @@
 
 .playlist-holder {
   height: 100%;
-  padding: 1rem; }
+  padding: 1rem;
+  overflow-y: auto; }
 
 .pl-input {
   width: 100%;
@@ -847,6 +849,10 @@
 
 .text {
   border: 2px solid #FFF; }
+
+@keyframes selected {
+  to {
+    opacity: 1; } }
 
 .add-playlist-holder {
   height: 100%; }
@@ -897,7 +903,7 @@
   position: relative;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30%;
+  width: fit-content;
   height: 350px;
   background: #1C1C1C;
   top: 50%;
@@ -935,7 +941,7 @@
 
 @media only screen and (max-width: 600px) {
   .portal {
-    min-width: 80%; } }
+    min-width: fit-content; } }
 
 .APlaylist {
   width: 100%;
