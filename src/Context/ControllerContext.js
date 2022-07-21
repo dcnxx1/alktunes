@@ -1,13 +1,7 @@
-import {useContext, createContext, useMemo} from 'react'
+import {createContext} from 'react'
 
-    const ContextController = useContext()
+const ContextController = createContext()
 
-import React from 'react'
 
-function ControllerContext() {
-  return (
-    <div>{children}</div>
-  )
-}
 
-export default ControllerContext
+export default ContextController

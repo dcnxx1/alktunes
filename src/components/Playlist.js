@@ -1,22 +1,27 @@
-import React, {useRef, useState, forwardRef, createRef, useEffect} from 'react'
+import React, {useRef, useState, forwardRef, createRef, useEffect, useMemo} from 'react'
 import Search from './Search'
 import { Link } from 'react-router-dom'
-import Modal from './Modal'
 import useOutsideClick from '../hooks/useOutsideClick'
 import Track from '../compound/Track'
-import {Icon, Logo, TrashWhite, TrashDefect, Plus, Options, CloseWhite} from '../imports'
+import {Icon, Logo, TrashWhite, TrashDefect, Plus, Options, CloseWhite, OptionsDefect} from '../imports'
 import usePlaylist from '../hooks/usePlaylist'
+import axios from 'axios'
 
-function Playlist() {
+
+function Playlist({playlist}) {
+ 
   const modalRef = createRef()
   const [addPlaylistModal, setAddModal] = useState(false)
-  const [{showOptions, setOptions}, {selectedPlaylists, playlistHandler}, {checkBox, setCheckBox} , {selectedBy, setSelected}, handleLink, showModal, handlePlaylistDelete] = usePlaylist()
-  
+  const [{showOptions, optionHandler, selectedPlaylists, playlistHandler, 
+    checkBox, setCheckBox , selectedBy, setSelected, handleLink, 
+    showModal, handlePlaylistDelete, checkPlaylistsExist}] = usePlaylist()
+
   useOutsideClick(modalRef, () => setAddModal(false))
 
   const checkPlaylistsNoneSelected = () => selectedPlaylists.length == 0 ? true : false
 
- 
+
+   const checkIfPlaylistsExist = useMemo(() => checkPlaylistsExist(playlist), [playlist])
 
   return (
     <div className='Playlist-Comp'>
@@ -29,11 +34,11 @@ function Playlist() {
            {showOptions === false ? <Icon onClick={() => {
             setAddModal(prevValue => !prevValue)
             setSelected('add')
-            }} style={{backgroundSize: "20px"}} path={Plus} /> : <Icon  style={{backgroundSize: "20px"}} onClick={() => setOptions(prevValue => !prevValue)} path={CloseWhite}  />}
+            }} style={{backgroundSize: "20px"}} path={Plus} /> : <Icon  style={{backgroundSize: "20px"}} onClick={() => optionHandler(checkIfPlaylistsExist)} path={CloseWhite}  />}
             {/* MODAL */}
             {addPlaylistModal && selectedBy == 'add' ? showModal('playlistadd', setAddModal, modalRef) : addPlaylistModal == true &&  selectedBy == 'delete' && showModal('playlistdelete', setAddModal, modalRef) }
           {/* !MODAL! */}
-            <Icon onClick={() => setOptions(prevValue => !prevValue)} style={{backgroundSize: "20px"}} path={Options} />
+            <Icon onClick={() => optionHandler(checkIfPlaylistsExist)} style={{backgroundSize: "20px"}} path={checkIfPlaylistsExist == true ? Options : OptionsDefect} />
            {showOptions == true ?  <Icon style={{backgroundSize: "20px"}} onClick={(e) => {
             handlePlaylistDelete(e, setAddModal)
             }} path={selectedPlaylists.length === 0 ? TrashDefect : TrashWhite} /> : "" }
@@ -46,7 +51,8 @@ function Playlist() {
           <div key={indx} data-key={indx} onClick={(e) => {
               playlistHandler(e)
             }} className="track-select">
-          <Link onClick={e => handleLink(e)} className='link-primary' to="/playlist/55">
+            {
+              checkIfPlaylistsExist == false ? <p>You have no playlists yet</p> : <Link onClick={e => handleLink(e)} className='link-primary' to="/playlist/55">
           <Track>
             <Track.Holder className="track-holder">
               <img className="playlist-img" src={Logo} alt="" />
@@ -64,6 +70,7 @@ function Playlist() {
             </Track.Holder>
           </Track>
           </Link> 
+            }
           </div>
          ))}
         </div>

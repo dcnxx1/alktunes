@@ -1,13 +1,12 @@
 export {default as Home} from './components/Home'
 export {default as Nav} from './components/Nav'
-export {default as Queue} from './components/Queue'
 export {default as Playing} from './components/Playing'
 export {default as Icon} from './compound/Icon'
 export {default as Search} from './components/Search'
 export {default as Controller} from './components/Controller'
 export {default as Range} from './components/Range'
 export {default as PlayListComp} from './components/Playlist'
-
+export {default as Music} from './components/Music'
 
 
 //  NESTED ROUTES
@@ -36,6 +35,7 @@ export {default as Options} from './static/icons/settings.png'
 export {default as Plus} from './static/icons/plus.png'
 export {default as EditButton} from './static/icons/edit-button.png'
 export {default as CloseWhite} from './static/icons/closewhite.png'
+export {default as OptionsDefect} from './static/icons/settings_defect.png'
 // LOGO
 export {default as LogoFull} from './static/logo_new/alktune_full_png.png'
 export {default as LogoMedium} from './static/logo_new/alktune_medium_png.png'

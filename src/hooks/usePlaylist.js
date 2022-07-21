@@ -67,12 +67,24 @@ function usePlaylist() {
             
           }
      
+          function checkPlaylistsExist(playlist){
+            if(playlist.playlist.length == 0) {
+              return false
+            } else {
+              return true
+            }
+          }
 
-    return [{showOptions, setOptions}, 
-        {selectedPlaylists, playlistHandler}, 
-        {checkBox, setCheckBox}, 
-        {selectedBy, setSelected},
-        handleLink, showModal, handlePlaylistDelete
+          function optionHandler(checkForPlaylist){
+            if(checkForPlaylist === false) return
+            setOptions(prevValue => !prevValue)
+          }
+
+    return [{showOptions, optionHandler, 
+        selectedPlaylists, playlistHandler, 
+        checkBox, setCheckBox, 
+        selectedBy, setSelected,
+        handleLink, showModal, handlePlaylistDelete, checkPlaylistsExist}
     ]
 }
 

@@ -28,7 +28,7 @@ function Search() {
   return (
     <form  className='Search'>
       <div className='search-holder'>
-        <input  className='searchbar' type='text' placeholder='Search artist, song, album...' />
+        <input  className='searchbar' type='text' placeholder='Search artist, album, song' />
         <SearchIcon className="Icon" path={SearchWhite} />
       </div>
       <div  className='seach-result'>
