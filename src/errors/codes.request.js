@@ -90,6 +90,27 @@ module.exports = {
         },
         REJECT: {
             CODE: "REJECT"
+        },
+
+        ERR_PLAYLIST_EMPTY: {
+            FOR: "PLAYLIST",
+            ERR: "PLAYLIST_EMPTY",
+            message: "Please fill in a name for you playlist"
+        },
+        ERR_SPECIAL_CHARS_PLAYLIST: {
+            FOR: "PLAYLIST",
+            ERR: "SPECIAL_CHARS_PLAYLIST",
+            message: "Please pick another name"
+        },
+        ERR_MIN_CHARS_PLAYLIST: {
+            FOR: "PLAYLIST",
+            ERR: "MIN_CHARS_PLAYLIST",
+            message: "Playlist name must contain 3 or more characters"
+        },
+        ERR_PLAYLIST_STARTS_WITH_NUM: {
+            FOR: "PLAYLIST",
+            ERR: "PLAYLIST_STARTS_WITH_NUM",
+            message: "Playlist cannot start with a number"
         }
      },
 
@@ -98,4 +119,7 @@ module.exports = {
             CODE: "PASS"
         }
      }
+
+   
+     
 }

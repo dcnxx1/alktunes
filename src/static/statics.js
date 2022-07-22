@@ -2,6 +2,7 @@ export default {
     FORM: {
         LOGIN: "LOGIN",
         REGISTER: "REGISTER",
+        PLAYLIST: "PLAYLIST"
     },
     API_URL: {
         url : () => {}

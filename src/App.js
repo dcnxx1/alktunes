@@ -5,12 +5,13 @@ import ControllerContext from './Context/ControllerContext';
 import useMusicComponent from './Music/useMusicComponent';
 
 function App() {
-  const [{song, setSong}, {playlist, setPlaylistFromUrl}, {play, setPlay}, playNext] = useMusicComponent()
+  const [{song, setSong}, {playlist, setPlaylistFromUrl, setPlaylist}, {play, setPlay}, playNext] = useMusicComponent()
   
   const formatOptions = {
     song,
     setSong, 
     playlist,
+    setPlaylist,
     setPlaylistFromUrl,
     play,
     setPlay,
@@ -23,7 +24,7 @@ function App() {
       <Nav />
       <ControllerContext.Provider value={formatOptions}>
       <Routes>
-        <Route  path='/playlist' element={<PlayListComp playlist={{playlist}} />} />
+        <Route  path='/playlist' element={<PlayListComp playlist={{playlist, setPlaylist}} />} />
         <Route  exact path='/playlist/:id' element={<APlaylist />} />
         <Route  path='/' element={<Home />} />
       </Routes>

@@ -12,20 +12,6 @@ function useMusicComponent() {
     const [play, setPlay] = useState(true)
     
 
-    function getPlaylist(){
-        console.log(cookie)
-        const config = {
-            headers: {
-                Authorization : `Bearer ${cookie.USRCOOKIEE} `
-            }
-        }
-
-        axios.get('http://192.168.1.210:5055/playlist/', 
-            config
-        ).then((res) => {
-            setPlaylist(res.data.playlists)
-        })    
-    }
 
     
 
@@ -40,18 +26,14 @@ function useMusicComponent() {
     function setPlaylistFromUrl(url){
         setPlaylist(url)
     }
-    
-    useEffect(() => {
-        getPlaylist()
-    }, [])
-   
+  
 
     useEffect(() => {
         console.log(song)
     }, [song])
 
 
-    return [{song, setSong}, {playlist, setPlaylistFromUrl}, {play, setPlay}, playNext]
+    return [{song, setSong}, {playlist, setPlaylistFromUrl, setPlaylist}, {play, setPlay}, playNext]
 }
 
 export default useMusicComponent

@@ -1,14 +1,33 @@
 import {useState, useEffect} from 'react'
 import Modal from '../components/Modal'
-function usePlaylist() {
+import axios from 'axios'
+import { useCookies } from 'react-cookie'
+import statics from '../static/statics'
+function usePlaylist(formControl, inputFields, error, extractError, setDataForLogin, setUserPlaylists) {
     const [showOptions, setOptions] = useState(false)
     const [selectedPlaylists , setPlaylists] = useState([])
     const [checkBox, setCheckBox] = useState(false)
     const [selectedBy, setSelected] = useState('')
+    const [cookie, setCookie, removeCookie] = useCookies(statics.USR_COOKIE)
+    
+
+    useEffect(() => {
+      const config = {
+        headers: {
+          'Authorization': `Bearer ${cookie.USRCOOKIEE}`
+        }
+      }
+      
+      
+      axios.get('http://192.168.1.210:5055/playlist/', config).then((res) => {
+        setUserPlaylists(prevValue => prevValue = res.data)
+      })
+    }, [])
+
     function playlistHandler(e){
         let selectedPlaylist =  e.currentTarget.getAttribute('data-key')
 
-        if(selectedPlaylists.some(playlist => playlist.keyId == selectedPlaylist) === false){
+        if(selectedPlaylists.some(playlist => playlist.playlist_id == selectedPlaylist) === false){
          setPlaylists(prevValue => ([
            ...prevValue,
            {keyId : selectedPlaylist, isChecked: true}
@@ -18,7 +37,7 @@ function usePlaylist() {
         }
        }
 
-     
+
         function handleLink(e) {
             if(showOptions === true) {
               e.preventDefault()
@@ -41,12 +60,16 @@ function usePlaylist() {
           function showModal(modalType, modalHandle, modalRef){
             return modalType == 'playlistadd' ? <Modal header="Create Playlist" ref={modalRef}>
                 <div className='add-playlist-holder'>
-                   <form>
+                   <form method="POST" action='' onSubmit={e => formControl(e)  }>
                   <label htmlFor='input-playlist' >Playlist name: </label>
-                       <input placeholder='Playlist name' id="input-playlist" className='pl-input text' type="text" />
+                       <input placeholder='Playlist name' name="playlistname" value={inputFields.playlistname} onChange={e => setDataForLogin(e)} id="input-playlist"  className='pl-input text' type="text" />
+                        {error.map((err) => (
+                          <p style={{color: 'red'}}>{err?.message}</p>
+                        ))}
                        {/* <span style={{alignSelf: "center", color: "red"}}>Please fill in </span> */}
                        <div className='add-playlist-btns'>
                         <input onClick={() => {modalHandle(false)}} className="pl-input btn" value="Cancel" type="button" />
+                        
                         <input className="pl-input btn" value="OK" type="submit"/>
                        </div> 
                    </form>            
@@ -66,9 +89,12 @@ function usePlaylist() {
               </Modal>
             
           }
+
+
+          
      
           function checkPlaylistsExist(playlist){
-            if(playlist.playlist.length == 0) {
+            if(playlist && playlist.length == 0) {
               return false
             } else {
               return true

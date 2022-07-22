@@ -5,13 +5,13 @@ import codesRequest from '../errors/codes.request'
 import { useCookies } from 'react-cookie'
 import axios from 'axios'
 import {FORM_ERR, ERRORS} from '../errors/codes.request'
-function useForm(typeOfForm, refs = {}) {
+function useForm(typeOfForm, pl = []) {
     const [inputFields, setInputFields] = useState({})
     const [error, setErrors] = useState([])
     const [cookie, setCookie, removeCookie] = useCookies([statics.USR_COOKIE])
 
     const navigator = useNavigate()
-    
+
     function setDataForLogin(e){
        const {name, value} = e.target
        setInputFields(prevValue => ({
@@ -20,7 +20,9 @@ function useForm(typeOfForm, refs = {}) {
        }))
     }
 
-    
+    useEffect(() => {
+        console.log(error)
+    }, [error])
 
     function findError(searchError){
         return error.some(errorObj => errorObj.ERR == searchError)
@@ -31,11 +33,12 @@ function useForm(typeOfForm, refs = {}) {
     }
 
     function insertError(errorCode){
-        // if error doesnt exist, add the error
-         if(!error.some(findErr => findErr.ERR == errorCode.ERR)){
-            removeOfTheSameType(errorCode?.FOR)
-            setErrors(prevValue => ([...prevValue, {ERR : errorCode.ERR, FOR: errorCode.FOR, message: errorCode.message}]))
-        }
+            // if error doesnt exist, add the error
+             if(error.some(findErr => findErr.ERR == errorCode.ERR) == false){ 
+                console.log("this has run even after the same error is found")
+                removeOfTheSameType(errorCode?.FOR)
+                setErrors(prevValue => ([...prevValue, {ERR : errorCode.ERR, FOR: errorCode.FOR, message: errorCode.message}]))
+            } 
     }
 
     function removeOfTheSameType(search){
@@ -92,7 +95,7 @@ function useForm(typeOfForm, refs = {}) {
         }
         repeatPassword !== password ? insertError(FORM_ERR.ERR_PASS_DONT_MATCH) : removeError(FORM_ERR.ERR_PASS_DONT_MATCH)
         
-       email && email.length == 0 ? insertError(FORM_ERR.ERR_EMAIL_EMPTY) : removeError(FORM_ERR.ERR_EMAIL_EMPTY)
+        email && email.length == 0 ? insertError(FORM_ERR.ERR_EMAIL_EMPTY) : removeError(FORM_ERR.ERR_EMAIL_EMPTY)
            
       
         // if there are no errors
@@ -115,14 +118,48 @@ function useForm(typeOfForm, refs = {}) {
         }
             
         break;
+
+
+        case statics.FORM.PLAYLIST: 
+            const {playlistname} = inputFields 
+            !playlistname ? insertError(FORM_ERR.ERR_PLAYLIST_EMPTY) : removeError(FORM_ERR.ERR_PLAYLIST_EMPTY)
+            if(playlistname){
+                statics.INPUT_VALIDATION.RESTRICT_CHARS.test(playlistname) == true ? insertError(FORM_ERR.ERR_SPECIAL_CHARS_PLAYLIST) : removeError(FORM_ERR.ERR_SPECIAL_CHARS_PLAYLIST)
+                // statics.INPUT_VALIDATION.RESTRICT_CHARS.test(playlistname) == true ? console.log(" adding this now: " + FORM_ERR.ERR_SPECIAL_CHARS_PLAYLIST) : console.log("removing this now: " + FORM_ERR.ERR_SPECIAL_CHARS_PLAYLIST)
+                statics.INPUT_VALIDATION.STARTS_WITH_NUM.test(playlistname) == true ? insertError(FORM_ERR.ERR_PLAYLIST_STARTS_WITH_NUM) : removeError(FORM_ERR.ERR_PLAYLIST_STARTS_WITH_NUM)
+                // statics.INPUT_VALIDATION.STARTS_WITH_NUM.test(playlistname) == true ? insertError(FORM_ERR.ERR_PLAYLIST_STARTS_WITH_NUM) : removeError(FORM_ERR.ERR_PLAYLIST_STARTS_WITH_NUM)
+                playlistname.length < 3 == true ? insertError(FORM_ERR.ERR_MIN_CHARS_PLAYLIST) : removeError(FORM_ERR.ERR_MIN_CHARS_PLAYLIST)                 
+                // playlistname.length < 3 == true ? insertError(FORM_ERR.ERR_MIN_CHARS_PLAYLIST) : removeError(FORM_ERR.ERR_MIN_CHARS_PLAYLIST)                 
+            } 
+
+            const config = {
+                headers: {
+                    'Authorization': `Bearer ${cookie.USRCOOKIEE}`
+                }
+            }
+            console.log(config)
+            const data = {
+                playlistName: inputFields.playlistname
+            }
+
+            if(error && error.length == 0) {
+                axios.post('http://192.168.1.210:5055/playlist/create', data, config ).then((res) => {
+                    // pl(prevValue => prevValue = res.data.Items.playlist)
+                    console.log(res.data)
+                    const {L : playlists} = res.data.Attributes.playlists
+                    pl[0](prevValue => prevValue = playlists)
+                    pl[1](false)
+                }).catch(err => {
+                    // 
+                })
+            }
+            
        }
     }
-
-
-
+    
     // get specific error object
     function extractError(typeOfErrorToExtract){
-     return  error.find(obj => obj.ERR == typeOfErrorToExtract) 
+     return error.find(obj => obj.ERR == typeOfErrorToExtract) 
     }
 
     function returnError(type){
@@ -143,6 +180,9 @@ function useForm(typeOfForm, refs = {}) {
             break;
             case statics.FORM.REGISTER:
             inputValidation(statics.FORM.REGISTER)
+            break;
+            case statics.FORM.PLAYLIST: 
+            inputValidation(statics.FORM.PLAYLIST)
             break;
         }
     }
