@@ -9,9 +9,10 @@ function usePlaylist(formControl, inputFields, error, extractError, setDataForLo
     const [checkBox, setCheckBox] = useState(false)
     const [selectedBy, setSelected] = useState('')
     const [cookie, setCookie, removeCookie] = useCookies(statics.USR_COOKIE)
-    
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+      setLoading(true)
       const config = {
         headers: {
           'Authorization': `Bearer ${cookie.USRCOOKIEE}`
@@ -21,6 +22,7 @@ function usePlaylist(formControl, inputFields, error, extractError, setDataForLo
       
       axios.get('http://192.168.1.210:5055/playlist/', config).then((res) => {
         setUserPlaylists(prevValue => prevValue = res.data)
+        setLoading(false)
       })
     }, [])
 
@@ -110,7 +112,7 @@ function usePlaylist(formControl, inputFields, error, extractError, setDataForLo
         selectedPlaylists, playlistHandler, 
         checkBox, setCheckBox, 
         selectedBy, setSelected,
-        handleLink, showModal, handlePlaylistDelete, checkPlaylistsExist}
+        handleLink, showModal, handlePlaylistDelete, checkPlaylistsExist, loading}
     ]
 }
 

@@ -3,7 +3,7 @@ import Search from './Search'
 import { Link } from 'react-router-dom'
 import useOutsideClick from '../hooks/useOutsideClick'
 import Track from '../compound/Track'
-import {Icon, Logo, TrashWhite, TrashDefect, Plus, Options, CloseWhite, OptionsDefect} from '../imports'
+import {Icon, Logo, TrashWhite, TrashDefect, Plus, Options, CloseWhite, OptionsDefect, Loading} from '../imports'
 import usePlaylist from '../hooks/usePlaylist'
 import axios from 'axios'
 import useForm from '../hooks/useForm'
@@ -16,9 +16,8 @@ function Playlist() {
   const [addPlaylistModal, setAddModal] = useState(false)
   const [userPlaylists, setUserPlaylists] = useState([])
   const [formControl, {inputFields, setDataForLogin}, error, extractError] = useForm(statics.FORM.PLAYLIST, [setUserPlaylists, setAddModal])
-  const [{showOptions, optionHandler, selectedPlaylists, playlistHandler, 
-    checkBox, setCheckBox , selectedBy, setSelected, handleLink, 
-    showModal, handlePlaylistDelete, checkPlaylistsExist}] = usePlaylist(formControl, inputFields, error, extractError,setDataForLogin, setUserPlaylists)
+  const [{showOptions, optionHandler, selectedPlaylists, playlistHandler, checkBox, setCheckBox , selectedBy, setSelected, handleLink, 
+    showModal, handlePlaylistDelete, checkPlaylistsExist, loading}] = usePlaylist(formControl, inputFields, error, extractError,setDataForLogin, setUserPlaylists)
     useOutsideClick(modalRef, () => setAddModal(false))
 
    
@@ -49,13 +48,10 @@ function Playlist() {
           
           {showOptions == true && <span className='opt-info'>Select playlist to remove</span>}
         </div>
-
+        
         <div className='playlist-holder'>
             
-          { checkIfPlaylistsExist === false ? <div className='display-no-playlist'>
-            <p>You have no playlists you can create one <span onClick={() => {setAddModal(prevValue => !prevValue)
-            setSelected('add')}}>here</span>  </p>
-          </div> : userPlaylists.map((aPlaylist) => (
+          { loading == true ? <div className='loading'><img  src={Loading} /></div> : checkIfPlaylistsExist === true ? userPlaylists.map((aPlaylist) => (
             <div key={aPlaylist.playlist_id} data-key={aPlaylist.playlist_id} onClick={(e) => { playlistHandler(e) }} className="track-select"> 
             <Link onClick={e => handleLink(e)} className='link-primary' to={`/playlist/:playlist_id`}>
           <Track>
@@ -76,7 +72,10 @@ function Playlist() {
           </Track>
           </Link> 
           </div>
-          )) 
+          )) : <div className='display-no-playlist'>
+            <p>You have no playlists you can create one <span onClick={() => {setAddModal(prevValue => !prevValue)
+            setSelected('add')}}>here</span>  </p>
+          </div> 
           
           }
         </div>

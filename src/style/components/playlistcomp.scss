@@ -56,6 +56,13 @@
     gap: 1rem;
 }
 
+.loading{
+    width: 100%;
+    height: 100%;
+    padding-top: 30%;
+    text-align: center;
+}
+
 
 .playlist-options{
     width: 100%;
@@ -67,9 +74,17 @@
 
 .display-no-playlist{
     user-select: none;
+    opacity: 0;
+    animation: showCreateDisplay 0.3s ease-in forwards;
     span{
         text-decoration: underline;
         cursor: pointer;
+    }
+}
+
+@keyframes showCreateDisplay{
+    to {
+        opacity: 1;
     }
 }
 

@@ -4,13 +4,18 @@
     flex-direction: row;
     align-items: center;
     gap: 1rem;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid white;
     position: relative;
     cursor: pointer;
     
+    img{
+        width: 45px;
+    }
+
     &:hover{
         outline: 2px solid $full-white;
         border-bottom: 2px solid transparent;
+        
     }
 }
 
@@ -75,6 +80,12 @@
 @media only screen and (max-width: 1200px){
     .track-cover-img{
         width: 55px;
+    }
+   
+    .Track{
+        img{
+           width: 55px; 
+        }
     }
     
     

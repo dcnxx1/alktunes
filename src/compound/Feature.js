@@ -1,14 +1,12 @@
 import React from 'react'
 import styled from 'styled-components';
 const FeatureContainer = styled.div`
-background: url(${({pathToImg}) => pathToImg}) no-repeat center;
-width: 100%;
+width: inherit;
 display: flex;
 align-items: flex-end;
 justify-content: center;
-background-size: 100% 100%;
-
-height: 100%;
+position: relative;
+height: inherit;
 
 
 `
@@ -30,11 +28,24 @@ align-items: center;
 padding-bottom: 1rem;
 font-size: 20pt;
 user-select: none;
+position: absolute;
+bottom: 5%;
 `
+
+const FeaturedImage = styled.img`
+background: url(${({srcImg}) => srcImg}) center no-repeat;
+width: 100%;
+height: 100%;
+object-fit: contain;
+border: none;
+`
+
+
 
 function Feature({pathToImg, artist, feel}) {
   return (
-    <FeatureContainer pathToImg={pathToImg}>    
+    <FeatureContainer>
+    <FeaturedImage srcImg={pathToImg}/>    
     <GlassEffect feel={feel}>{artist}</GlassEffect>    
     </FeatureContainer>
   )
