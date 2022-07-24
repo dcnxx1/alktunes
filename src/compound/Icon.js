@@ -25,15 +25,7 @@ z-index: 15;
 
 cursor: pointer;
  /* show icon tooltip on hover */
- &:hover ${IconTooltip}{
-    display: block;
-    position: relative;
-    left: 3rem;
- }
- &:hover{
-    transition: border-radius 0.2s linear, transform 0.2s linear;
-    transform: scale(1.06)
- }
+
 
 `
 

@@ -26,7 +26,7 @@ function Search() {
     useOutsideClick(ref, () => {
       setMenu(false)})
   return (
-    <form  className='Search'>
+    <form  className="Search">
       <div className='search-holder'>
         <input  className='searchbar' type='text' placeholder='Search artist, album, song' />
         <SearchIcon className="Icon" path={SearchWhite} />

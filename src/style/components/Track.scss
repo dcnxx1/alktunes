@@ -94,6 +94,11 @@
     
     .Track{
         gap: 0rem;
+        
+        img {
+            width: 35px;
+            
+        }
     }
     .track-holder{
         font-size: 8pt;
@@ -103,6 +108,8 @@
         flex: 1;
        
     }
+
+
     .track-album{
         // flex: 1;
         // border: 2px solid white;

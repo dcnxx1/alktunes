@@ -7,7 +7,7 @@ export {default as Controller} from './components/Controller'
 export {default as Range} from './components/Range'
 export {default as PlayListComp} from './components/Playlist'
 export {default as Music} from './components/Music'
-
+export {default as Modal} from './components/Modal'
 
 //  NESTED ROUTES
 export {default as APlaylist} from './components/APlaylist'

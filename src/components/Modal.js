@@ -10,10 +10,7 @@ const Modal = React.forwardRef(({header, children}, ref) => {
             <div  className='portal-header'>
                {header}
             </div>
-
-            <div className='portal-body'>
                {children}
-            </div>
          </div> 
       </div>
       </>,

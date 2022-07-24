@@ -5,7 +5,7 @@ import codesRequest from '../errors/codes.request'
 import { useCookies } from 'react-cookie'
 import axios from 'axios'
 import {FORM_ERR, ERRORS} from '../errors/codes.request'
-function useForm(typeOfForm, pl = []) {
+function useForm(typeOfForm) {
     const [inputFields, setInputFields] = useState({})
     const [error, setErrors] = useState([])
     const [cookie, setCookie, removeCookie] = useCookies([statics.USR_COOKIE])
@@ -117,43 +117,7 @@ function useForm(typeOfForm, pl = []) {
             })
         }
             
-        break;
-
-
-        case statics.FORM.PLAYLIST: 
-            const {playlistname} = inputFields 
-            !playlistname ? insertError(FORM_ERR.ERR_PLAYLIST_EMPTY) : removeError(FORM_ERR.ERR_PLAYLIST_EMPTY)
-            if(playlistname){
-                statics.INPUT_VALIDATION.RESTRICT_CHARS.test(playlistname) == true ? insertError(FORM_ERR.ERR_SPECIAL_CHARS_PLAYLIST) : removeError(FORM_ERR.ERR_SPECIAL_CHARS_PLAYLIST)
-                // statics.INPUT_VALIDATION.RESTRICT_CHARS.test(playlistname) == true ? console.log(" adding this now: " + FORM_ERR.ERR_SPECIAL_CHARS_PLAYLIST) : console.log("removing this now: " + FORM_ERR.ERR_SPECIAL_CHARS_PLAYLIST)
-                statics.INPUT_VALIDATION.STARTS_WITH_NUM.test(playlistname) == true ? insertError(FORM_ERR.ERR_PLAYLIST_STARTS_WITH_NUM) : removeError(FORM_ERR.ERR_PLAYLIST_STARTS_WITH_NUM)
-                // statics.INPUT_VALIDATION.STARTS_WITH_NUM.test(playlistname) == true ? insertError(FORM_ERR.ERR_PLAYLIST_STARTS_WITH_NUM) : removeError(FORM_ERR.ERR_PLAYLIST_STARTS_WITH_NUM)
-                playlistname.length < 3 == true ? insertError(FORM_ERR.ERR_MIN_CHARS_PLAYLIST) : removeError(FORM_ERR.ERR_MIN_CHARS_PLAYLIST)                 
-                // playlistname.length < 3 == true ? insertError(FORM_ERR.ERR_MIN_CHARS_PLAYLIST) : removeError(FORM_ERR.ERR_MIN_CHARS_PLAYLIST)                 
-            } 
-
-            const config = {
-                headers: {
-                    'Authorization': `Bearer ${cookie.USRCOOKIEE}`
-                }
-            }
-            console.log(config)
-            const data = {
-                playlistName: inputFields.playlistname
-            }
-
-            if(error && error.length == 0) {
-                axios.post('http://192.168.1.210:5055/playlist/create', data, config ).then((res) => {
-                    // pl(prevValue => prevValue = res.data.Items.playlist)
-                    console.log(res.data)
-                    const {L : playlists} = res.data.Attributes.playlists
-                    pl[0](prevValue => prevValue = playlists)
-                    pl[1](false)
-                }).catch(err => {
-                    // 
-                })
-            }
-            
+        break;            
        }
     }
     
@@ -180,9 +144,6 @@ function useForm(typeOfForm, pl = []) {
             break;
             case statics.FORM.REGISTER:
             inputValidation(statics.FORM.REGISTER)
-            break;
-            case statics.FORM.PLAYLIST: 
-            inputValidation(statics.FORM.PLAYLIST)
             break;
         }
     }

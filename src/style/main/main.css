@@ -676,6 +676,8 @@
 @media only screen and (max-width: 600px) {
   .Track {
     gap: 0rem; }
+    .Track img {
+      width: 35px; }
   .track-holder {
     font-size: 8pt; }
   .track-name {
@@ -787,136 +789,158 @@
     display: block; } }
 
 .Playlist-Comp {
-  width: 100%;
-  height: 100%;
   display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 10% 80%;
-  grid-template-areas: "Search" "Playlist";
-  position: relative; }
-
-.playlist-img {
-  width: 75px; }
-
-.addbox {
-  display: block;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 2px solid #FFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  animation: transitionOptions .2s ease-in forwards; }
-
-.checktrue {
-  background: #FFF;
-  display: block;
-  width: 90%;
-  height: 90%;
-  border-radius: 50%; }
-
-.pl-s {
-  width: 80%;
-  height: 35px; }
-
-.pl-img {
-  width: 95px; }
-
-.playlist-container {
-  grid-area: Playlist;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem; }
-
-.loading {
   width: 100%;
   height: 100%;
-  padding-top: 30%;
-  text-align: center; }
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 90%;
+  grid-template-areas: "Search" "Playlist"; }
 
-.playlist-options {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  height: 10%;
-  border-bottom: 2px solid #FFF; }
-
-.display-no-playlist {
-  user-select: none;
-  opacity: 0;
-  animation: showCreateDisplay 0.3s ease-in forwards; }
-  .display-no-playlist span {
-    text-decoration: underline;
-    cursor: pointer; }
-
-@keyframes showCreateDisplay {
-  to {
-    opacity: 1; } }
-
-.opt-info {
-  align-self: flex-end;
-  width: 80%;
-  text-align: right;
-  opacity: 0;
-  animation: transitionOptions 0.2s ease-in forwards; }
-
-@keyframes transitionOptions {
-  to {
-    opacity: 1; } }
+.Search {
+  grid-area: Search; }
 
 .playlist-holder {
+  grid-area: Playlist;
   height: 100%;
-  padding: 1rem;
-  overflow-y: auto; }
+  width: 95%;
+  justify-self: center; }
 
-.pl-input {
+.playlist-header {
   width: 100%;
   height: fit-content;
-  padding: 0.5rem;
-  font-size: 14pt;
-  border-radius: 5px;
-  outline: none;
-  background: transparent;
-  border: 0px;
-  color: #FFF; }
+  display: flex;
+  border-bottom: 2px solid white;
+  gap: 1rem;
+  padding-bottom: 0.5rem; }
+  .playlist-header .navleft {
+    width: fit-content;
+    display: flex; }
+    .playlist-header .navleft .link-playlist {
+      display: flex;
+      align-items: center; }
+    .playlist-header .navleft .goback {
+      width: 25px;
+      height: 25px;
+      background: url(../../static/icons/pointup_white.png) center no-repeat;
+      display: inline-block;
+      background-size: 15px;
+      transform: rotate(270deg); }
+    .playlist-header .navleft .to {
+      font-size: 14pt;
+      text-decoration: underline; }
 
-.text {
-  border: 2px solid #FFF; }
+.options {
+  width: 100%;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 100%;
+  display: flex; }
+  .options .Icon {
+    width: 35px;
+    height: 35px;
+    background-size: 20px;
+    display: block;
+    transition: outline 0.2s, transform 0.2s;
+    border-radius: 50%; }
+    .options .Icon:hover {
+      outline: 1px solid #1C1C1C; }
 
-@keyframes selected {
-  to {
-    opacity: 1; } }
-
-.add-playlist-holder {
-  height: 100%; }
-  .add-playlist-holder label {
-    margin-bottom: 1rem; }
-  .add-playlist-holder form {
-    height: 100%;
+.playlists {
+  width: 100%;
+  overflow-y: auto;
+  box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.7);
+  max-height: 750px;
+  overflow-y: auto; }
+  .playlists__ul {
+    width: 100%;
+    list-style: none; }
+  .playlists__track {
+    width: 100%;
+    height: 100px;
     display: flex;
-    flex-direction: column; }
-  .add-playlist-holder .add-playlist-btns {
-    height: 100%;
+    padding: 0.1rem;
+    margin-bottom: 0.5rem;
+    transition: background 0.2s; }
+    .playlists__track:hover {
+      background: #1C1C1C; }
+  .playlists__img {
+    width: fit-content;
     display: flex;
-    align-items: flex-end;
-    gap: 6rem; }
-    .add-playlist-holder .add-playlist-btns input {
-      padding-left: 1rem;
-      padding-right: 1rem;
-      cursor: pointer; }
-      .add-playlist-holder .add-playlist-btns input:hover {
-        outline: 2px solid white; }
+    justify-content: center;
+    align-items: center; }
+    .playlists__img img {
+      width: 85px;
+      height: 85%; }
+  .playlists__name_holder {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    justify-content: center;
+    align-items: center; }
+  .playlists__length {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    justify-content: center;
+    align-items: center; }
+  .playlists__select {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .playlists__box {
+    width: 25px;
+    height: 25px;
+    display: block;
+    border-radius: 50%;
+    border: 2px solid white; }
+
+.playlist-input {
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  text-indent: 1rem;
+  border-radius: 10px;
+  border: none;
+  background: none;
+  color: white;
+  outline: 2px solid white;
+  font-size: 12pt; }
+  .playlist-input:focus {
+    outline: 2px solid white; }
+
+.modal-options {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; }
+  .modal-options .modal-button {
+    width: 100px;
+    font-size: 17pt;
+    font-family: "Poppins", sans-serif;
+    background: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: hover 0.26; }
+    .modal-options .modal-button:hover {
+      background: white;
+      color: black; }
 
 @media only screen and (max-width: 600px) {
-  .addbox {
+  .playlists__img img {
+    width: 75px;
+    height: 75px; }
+  .playlists__name {
+    font-size: 10pt; }
+  .playlists__box {
     width: 20px;
-    height: 20px; }
-  .playlist-img {
-    width: 35px; } }
+    height: 20px; } }
 
 .body-back {
   width: 100%;
