@@ -1,16 +1,19 @@
 import React, {useState} from 'react'
 import Search from './Search'
 import { Options, Icon, TrashDefect, TrashWhite, CloseWhite } from '../imports'
-import {useLocation} from 'react-router-dom'
+import {useLocation, useParams} from 'react-router-dom'
 import Track from '../compound/Track'
 import useAPlaylist from '../hooks/useAPlaylist'
 
 function APlaylist() {
+  const [
+    [showOptions],
+    [setOptions]
+  ] = useAPlaylist()
   
-    const location = useLocation()
-    const [{showOptions, setOptions}] = useAPlaylist()
-    
-
+  
+    const params = useParams()
+  console.log(params.id)
 
     
 
@@ -21,7 +24,7 @@ function APlaylist() {
      </div>
      <div className='APlaylist-container'>
         <div className='APlaylist-header'>
-            <h2>Playlist Name</h2>
+            <h2>Playlistname</h2>
         </div>
         <div className='APlaylist-options'>
         {showOptions == true && <Icon onClick={() => setOptions(false)} style={{backgroundSize: "18px"}} path={CloseWhite} />}

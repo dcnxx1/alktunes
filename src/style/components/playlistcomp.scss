@@ -73,6 +73,11 @@
             }
             border-radius: 50%;
         }
+
+            &__text{
+                align-self: center;
+                width: 100%;
+            }
 }
 
 
@@ -87,8 +92,12 @@
     &__ul{
         width: 100%;
         list-style: none;
-        // background: red;
+        min-height: 250px;
+        max-height: 730px;
         
+        // &__selected{
+        //     background: blue;
+        // }
     }
 
     &__track{
@@ -148,6 +157,28 @@
         border-radius: 50%;
         border: 2px solid white;
     }
+
+    // when playlists is selected by the options butten, turn to bg to blue
+    &__selected{
+        background: rgba(0, 0, 255, 0.514);
+        border: 2px solid blue;
+
+        &:hover{
+            background: rgba(0, 0, 255, 0.514) ;
+        }
+        
+    }
+
+    &__empty{
+        color: gray;
+        &__text{
+           i {
+            text-decoration: underline;
+            color: white;
+            cursor: pointer;
+           }
+        }
+    }
 }
 
 
@@ -176,22 +207,34 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-   
-    .modal-button{
-        width: 100px;
-        font-size: 17pt;
-        font-family: $poppins;
-        background: none;
-        border: 2px solid white;
-        border-radius: 5px;
-        color: white;
-        cursor: pointer;
-        transition: hover 0.26;
-        &:hover{
-            background: white;
-            color: black;
-        }
+}
+
+.modal-button{
+    width: 100px;
+    font-size: 17pt;
+    font-family: $poppins;
+    background: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: hover 0.26;
+    &:hover{
+        background: white;
+        color: black;
     }
+}
+
+.modal-delete{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        div{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 1rem;
+            width: 100%;
+        }
 }
 
 
@@ -213,6 +256,10 @@
         &__box{
             width: 20px;
             height: 20px;
+        }
+
+        &__ul{
+            min-height: 600px;
         }
     }
 }

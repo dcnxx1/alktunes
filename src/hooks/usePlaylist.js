@@ -1,14 +1,76 @@
 import {useState, useEffect} from 'react'
+import { useCookies } from 'react-cookie'
+import statics from '../static/statics'
+import axios from 'axios'
+
+function usePlaylist(setUserPlaylists) {
 
 
-function usePlaylist() {
 const [options, setOptions] = useState(false)
+const [inputValue, setInput] = useState('')
+const [cookie, setCookie, removeCookie] = useCookies(statics.USR_COOKIE)
+const [selectedPlaylists, setSelected] = useState([])
+const [loading, setLoading] = useState(false)
 
-const optionHandler = () => setOptions(prevValue => !prevValue)          
+const optionHandler = (userPlaylist) => userPlaylist.length >= 1 && setOptions(prevValue => !prevValue)          
 const handlePlusButton = (showModal) => options == false ? showModal(prevValue => !prevValue): setOptions(prevValue => !prevValue)
+const handleLink = (e) => options === true && e.preventDefault()
+const deleteHandler = (deleteModal) => selectedPlaylists.length > 1 && deleteModal(true) 
+
+function formHandler(e, closeModal) {
+    setLoading(true)
+    e.preventDefault()
+    const config = {
+        headers: {
+            Authorization: `Bearer ${cookie.USRCOOKIEE}`
+        }
+    }
+    const data = {playlistName: inputValue}
+    
+    axios.post('http://192.168.1.210:5055/playlist/create', data, config).then((res)  => {
+        const playlistData = res .data
+        setUserPlaylists(playlistData)
+        setLoading(false)
+    })
+    closeModal(false)
+    setInput(prevValue => prevValue = '')
+   
+}
+
+function formHandlerDelete(e) {
+    e.preventDefault()
+}
+
+function selectedPlaylistsHandler (id) {
+    if(selectedPlaylists.some((playlist) => playlist.playlist_id == id) == false){
+        setSelected(prevValue => ([
+            ...prevValue,
+            {playlist_id : id}
+        ]))
+    } else {
+        setSelected(prevValue => prevValue.filter(({playlist_id}) => playlist_id !== id ))
+    }
+}
+
+useEffect(() => {
+      setLoading(true)
+        
+    const config = {
+        headers: {
+            'Authorization': ` Bearer ${cookie.USRCOOKIEE}`
+        }
+    }
+    axios.get('http://192.168.1.210:5055/playlist', config).then((res) => {
+    setUserPlaylists(res.data)
+    
+    setLoading(false)    
+})
+    
+}, [])
+
 return [
-    [options, optionHandler],
-    [handlePlusButton]
+    [options, inputValue, selectedPlaylists,  loading],
+    [handlePlusButton, handleLink, optionHandler, formHandler, setInput, selectedPlaylistsHandler, formHandlerDelete, deleteHandler],
 ]
 }
 

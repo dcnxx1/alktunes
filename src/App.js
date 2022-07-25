@@ -5,7 +5,7 @@ import ControllerContext from './Context/ControllerContext';
 import useMusicComponent from './Music/useMusicComponent';
 
 function App() {
-  const [{song, setSong}, {playlist, setPlaylistFromUrl, setPlaylist}, {play, setPlay}, {userPlaylists, setUserPlaylists}, playNext, loading] = useMusicComponent()
+  const [{song, setSong}, {playlist, setPlaylistFromUrl, setPlaylist}, {play, setPlay}, playNext, loading] = useMusicComponent()
   
   const formatOptions = {
     song,
@@ -16,8 +16,6 @@ function App() {
     play,
     setPlay,
     playNext,
-    userPlaylists,
-    setUserPlaylists
   }
 
   return (
