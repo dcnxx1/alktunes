@@ -18,7 +18,7 @@ function Playing() {
 
   return (
     // ${showMiniPlayer == true ? "showMiniPlayer" : "" <- inslide player
-    <div ref={miniPlayerRef} className={`Playing ${showMiniPlayer == true ? "showMiniPlayer" : ""}`}>
+    <div  ref={miniPlayerRef} className={`Playing ${showMiniPlayer == true ? "showMiniPlayer" : ""}`}>
       <span onClick={() => setShowMiniPlayer(prevValue => !prevValue)} className='arrow-up'></span>
       <span className='line'></span>
       <div ref={playlistRef} className={`nexton ${showNexton == true ? 'show-nexton' : ""}`}>
@@ -47,7 +47,7 @@ function Playing() {
         <div className='player-holder'>
         {/* image cover */}
         </div>
-        <Controller/>
+        <Controller />
         <div className='show-playlist '>
           <Icon id="show-play"  onClick={() => {setNexton(prevValue => !prevValue)}} className="playlist-medium" path={PlaylistWhite} />
         </div>

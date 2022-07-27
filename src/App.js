@@ -1,12 +1,12 @@
-import React from 'react';
-import {Home,Playing, Search, Icon, Nav, PlayListComp, APlaylist, Music } from './imports'
+import React, {useState, useEffect} from 'react';
+import {Home,Playing, Search, Icon, Nav, PlayListComp, APlaylist, Music, PlayingMobile } from './imports'
 import {Route, Routes} from 'react-router-dom'
 import ControllerContext from './Context/ControllerContext';
 import useMusicComponent from './Music/useMusicComponent';
 
 function App() {
   const [{song, setSong}, {playlist, setPlaylistFromUrl, setPlaylist}, {play, setPlay}, playNext, loading] = useMusicComponent()
-  
+
   const formatOptions = {
     song,
     setSong, 
@@ -18,8 +18,9 @@ function App() {
     playNext,
   }
 
+
   return (
-    
+
     <div className="App">
       <Nav />
       <ControllerContext.Provider value={formatOptions}>
@@ -28,11 +29,13 @@ function App() {
         <Route  exact path='/playlist/:id' element={<APlaylist />} />
         <Route  path='/' element={<Home />} />
       </Routes>
-      <Playing />
+  
+      <Playing  />
       </ControllerContext.Provider>
       <Music songInfo={{song, play, setPlay}} />
-      
     </div>
+    
+   
   );
 }
 

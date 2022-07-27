@@ -17,10 +17,12 @@ function Playlist() {
     // states
     [options, inputValue, selectedPlaylists, loading],
     // function
-    [handlePlusButton, handleLink, optionHandler, 
+    [handlePlusButton, optionHandler, 
      formHandler, setInput, selectedPlaylistsHandler, 
      formHandlerDelete, deleteHandler]
   ] = usePlaylist(setUserPlaylists) 
+
+  const setSelected = (playlist_id_user) => selectedPlaylists.some(({playlist_id}) => playlist_id == playlist_id_user) == true && 'playlists__selected'
 
 
   return (
@@ -39,7 +41,7 @@ function Playlist() {
       <div className='options'>
         <Icon onClick={() => handlePlusButton(setAddModal)} path={options ? CloseWhite : Plus} className="Icon" />
         <Icon onClick={() => optionHandler(userPlaylists)} path={userPlaylists.length < 1 ? OptionsDefect : Options} className="Icon" />
-        {options &&  <Icon onClick={() =>deleteHandler(setDeleteModal)} path={userPlaylists.length == 0 ? TrashDefect : TrashWhite} className="Icon" />}
+        {options &&  <Icon onClick={() =>deleteHandler(setDeleteModal)} path={selectedPlaylists.length == 0 ? TrashDefect : TrashWhite} className="Icon" />}
         {options && <span className="options__text">Selected a playlist to remove</span>}
       </div>
       <div className='playlists'>
@@ -47,8 +49,8 @@ function Playlist() {
           { userPlaylists.length == 0 && loading === true ? <div className='playlists__empty'>
             <span className='playlists__empty__text'>You have no playlists yet. You can create one <i onClick={() => setAddModal(true)}>here</i></span>
           </div> : loading === false &&   userPlaylists.map((playlistObj) => (
-            <Link key={playlistObj.playlist_id} data-key={playlistObj.playlist_id} onClick={e => handleLink(e)} to={{pathname: `/playlist/${playlistObj.playlist_id}`, query: {id :playlistObj.playlist_id}}} className="link-primary">
-          <li  className={`playlists__track ${options && 'playlists__selected'}`}>
+            <Link key={playlistObj.playlist_id} data-key={playlistObj.playlist_id} onClick={e => selectedPlaylistsHandler(e, playlistObj.playlist_id)} to={{pathname: `/playlist/${playlistObj.playlist_id}`, query: {id :playlistObj.playlist_id}}} className="link-primary">
+          <li  className={`playlists__track ${options && setSelected(playlistObj.playlist_id)}`}>
           <div className='playlists__img'>
             <img className="playlists__img" src="https://unsplash.it/200/200" />
           </div>
@@ -59,7 +61,9 @@ function Playlist() {
               <span className='playlists__name'>2:15</span>
             </div>
             <div className='playlists__select'>
-             {options == true &&  <span className='playlists__box'></span>}
+             {options == true &&  <span className='playlists__box'>
+              {selectedPlaylists.some(({playlist_id}) => playlist_id == playlistObj.playlist_id ) && <span className='addbox'></span>}
+             </span>}
             </div>
           </li>
           </Link>
@@ -90,9 +94,10 @@ function ShowModalAddPlaylist({mRef, close, formHandler, setInput, inputValue}){
   )
 }
 
-function ShowModalDeletePlaylists({mRef, formHandlerDelete, playlist, hideModal}) {
+function ShowModalDeletePlaylists({mRef, formHandler, playlist, hideModal}) {
+
   return <Modal className="portal" ref={mRef} header="Delete playlist">
-  <form onSubmit={ e => {formHandlerDelete(e, hideModal)}} className="playlist-form">
+  <form onSubmit={ e => formHandler(e, hideModal)} className="playlist-form">
     <div className="modal-delete">
       <span>Are you sure you want to delete {playlist.length} playlist(s)</span>
       <div>

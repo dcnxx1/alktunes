@@ -9,17 +9,19 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
+    "framer-motion": "^6.5.1",
     "node-sass": "^7.0.1",
+    "postcss-custom-properties-fallback": "^1.0.2",
     "react": "^18.2.0",
     "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
+    "react-modal-sheet": "^1.5.2",
     "react-player": "^2.10.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
     "swiper": "^8.2.6",
-    "web-vitals": "^2.1.4",
-    "react-swipeable-bottom-sheet": "1.1.2"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

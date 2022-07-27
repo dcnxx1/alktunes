@@ -26,7 +26,7 @@ height: 25px;
 function Controller() {
 
   const formatOptions = useContext(ContextController)
-console.log(formatOptions)
+
 
   return (
     <div className='Controller'>

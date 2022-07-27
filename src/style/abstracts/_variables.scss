@@ -66,3 +66,7 @@ $pt-bold: 'PTSans-Bold', $poppins;
 $pt-italic: 'PTSans-Italic', $poppins, sans-serif;
 $pt-regular: 'PTSans-Regular', $poppins, sans-serif;
 
+body{
+    height: 100vh;
+    overflow: auto;
+}
