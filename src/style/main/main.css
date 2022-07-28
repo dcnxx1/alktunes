@@ -238,7 +238,7 @@ body {
     grid-template-columns: 100%;
     grid-template-rows: 85% 15%;
     grid-template-areas: "Home" "Playing";
-    min-height: 600px; } }
+    min-height: 800px; } }
 
 .Nav {
   width: 100%;
@@ -307,7 +307,7 @@ body {
   text-indent: 1rem;
   font-family: "PTSans-Bold", "Poppins", sans-serif; }
   .searchbar:focus {
-    outline: none; }
+    outline: white; }
 
 .search-menu-icon {
   display: none; }
@@ -620,14 +620,12 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 1rem;
-  border-bottom: 2px solid white;
   position: relative;
   cursor: pointer; }
   .Track img {
-    width: 45px; }
+    width: 75px; }
   .Track:hover {
-    outline: 2px solid #FFF;
-    border-bottom: 2px solid transparent; }
+    background: #1C1C1C; }
 
 .track-holder {
   width: fit-content;
@@ -681,9 +679,9 @@ body {
   .Track {
     gap: 0rem; }
     .Track img {
-      width: 35px; }
+      width: 65px; }
   .track-holder {
-    font-size: 8pt; }
+    font-size: 10pt; }
   .track-name {
     flex: 1; }
   .track-album {
@@ -783,6 +781,7 @@ body {
   display: none; }
 
 .item-roller {
+  border: none;
   width: fit-content;
   background: url(../../static/logo_new/alktune_logo.svg) center no-repeat; }
   .item-roller img {
@@ -1094,9 +1093,25 @@ body {
 .apl-artist {
   color: #ADADAD; }
 
+.aplaylist-empty-tracks {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+  color: gray; }
+  .aplaylist-empty-tracks i {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+    user-select: none; }
+
 @media only screen and (max-width: 600px) {
   .apl-img {
-    width: 55px; } }
+    width: 55px; }
+  .aplaylist-empty-tracks {
+    max-width: 100%;
+    text-align: center; } }
 
 .sheet-header {
   background: black;

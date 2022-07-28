@@ -14,13 +14,13 @@ function Roller() {
    slidesPerView={2}
     >
   <SwiperSlide className='item-roller'>
-    <Feature  pathToImg='https://unsplash.it/200/200' artist={"Drake"} feel="dark"/> 
+    <Feature  pathToImg='https://unsplash.it/200/200' artist={"Michael Jackson"} feel="light"/> 
   </SwiperSlide>
   <SwiperSlide defaultChecked className='item-roller'>
     <Feature  pathToImg='https://unsplash.it/200/200' artist={"Drake"} feel="dark"/> 
   </SwiperSlide>
   <SwiperSlide className='item-roller'>
-    <Feature pathToImg='https://unsplash.it/200/200' artist={"Drake"} feel="dark"/> 
+    <Feature pathToImg='https://unsplash.it/200/200' artist={"NLE Choppa"} feel="dark"/> 
   </SwiperSlide>
 </Swiper>
   )

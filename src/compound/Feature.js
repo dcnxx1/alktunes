@@ -30,6 +30,7 @@ font-size: 20pt;
 user-select: none;
 position: absolute;
 bottom: 5%;
+
 `
 
 const FeaturedImage = styled.img`

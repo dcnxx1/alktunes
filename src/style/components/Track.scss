@@ -4,17 +4,15 @@
     flex-direction: row;
     align-items: center;
     gap: 1rem;
-    border-bottom: 2px solid white;
     position: relative;
     cursor: pointer;
     
     img{
-        width: 45px;
+        width: 75px;
     }
 
     &:hover{
-        outline: 2px solid $full-white;
-        border-bottom: 2px solid transparent;
+        background: $gray1;
         
     }
 }
@@ -96,17 +94,17 @@
         gap: 0rem;
         
         img {
-            width: 35px;
+            width: 65px;
             
         }
     }
     .track-holder{
-        font-size: 8pt;
+        font-size: 10pt;
     }
 
     .track-name{
         flex: 1;
-       
+        ;
     }
 
 

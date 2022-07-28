@@ -49,7 +49,7 @@ function Playlist() {
           { userPlaylists.length == 0 && loading === true ? <div className='playlists__empty'>
             <span className='playlists__empty__text'>You have no playlists yet. You can create one <i onClick={() => setAddModal(true)}>here</i></span>
           </div> : loading === false &&   userPlaylists.map((playlistObj) => (
-            <Link key={playlistObj.playlist_id} data-key={playlistObj.playlist_id} onClick={e => selectedPlaylistsHandler(e, playlistObj.playlist_id)} to={{pathname: `/playlist/${playlistObj.playlist_id}`, query: {id :playlistObj.playlist_id}}} className="link-primary">
+            <Link key={playlistObj.playlist_id} data-key={playlistObj.playlist_id} onClick={e => selectedPlaylistsHandler(e, playlistObj.playlist_id)} to={{pathname: `/playlist/${playlistObj.playlist_id}`}} state={{playlist_name: playlistObj.playlist_name}} className="link-primary">
           <li  className={`playlists__track ${options && setSelected(playlistObj.playlist_id)}`}>
           <div className='playlists__img'>
             <img className="playlists__img" src="https://unsplash.it/200/200" />

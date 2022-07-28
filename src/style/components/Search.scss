@@ -28,9 +28,10 @@
     background: transparent;
     border: none;
     text-indent: 1rem;
-    font-family: $pt-bold;   
+    font-family: $pt-bold;  
+     
     &:focus{
-        outline: none;
+        outline: white;
     }
 }
 

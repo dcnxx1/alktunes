@@ -56,8 +56,31 @@
     color: #ADADAD ;
 }
 
+.aplaylist-empty-tracks{
+    justify-content: center;
+    align-items: center;
+    
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+    color: gray;
+    i{
+        color: white;
+        text-decoration: underline;
+        cursor: pointer;
+        user-select: none;
+    }
+
+}
+
 @media only screen and (max-width: 600px){
     .apl-img{
         width: 55px;
     }
+
+    .aplaylist-empty-tracks{
+        max-width: 100%;
+        text-align: center;
+    }
+
 }
