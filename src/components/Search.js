@@ -22,9 +22,10 @@ function Search({buttonRef = {}}) {
       <div className='search-holder'>
         <input onChange={e => handleSearchInput(e)} value={searchInput} ref={searchRef}  className='searchbar' type='text' placeholder='Search artist, album, song' />
         <SearchIcon value=""  className="Icon" path={SearchWhite} />
+     
       </div>
       <div  className='seach-result'>
-
+      
       </div>
       <Icon onClick={() => setMenu(prevValue => !prevValue)} id="menu-btn"  className='Icon search-menu-icon' hide="true"  path={ArrowFullWhite} />
       

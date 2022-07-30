@@ -4,8 +4,7 @@ import statics from '../static/statics'
 function useSearch() {
   const [search, setSearch] = useState([])
   const [searchInput, setInput] = useState('')
-  const [suggestResults, setSuggest] = useState([])
-  const [searchCache, setSearchCache] = useState([])
+
     const handleSearchInput = e => setInput(e.target.value)
     
     const handleIllegalInput = () => 
@@ -22,10 +21,9 @@ function useSearch() {
         const inputSearchTimeout = setTimeout(() => {
             if(handleIllegalInput() === false) return
             const config = { params :{ search: searchInput } }
-            
             axios.get(`http://192.168.1.210:5055/search/`, config).then((res) => {
-                console.log(res.data)   
-            // setSearchCache()
+                setSearch(res.data)
+                console.log(search)
             })
         }, 200)
 
