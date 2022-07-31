@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useMemo} from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Icon, SearchWhite, ArrowFullWhite, HomeWhite, QueueWhite, PlaylistWhite, LogoutWhite  } from '../imports'
@@ -15,6 +15,9 @@ function Search({buttonRef = {}}) {
       [handleSubmit, handleSearchInput]
     ] = useSearch()
 
+
+  
+
     useOutsideClick(ref, () => {
       setMenu(false)})
   return (
@@ -22,7 +25,7 @@ function Search({buttonRef = {}}) {
       <div className='search-holder'>
         <input onChange={e => handleSearchInput(e)} value={searchInput} ref={searchRef}  className='searchbar' type='text' placeholder='Search artist, album, song' />
         <SearchIcon value=""  className="Icon" path={SearchWhite} />
-     
+        
       </div>
       <div  className='seach-result'>
       

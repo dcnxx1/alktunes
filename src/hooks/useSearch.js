@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import statics from '../static/statics'
 function useSearch() {
-  const [search, setSearch] = useState([])
+  const [search, setSearch] = useState({})
   const [searchInput, setInput] = useState('')
 
     const handleSearchInput = e => setInput(e.target.value)
@@ -10,7 +10,6 @@ function useSearch() {
     const handleIllegalInput = () => 
     searchInput === "" || 
     searchInput.length == 0 || 
-    statics.INPUT_VALIDATION.RESTRICT_CHARS.test(searchInput) === true ||
     statics.INPUT_VALIDATION.STARTS_WITH_NUM.test(searchInput) === true ? false: true
     
     function handleSubmit(e){
@@ -22,8 +21,8 @@ function useSearch() {
             if(handleIllegalInput() === false) return
             const config = { params :{ search: searchInput } }
             axios.get(`http://192.168.1.210:5055/search/`, config).then((res) => {
-                setSearch(res.data)
-                console.log(search)
+                // setSearch(res.data)
+                console.log(res.data)
             })
         }, 200)
 
