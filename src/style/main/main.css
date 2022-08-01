@@ -288,7 +288,7 @@ body {
   padding-right: 1rem;
   justify-content: center;
   position: relative;
-  z-index: 5; }
+  z-index: 23; }
 
 .search-holder {
   width: 100%;
@@ -296,7 +296,8 @@ body {
   display: flex;
   background: #1C1C1C;
   border-radius: 40px;
-  padding-right: 1rem; }
+  padding-right: 1rem;
+  z-index: 4; }
 
 .searchbar {
   width: 100%;
@@ -336,6 +337,52 @@ body {
     .show-menu .mobile-link:active {
       color: black; }
 
+.search-results {
+  width: calc(100% - 2.4%);
+  min-height: fit-content;
+  border-radius: 25px;
+  padding-top: 3rem;
+  top: 28%;
+  left: 1.1%;
+  opacity: 0;
+  background: #1C1C1C;
+  position: absolute;
+  animation: showResults 0.2s ease-in forwards; }
+
+.result-wrapper {
+  height: fit-content;
+  width: 100%;
+  min-height: fit-content; }
+
+.list-results {
+  width: 100%;
+  overflow: hidden;
+  height: fit-content;
+  padding-bottom: 1.2rem;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: #1C1C1C;
+  padding: 0.5rem; }
+
+.Track:hover {
+  background: gray !important; }
+
+.search-name {
+  padding: 1rem;
+  display: block;
+  cursor: pointer; }
+  .search-name:hover {
+    background: gray; }
+
+.search-result-map ul {
+  background: green; }
+
+@keyframes showResults {
+  to {
+    height: 150px;
+    top: 29%;
+    opacity: 1; } }
+
 @keyframes showMenu {
   to {
     opacity: 1; } }
@@ -349,6 +396,11 @@ body {
 @media only screen and (max-width: 600px) {
   .search-menu-icon {
     display: block; }
+  .result-wrapper img {
+    width: 15px; }
+  .search-results {
+    width: 82.8%;
+    left: 3.6%; }
   .show-m {
     display: flex; } }
 
@@ -1150,6 +1202,25 @@ body {
     margin-top: 1rem; }
     .sheet-header__range span {
       font-size: 9pt; }
+
+.artist {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 90%;
+  grid-template-areas: "Search" "Artist";
+  padding: 0.5rem; }
+
+.search-artist {
+  grid-area: Search; }
+
+.artist-component {
+  width: 100%;
+  height: 100%;
+  grid-area: Artist;
+  display: flex;
+  justify-content: center; }
 
 * {
   margin: 0;

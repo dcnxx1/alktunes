@@ -1,5 +1,5 @@
 import React, {useState, useEffect, createRef} from 'react';
-import {Home,Playing, Search, Icon, Nav, PlayListComp, APlaylist, Music, PlayingMobile } from './imports'
+import {Home,Playing, Search, Icon, Nav, PlayListComp, APlaylist, Music, Artist, PlayingMobile } from './imports'
 import {Route, Routes} from 'react-router-dom'
 import ControllerContext from './Context/ControllerContext';
 import useMusicComponent from './Music/useMusicComponent';
@@ -27,7 +27,9 @@ function App() {
       <Routes>
         <Route  path='/playlist' element={<PlayListComp/>} />
         <Route  exact path='/playlist/:id' element={<APlaylist refSearch={{searchRef}} />} />
+        <Route  path="/artist/:id" element={<Artist />} />
         <Route  path='/' element={<Home />} />
+      
       </Routes>
   
       <Playing  />

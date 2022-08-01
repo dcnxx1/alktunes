@@ -8,7 +8,7 @@ export default {
         url : () => {}
     },
     INPUT_VALIDATION: {
-        RESTRICT_CHARS: /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/,
+        RESTRICT_CHARS: /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/,
         STARTS_WITH_NUM: /^\d/
     },
 

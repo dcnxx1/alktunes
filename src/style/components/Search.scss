@@ -10,7 +10,7 @@
    padding-right: 1rem;
    justify-content: center;
    position: relative;
-   z-index: 5;
+   z-index: 23;
 }
 
 .search-holder{
@@ -20,6 +20,7 @@
     background: $gray1;
     border-radius: 40px;
     padding-right: 1rem;    
+    z-index: 4;
 }
 .searchbar{
     width: 100%;
@@ -29,7 +30,7 @@
     border: none;
     text-indent: 1rem;
     font-family: $pt-bold;  
-     
+    
     &:focus{
         outline: white;
     }
@@ -70,6 +71,65 @@
     }
 }
 
+.search-results{
+    width: calc(100% - 2.4%);
+    min-height: fit-content;
+    border-radius: 25px;
+    padding-top: 3rem;
+    top: 28%;
+    left: 1.1%;
+    opacity: 0; 
+    background: $gray1;
+    position: absolute;
+    animation: showResults 0.2s ease-in forwards;
+   
+}
+
+
+.result-wrapper{
+    height: fit-content;
+    width: 100%;
+    min-height: fit-content;
+}
+.list-results{
+    width: 100%;
+    overflow: hidden;
+    height: fit-content;
+    padding-bottom: 1.2rem;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: $gray1;
+    padding: 0.5rem;
+}
+.Track{
+    &:hover{
+        background: gray !important;
+    }
+}
+.search-name{
+    padding: 1rem;
+    display: block;
+    cursor: pointer;
+    &:hover{
+        background: gray;
+    }
+}
+
+.search-result-map{
+ul{
+    background: green;
+}
+}
+
+@keyframes showResults {
+    
+    to {
+        height: 150px;
+        top: 29%;
+        opacity: 1;
+    }
+}
+
 @keyframes showMenu {
     to {
         opacity: 1;
@@ -86,11 +146,22 @@
 
 }
 
+
+
 @media only screen and(max-width: 600px){
     .search-menu-icon{
         display: block;
     }
+    .result-wrapper{
+        img{
+            width: 15px;
     
+        }
+    }
+    .search-results{
+        width: 82.8%;
+        left: 3.6%;
+    }
     .show-m{
         display: flex;
     }

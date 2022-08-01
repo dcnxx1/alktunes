@@ -1,0 +1,25 @@
+.artist{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 90%;
+    grid-template-areas: 
+    "Search"
+    "Artist"
+    ;
+    padding: 0.5rem;
+}
+
+.search-artist{
+    grid-area: Search;
+}
+
+.artist-component{
+    width: 100%;
+    height: 100%;
+    grid-area: Artist;
+    display: flex;
+    justify-content: center;
+}
+

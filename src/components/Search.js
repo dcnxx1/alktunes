@@ -1,31 +1,31 @@
 import React, {useState, useRef, useMemo} from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { Icon, SearchWhite, ArrowFullWhite, HomeWhite, QueueWhite, PlaylistWhite, LogoutWhite  } from '../imports'
+import { Icon, SearchWhite, ArrowFullWhite, HomeWhite, QueueWhite, PlaylistWhite, LogoutWhite, Pause, MoreWhite , AddPlaylist } from '../imports'
 import useOutsideClick from '../hooks/useOutsideClick'
 import useSearch from '../hooks/useSearch'
-
+import Track from '../compound/Track'
 
 function Search({buttonRef = {}}) {
     const {searchRef} = buttonRef
     const [showMenu, setMenu] = useState(false)
+    const resultRef = useRef()
     const ref = useRef(null)
     const [
-      [search, searchInput],
-      [handleSubmit, handleSearchInput]
+      [search, searchInput, showResults],
+      [handleSubmit, handleSearchInput, setResults]
     ] = useSearch()
 
 
   
-
+    useOutsideClick(resultRef, () => setResults(false))
     useOutsideClick(ref, () => {
-      setMenu(false)})
+    setMenu(false)})
   return (
     <form onSubmit={(e) => handleSubmit(e)} className="Search">
       <div className='search-holder'>
         <input onChange={e => handleSearchInput(e)} value={searchInput} ref={searchRef}  className='searchbar' type='text' placeholder='Search artist, album, song' />
         <SearchIcon value=""  className="Icon" path={SearchWhite} />
-        
       </div>
       <div  className='seach-result'>
       
@@ -33,13 +33,49 @@ function Search({buttonRef = {}}) {
       <Icon onClick={() => setMenu(prevValue => !prevValue)} id="menu-btn"  className='Icon search-menu-icon' hide="true"  path={ArrowFullWhite} />
       
       <div ref={ref} className={`show-menu ${showMenu == true ? 'show-m' : ''}`}>
- 
+
           <Link to="/" className='mobile-link'>Home</Link>
           <Link to="/playlist" className='mobile-link'>Playlist</Link>
           <Link to="/queue" className='mobile-link'>Queue</Link>
           <Link to="/logout" className='mobile-link'>Logout</Link>
        
-      </div>
+      </div> 
+      {showResults && <div ref={resultRef} className="search-results">
+        <ul className="list-results">
+          {search.map(({name, type, searchResults}) => (
+           <div className='result-wrapper'>
+            {name && <Link className="link-primary" to="/artist/"><span className="search-name">{name}</span></Link>}
+            {searchResults && searchResults.map((resultObj) => (
+              <Track className="Track">
+                <Track.Holder className="track-holder">
+                  <img className="search-cover" src={resultObj.track_cover} />
+                </Track.Holder>
+                <Track.Holder className="track-holder f-1">
+                  <span>
+                  {resultObj.track_name}
+                  </span>
+                </Track.Holder>
+                <Track.Holder className="track-holder f-1">
+                <span>
+                  {resultObj.track_album}
+                </span>
+                </Track.Holder>
+                <Track.Holder className="track-hodler f-1">
+                <span>
+                  {resultObj.track_length}
+                </span>
+                </Track.Holder>
+                <Track.Holder>
+                <span classname="more-options">
+                                    
+                </span>
+                </Track.Holder>
+              </Track>
+            ))}
+           </div>
+          ))}
+        </ul>
+      </div>}
     </form>
   )
 }

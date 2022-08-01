@@ -2,16 +2,14 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 import statics from '../static/statics'
 function useSearch() {
-  const [search, setSearch] = useState({})
+  const [search, setSearch] = useState([])
   const [searchInput, setInput] = useState('')
-
-    const handleSearchInput = e => setInput(e.target.value)
-    
+  const [showResults, setResults] = useState(false)
+  const handleSearchInput = e => setInput(e.target.value)
+  const REFRESH_TIMEOUT = 100  
     const handleIllegalInput = () => 
     searchInput === "" || 
-    searchInput.length == 0 || 
-    statics.INPUT_VALIDATION.STARTS_WITH_NUM.test(searchInput) === true ? false: true
-    
+    searchInput.length == 0 === true ? false: true
     function handleSubmit(e){
         e.preventDefault()
     }
@@ -19,13 +17,17 @@ function useSearch() {
     useEffect(() => {
         const inputSearchTimeout = setTimeout(() => {
             if(handleIllegalInput() === false) return
-            const config = { params :{ search: searchInput } }
-            axios.get(`http://192.168.1.210:5055/search/`, config).then((res) => {
-                // setSearch(res.data)
-                console.log(res.data)
+            const config = { params : { search: searchInput.trim() } }
+            axios.get(`http://192.168.1.210:5055/search/`, config).then((res) => {   
+            setSearch(res.data)
             })
-        }, 200)
+        }, REFRESH_TIMEOUT)
 
+        if(searchInput === ""){
+            setResults(false)
+        } else {
+            setResults(true)
+        }
         return () => {
             clearTimeout(inputSearchTimeout)
         }
@@ -33,9 +35,9 @@ function useSearch() {
     return(
     [   
         // state
-        [search, searchInput],
+        [search, searchInput, showResults],
         // handler / functions
-        [handleSubmit, handleSearchInput]
+        [handleSubmit, handleSearchInput, setResults]
     ]
 )
 }
