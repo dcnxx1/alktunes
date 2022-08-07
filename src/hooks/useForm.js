@@ -20,9 +20,6 @@ function useForm(typeOfForm) {
        }))
     }
 
-    useEffect(() => {
-        console.log(error)
-    }, [error])
 
     function findError(searchError){
         return error.some(errorObj => errorObj.ERR == searchError)

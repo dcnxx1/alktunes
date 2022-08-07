@@ -79,7 +79,6 @@ function Home() {
                 <span>2:21</span>
               </Track.Holder>
             </Track>
-            
           </ul>
         </div>
       </div>

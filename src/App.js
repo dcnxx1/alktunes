@@ -5,20 +5,28 @@ import ControllerContext from './Context/ControllerContext';
 import useMusicComponent from './Music/useMusicComponent';
 
 function App() {
-  const [{song, setSong}, {playlist, setPlaylistFromUrl, setPlaylist}, {play, setPlay}, playNext, loading] = useMusicComponent()
-  const searchRef = createRef()
+
+  const [
+    [song, playlist, play, userPlaylists, at],
+    [setSong, setPlaylist, setPlay, setUserPlaylists, playNext, setAt]
+  ] = useMusicComponent()
+
   const formatOptions = {
     song,
-    setSong, 
     playlist,
-    setPlaylist,
-    setPlaylistFromUrl,
     play,
+    userPlaylists,
+    at,
+    setPlaylist,
     setPlay,
+    setSong,
+    setUserPlaylists,
     playNext,
+    setAt,
   }
 
-
+  const searchRef = createRef()
+   
   return (
 
     <div className="App">
@@ -31,10 +39,10 @@ function App() {
         <Route  path='/' element={<Home />} />
       
       </Routes>
-  
+
       <Playing  />
       </ControllerContext.Provider>
-      <Music songInfo={{song, play, setPlay}} />
+      <Music songInfo={{song, play, setPlay, setAt}} />
     </div>
     
    

@@ -1,14 +1,14 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import ReactPlayer from 'react-player'
 
 
 
 function Music({songInfo}) {
-
-    console.log(songInfo)
-    
+  const {song, play, setPlay, setAt} = songInfo
+  const playerRef = useRef()
+   
   return (
-    <ReactPlayer playing={songInfo.play} url={songInfo.song[0].url} style={{display: "none"}} />
+    <ReactPlayer onProgress={e => setAt(e.playedSeconds)} ref={playerRef} playing={play} url={song.track_source} style={{display: "none"}} />
   )
 }
 

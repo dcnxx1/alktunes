@@ -11,6 +11,9 @@ function useOutsideClick(ref, onClickOutside) {
                 if(event.target.id == "show-play"){
                     return
                 }
+                if(event.target.id == "option-artist"){
+                    return
+                }
                 onClickOutside()
             }
         }

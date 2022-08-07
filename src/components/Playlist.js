@@ -1,12 +1,13 @@
-import React, {useState, createRef, useRef} from 'react';
+import React, {useState, createRef, useRef , useContext} from 'react';
 import Search from './Search';
 import { Link } from 'react-router-dom';
 import useOutsideClick from '../hooks/useOutsideClick';
 import usePlaylist from '../hooks/usePlaylist';
 import {ArrowFullWhite, Icon, TrashDefect, TrashWhite, Plus, Options, CloseWhite, Modal, OptionsDefect} from '../imports';
+import ContextController from '../Context/ControllerContext';
 
 function Playlist() {
-  const [userPlaylists, setUserPlaylists] = useState([])
+  const {userPlaylists, setUserPlaylists} = useContext(ContextController)
   const modalRef = createRef()
   const [addPlaylistModal, setAddModal] = useState(false)
   const [deleteModal, setDeleteModal] = useState(false) 

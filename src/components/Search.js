@@ -43,8 +43,12 @@ function Search({buttonRef = {}}) {
       {showResults && <div ref={resultRef} className="search-results">
         <ul className="list-results">
           {search.map(({name, type, searchResults}) => (
-           <div className='result-wrapper'>
-            {name && <Link className="link-primary" to="/artist/"><span className="search-name">{name}</span></Link>}
+           <div key={name} className='result-wrapper'>
+            {name && 
+            <Link state={{name, type}} className="link-primary" 
+            to={{
+              pathname: `/artist/${name.replace(' ', '').replace(' ', '')}`,
+            }}><span className="search-name">{name}</span></Link>}
             {searchResults && searchResults.map((resultObj) => (
               <Track className="Track">
                 <Track.Holder className="track-holder">
@@ -53,6 +57,9 @@ function Search({buttonRef = {}}) {
                 <Track.Holder className="track-holder f-1">
                   <span>
                   {resultObj.track_name}
+                  </span>
+                  <span>
+                    {resultObj.track_artist}
                   </span>
                 </Track.Holder>
                 <Track.Holder className="track-holder f-1">
@@ -66,7 +73,7 @@ function Search({buttonRef = {}}) {
                 </span>
                 </Track.Holder>
                 <Track.Holder>
-                <span classname="more-options">
+                <span className="more-options">
                                     
                 </span>
                 </Track.Holder>

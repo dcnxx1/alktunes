@@ -41,7 +41,9 @@
 .APlaylist-holder{
     width: 95%;
     height: 100%;
+    max-height: 700px;
     flex: 5;
+    overflow-y: auto;
 }
 
 .apl-img{
@@ -73,6 +75,36 @@
 
 }
 
+
+.delete-track-modal{
+    display: flex;
+    gap: 1rem;
+    height: 60%;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+    input{
+        width: 100%;
+        border: 2px solid white;
+        color: white;
+        height: fit-content;
+        padding: 0.5rem 1rem;
+        background: $gray1;
+        font-family: $poppins;
+        border-radius: 10px;
+        cursor: pointer;
+        &:hover{
+            animation: highlightButton .2s ease-in forwards;
+        }
+    }
+}
+@keyframes highlightButton{
+    to {
+        color: black;
+        background: white;
+    }
+}
+
 @media only screen and (max-width: 600px){
     .apl-img{
         width: 55px;
@@ -83,4 +115,8 @@
         text-align: center;
     }
 
+
+    .APlaylist-holder{
+        max-height: 500px;
+    }
 }

@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useContext, useMemo} from 'react'
 import styled from 'styled-components'
-
+import ContextController from '../Context/ControllerContext'
 const Ranger = styled.input.attrs({type: 'range'})`
     width: 70%;
     height: fit-content;
@@ -11,8 +11,10 @@ const Ranger = styled.input.attrs({type: 'range'})`
 `
 
 function Range() {
+  const {at} = useContext(ContextController)
+
   return (
-    <Ranger  />
+    <Ranger value="25"  />
   )
 }
 

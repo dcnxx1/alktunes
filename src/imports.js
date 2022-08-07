@@ -40,6 +40,8 @@ export {default as CloseWhite}     from './static/icons/closewhite.png'         
 export {default as OptionsDefect}  from './static/icons/settings_defect.png'      ;
 export {default as Loading}        from './static/icons/loading.gif'              ;
 export {default as AddPlaylist}    from './static/icons/add-list.png'             ;
+export {default as CheckYes}       from './static/icons/yes.png'                  ;
+export {default as CheckNo}        from './static/icons/no.png'                   ;
 // LOGO
 export {default as LogoFull}       from './static/logo_new/alktune_full_png.png'  ;
 export {default as LogoMedium}     from './static/logo_new/alktune_medium_png.png';

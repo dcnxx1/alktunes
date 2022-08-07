@@ -74,21 +74,7 @@ function selectedPlaylistsHandler (e, id) {
 }
 
 
-useEffect(() => {
-      setLoading(true)
-        
-    const config = {
-        headers: {
-            'Authorization': ` Bearer ${cookie.USRCOOKIEE}`
-        }
-    }
-    axios.get('http://192.168.1.210:5055/playlist', config).then((res) => {
-    setUserPlaylists(res.data)
-    
-    setLoading(false)    
-})
-    
-}, [])
+
 
 return [
     [options, inputValue, selectedPlaylists,  loading],

@@ -15,11 +15,293 @@
     grid-area: Search;
 }
 
+
 .artist-component{
     width: 100%;
     height: 100%;
     grid-area: Artist;
     display: flex;
     justify-content: center;
+   
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
 }
 
+.artist-header{
+    width: 100%;
+    height: fit-content;
+    border-bottom: 2px solid white;
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1{
+        flex: 1;
+    }
+}
+
+.artist-track-holder{
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    overflow-y: auto;
+    user-select: none;
+    .track-holder{
+        text-align: center;
+        position: relative;
+    }
+
+    .Icon {
+        width: 25px;
+        height: 25px;
+        background-size: 20px;
+        display: block;
+    }
+    .more-options-artist{
+        position: absolute;
+        background: $gray1;
+        z-index: 55;
+        top: 50px;
+        right: 20%;
+        border-radius: 15px;
+        padding: 0.5px;
+        width: 250px;
+        padding: 1rem;
+        
+        .options-holder{
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            .options-option{
+                &:nth-child(2){
+                    .Icon{
+                        background-size: 30px;    
+                    }
+                }   
+            }
+            
+        }
+        .options-option{
+            display: flex;
+            padding: 1rem;
+            border-radius: 5px;
+            transition: background 0.1s ease-out;
+            .option-icon{
+                flex: 1;
+            }
+            &:hover{
+                background: gray;
+            }
+        }
+    }
+}
+
+
+
+.artist-modal{
+    width: 100%;
+    height: 100%;
+    
+    .artist-options{
+        width:100%;
+        padding-bottom: .5rem;
+        border-bottom: 2px solid white;
+        height: fit-content;
+        min-width: 100%;
+        gap: 0.2rem;
+        display: flex;
+        flex-direction: column;
+        .Icon{
+            width: 25px;
+            height: 25px;
+            background-size: 20px;
+            display: block;
+           }
+        .artist-input{
+            width: 100%;
+            z-index: 2;
+            border-radius: 5px;
+            border: 2px solid white;
+            background: none;
+            color: white;
+            font-family: $poppins;       
+            padding: 0.2rem;
+            &:focus{
+               outline: none;
+            }
+        
+        }
+        .icon-create{
+            z-index: 5;
+            background: $gray1;
+            height: 100%;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            justify-items: center;
+        }
+    }
+    .artist-create-playlist{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .artist-create-playlist-submit{
+        opacity: 0;
+        display: flex;
+        gap: 1rem;
+        animation: showSubmitArtist .2s ease-in forwards;
+    
+        .submit-playlist-icon{
+            background: url(../../static/icons/yes.png) center no-repeat;
+            width: 25px;
+            height: 25px;
+            border: none;
+            background-size: 20px;
+            cursor: pointer;
+        }
+    }
+}
+
+.artist-playlist-action-wrapper{
+    width: 100%;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 1rem;
+}
+
+.artist-playlist-holder{
+    max-height: 190px;
+    min-height: 190px;
+    overflow-y: auto;
+
+}
+
+
+.artist-show-error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    opacity: 0;
+    animation: show-error .2s ease-in forwards;
+}
+
+
+.artist-track-add{
+    height: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+    input{
+        border: none;
+        font-size: 14pt;
+        padding: 0.2rem 1.5rem;
+        background: none;
+        border-radius: 5px;
+        border: 2px solid white;
+        color: white;
+        cursor: pointer;
+        &:hover{
+            animation: artist-button .2s ease-in forwards;
+        }
+    }
+}
+
+@keyframes artist-button{
+    to{
+        background: white;
+        color: black;
+    }
+}
+
+@keyframes show-error{
+    to {
+        opacity: 1;
+    }
+}
+@keyframes showSubmitArtist{
+    to {
+        opacity: 1;
+    }
+}
+
+.cover-holder{
+    flex: 1;
+    img{
+        width: 155px;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    
+    .artist-track-holder{
+        .more-options-artist{
+            left: -75%;
+        }
+    }
+}
+
+@media only screen and (max-width: 860px){
+   .artist-track-holder{
+    .more-options-artist{
+       left: -170px;
+    }
+   }
+}
+
+@media only screen and (max-width: 600px){
+    .artist-header{
+        padding: 0.1rem;
+    
+        h1{
+            font-size: 16pt;
+        }
+    }
+    .cover-holder{
+        img{
+            width: 85px;
+        }
+    }
+
+    .artist-track-holder{
+        .track-holder{
+            span {
+                font-size: 9pt;
+                
+            }
+        }
+
+        .Icon{
+            width: 25px;
+            height: 25px;
+            background-size: 15px;
+        }
+        .more-options-artist{
+            left: -100px;
+            padding: 0;
+            width: 150px;
+           
+            .options-holder{
+                .options-option{
+                    &:nth-child(2){
+                        .Icon{
+                            background-size: 20px;    
+                        }
+                    }   
+                }
+                
+            }
+            
+        }
+    }
+
+    .artist-options{
+        .artist-input{
+            width: 100%;
+        }
+    }
+
+}

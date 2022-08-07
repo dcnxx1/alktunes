@@ -19,6 +19,7 @@ function useSearch() {
             if(handleIllegalInput() === false) return
             const config = { params : { search: searchInput.trim() } }
             axios.get(`http://192.168.1.210:5055/search/`, config).then((res) => {   
+                console.log(res.data)
             setSearch(res.data)
             })
         }, REFRESH_TIMEOUT)
