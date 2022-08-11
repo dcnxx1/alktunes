@@ -8,11 +8,10 @@ justify-content: center;
 position: relative;
 height: inherit;
 
-
 `
 
 const GlassEffect = styled.span`
-  /* From https://css.glass */
+
 background: ${({feel}) => feel == "light" ? "rgba(255, 255, 255, 0.04)" : "background: rgba(16, 16, 16, 0.42)" };
 color: ${({feel}) => feel == "dark" ? "#FFF" : "#000"};
 border-radius: 16px;
@@ -37,13 +36,15 @@ const FeaturedImage = styled.img`
 background: url(${({srcImg}) => srcImg}) center no-repeat;
 width: 100%;
 height: 100%;
-object-fit: contain;
+object-fit: cover;
+background-size: cover;
 border: none;
 `
 
 
 
 function Feature({pathToImg, artist, feel}) {
+
   return (
     <FeatureContainer>
     <FeaturedImage srcImg={pathToImg}/>    

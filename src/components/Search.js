@@ -36,7 +36,7 @@ function Search({buttonRef = {}}) {
 
           <Link to="/" className='mobile-link'>Home</Link>
           <Link to="/playlist" className='mobile-link'>Playlist</Link>
-          <Link to="/queue" className='mobile-link'>Queue</Link>
+
           <Link to="/logout" className='mobile-link'>Logout</Link>
        
       </div> 

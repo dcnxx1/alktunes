@@ -56,7 +56,7 @@ function useForm(typeOfForm) {
             } else {
                removeError(FORM_ERR.ERR_NO_INPUT)
                  
-                axios.post('http://192.168.1.210:5055/entrance/login', {
+                axios.post(`${process.env.REACT_APP_ENV}/entrance/login`, {
                     username : inputFields.username,
                     password: inputFields.password
                 }).then((res) => {
@@ -98,7 +98,7 @@ function useForm(typeOfForm) {
         // if there are no errors
        
         if(error.length == 0 && username){
-            axios.post('http://192.168.1.210:5055/entrance/register', {
+            axios.post(`${process.env.REACT_APP_ENV}/entrance/register`, {
                 username,
                 password,
                 email

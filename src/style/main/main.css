@@ -261,8 +261,7 @@ body {
   height: fit-content;
   display: flex;
   text-decoration: none;
-  color: #000000;
-  border: 1px solid black; }
+  color: #000000; }
   .nav-link:active {
     color: none; }
   .nav-link:visited {
@@ -410,7 +409,7 @@ body {
   grid-area: Home;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: minmax(100px, 10%) minmax(350px, 45%) minmax(250px, 45%);
+  grid-template-rows: minmax(100px, 10%) minmax(350px, 40%) minmax(250px, 50%);
   grid-template-areas: "Search" "Featured" "Trending"; }
 
 .Featured {
@@ -463,15 +462,18 @@ body {
   flex-direction: column;
   justify-content: space-evenly; }
 
+.link-home {
+  width: 100%;
+  height: 100%; }
+
 @media only screen and (max-width: 1200px) {
   .Home {
     grid-template-columns: 100%;
-    grid-template-rows: 15% 45% 45%;
+    grid-template-rows: 10% 45% 45%;
     grid-template-areas: "Search" "Featured" "Trending"; }
   .item-holder {
     width: 100%;
-    height: 100%;
-    box-sizing: border-box; } }
+    height: 100%; } }
 
 @media only screen and (max-width: 1004px) {
   .item-holder {
@@ -524,13 +526,13 @@ body {
   position: relative; }
 
 .player-holder {
-  background: url("https://unsplash.it/500/500") no-repeat center;
-  background-size: 100% 100%;
-  padding: 1rem;
   width: 100%;
-  border-radius: 15px;
-  max-width: 450px;
-  height: 90%; }
+  height: 100%; }
+  .player-holder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px; }
 
 .show-playlist {
   display: none; }
@@ -567,8 +569,9 @@ body {
   .Player {
     justify-content: flex-start; }
   .player-holder {
+    background-size: 25px;
     width: 125px;
-    height: 60%; } }
+    height: 80%; } }
 
 @media only screen and (max-width: 600px) {
   .Playing {
@@ -624,7 +627,8 @@ body {
     display: flex;
     flex-direction: column-reverse;
     max-height: 85%;
-    border-radius: 10px; }
+    border-radius: 10px;
+    border: 2px solid white; }
     .showMiniPlayer .line {
       display: none; }
     .showMiniPlayer .arrow-up {
@@ -651,9 +655,12 @@ body {
       height: 100%;
       position: static; }
       .showMiniPlayer .Player .player-holder {
-        height: 100%;
+        height: 90%;
         width: 85%;
-        flex: 2 1; }
+        flex: 2 1;
+        text-align: center; }
+        .showMiniPlayer .Player .player-holder img {
+          width: 85%; }
       .showMiniPlayer .Player .playing-track {
         height: 100%; }
       .showMiniPlayer .Player .controller-song {
@@ -743,12 +750,6 @@ body {
       width: 70%; } } }
 
 .Controller {
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.31);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7.3px);
-  -webkit-backdrop-filter: blur(7.3px);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -756,11 +757,34 @@ body {
   height: 150px;
   bottom: 30px; }
 
+.moment-timer {
+  padding-left: .1rem;
+  padding-right: .1rem;
+  min-width: 1rem;
+  max-width: 2.5rem; }
+
+.feel-dark {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.31);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.3px);
+  -webkit-backdrop-filter: blur(7.3px); }
+
+.feel-light {
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px); }
+
 .controller-setting {
   width: 100%;
   height: 100%;
   display: flex;
   font-size: 10pt;
+  justify-content: space-evenly;
   flex-direction: column; }
 
 .controller-info {
@@ -794,8 +818,9 @@ body {
 
 .controller-action {
   width: 100%;
-  height: 100%;
+  height: 40%;
   display: flex;
+  min-width: 100%;
   justify-content: center;
   align-items: center;
   gap: 0.5rem; }
@@ -834,14 +859,12 @@ body {
 
 .item-roller {
   border: none;
-  width: fit-content;
-  background: url(../../static/logo_new/alktune_logo.svg) center no-repeat; }
-  .item-roller img {
-    object-fit: cover; }
+  width: 50%;
+  height: 100%; }
 
 @media only screen and (max-width: 600px) {
   .Roller {
-    display: block; } }
+    display: flex; } }
 
 .Playlist-Comp {
   display: grid;

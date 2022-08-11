@@ -1,4 +1,4 @@
-import React, {useState, forwardRef, useContext, useRef} from 'react'
+import React, {useState, forwardRef, useContext, useRef, useEffect} from 'react'
 import Search from './Search'
 import { Options, Icon, TrashDefect, TrashWhite, CloseWhite , OptionsDefect, Modal } from '../imports'
 import {useLocation, useParams, useSearchParams, Link} from 'react-router-dom'
@@ -23,6 +23,8 @@ function APlaylist({refSearch}) {
   ] = useAPlaylist(params.id, setPlaylist)
   
   
+
+
     const SearchRef = forwardRef((props, ref) => (
       <Search buttonRef={ref} />
     ))
@@ -76,7 +78,7 @@ function APlaylist({refSearch}) {
             }
         </div>
      </div>
-            {modal === true  && <DeleteModal options={{setOptions}} updateTracks={{setTracks}} playlistId={{params}} cookie={{cookies}} modalShow={{showModal}} modalRefDelete={{modalRef}}  songLength={{selectTrack, setSelectTracks}} />}
+            {modal === true  && <DeleteModal options={{setOptions}} updateTracks={{setTracks, tracks}} playlistId={{params}} cookie={{cookies}} modalShow={{showModal}} modalRefDelete={{modalRef}}  songLength={{selectTrack, setSelectTracks}} />}
     </div>
   )
 }
@@ -86,7 +88,7 @@ function DeleteModal({options, updateTracks, songLength, cookie, modalRefDelete,
   const {modalRef} = modalRefDelete
   const {showModal} = modalShow
   const {id} = playlistId.params
-  const {setTracks} = updateTracks
+  const {setTracks, tracks} = updateTracks
   const {cookies} = cookie
   const config = {headers: {Authorization: `Bearer ${cookies.USRCOOKIEE}`}}
   const {setOptions} = options
@@ -96,9 +98,13 @@ function DeleteModal({options, updateTracks, songLength, cookie, modalRefDelete,
       tracksToDelete : selectTrack,
       playlist_id : id
     }
-    axios.post('http://192.168.1.210:5055/tracks/delete', data, config).then((res) => {
+    axios.post(`${process.env.REACT_APP_ENV}/tracks/delete`, data, config).then((res) => {
       const updatedTracks = res.data
-      setTracks(updatedTracks)
+    console.log(updatedTracks)
+      setTracks(prevValue => ({
+        ...prevValue,
+        playlist_tracks: updatedTracks
+      }))
     })
     showModal(false)
     setSelectTracks(prevValue => prevValue = [])

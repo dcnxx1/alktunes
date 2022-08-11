@@ -45,7 +45,7 @@ function useAPlaylist(playlist_id, setPlaylist) {
     useEffect(() => {
        const config = {headers:  {"Authorization" : `Bearer ${cookies.USRCOOKIEE}`}}
        const data = { params : { playlist_id: playlist_id}}
-        axios.get(`http://192.168.1.210:5055/tracks?playlist_id=${playlist_id}`, config, data).then((res)  => {
+        axios.get(`${process.env.REACT_APP_ENV}/tracks?playlist_id=${playlist_id}`, config, data).then((res)  => {
             const {playlist_tracks}  = res.data
             setTracks({
                 playlist_id : res.data.playlist_id,

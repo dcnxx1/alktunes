@@ -3,13 +3,25 @@ import {Home,Playing, Search, Icon, Nav, PlayListComp, APlaylist, Music, Artist,
 import {Route, Routes} from 'react-router-dom'
 import ControllerContext from './Context/ControllerContext';
 import useMusicComponent from './Music/useMusicComponent';
+import axios from 'axios';
 
 function App() {
+  
+  const [homeFeatures, setHomeFeatures] = useState({})
+      useEffect(() => {
+        axios.get(`${process.env.REACT_APP_ENV}/tracks/tracktalker`).then((res) => {
+          setHomeFeatures({
+            features: res.data[0],
+            trending: res.data[1]
+          })
+        })
+      }, [])
 
   const [
     [song, playlist, play, userPlaylists, at],
-    [setSong, setPlaylist, setPlay, setUserPlaylists, playNext, setAt]
+    [setSong, setPlaylist, setPlay, setUserPlaylists, playNext, setAt, playPrevious]
   ] = useMusicComponent()
+  const playerRef = createRef()
 
   const formatOptions = {
     song,
@@ -23,10 +35,15 @@ function App() {
     setUserPlaylists,
     playNext,
     setAt,
+    playerRef,
+    playPrevious
   }
 
   const searchRef = createRef()
-   
+  
+
+  
+
   return (
 
     <div className="App">
@@ -36,13 +53,13 @@ function App() {
         <Route  path='/playlist' element={<PlayListComp/>} />
         <Route  exact path='/playlist/:id' element={<APlaylist refSearch={{searchRef}} />} />
         <Route  path="/artist/:id" element={<Artist />} />
-        <Route  path='/' element={<Home />} />
+        <Route  path='/' element={<Home features={{homeFeatures}} />} />
       
       </Routes>
-
-      <Playing  />
+       <Playing />
+      
+     
       </ControllerContext.Provider>
-      <Music songInfo={{song, play, setPlay, setAt}} />
     </div>
     
    

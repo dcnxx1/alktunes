@@ -16,7 +16,6 @@ function Nav() {
       <Link className="nav-link" to="/playlist">
         <Icon className="Icon tooltip"  path={PlaylistWhite} /> 
       </Link>
-      <Icon className="Icon tooltip" path={QueueWhite} />
       <Icon className="Icon tooltip"  path={LogoutWhite} />
     </nav>
   )

@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useMemo} from 'react'
+import ReactDOM from 'react-dom'
 import { useCookies } from 'react-cookie'
 import axios from 'axios'
 import statics from '../static/statics'
@@ -11,33 +12,56 @@ function useMusicComponent() {
     const [play, setPlay] = useState(true)
     const [userPlaylist, setUserPlaylist] = useState([])
     const config = {headers: {Authorization: `Bearer ${cookie.USRCOOKIEE}`}}
-
+    
 
     useEffect(() => {
-        axios.get('http://192.168.1.210:5055/playlist/', config).then((res) => {
+        if(song){
+            document.title = `${song.track_name}`
+        } else {
+            console.log('no song now')
+            document.title = "Alktunes"
+        }
+    }, [song])
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_ENV}/playlist/`, config).then((res) => {
             const userPlaylistArray = res.data    
-            setUserPlaylist(res.data)
+            setUserPlaylist(userPlaylistArray)
         })
     }, [])
 
     function playNext(){
-        let getNextSong = userPlaylist.splice(0, 1)[0]
-        console.log(getNextSong)
-        // setSong(prevValue => prevValue.concat(slicedSong))
+        // let getNextSong = playlist.playlist_tracks.splice(0, 1)[0]
+        let currentSongIndex = playlist.playlist_tracks.findIndex(({track_id}) => track_id === song.track_id)
+        let nextSong = currentSongIndex + 1 
+        let getNextTrack = playlist.playlist_tracks[nextSong]
+        
+        if(getNextTrack !== undefined){
+            setSong(getNextTrack)
+        } else {
+           const firstSong = playlist.playlist_tracks[0]
+           setSong(firstSong)
+        }
+        // setSong(getNextSong)E
         setPlay(true)
     }
 
-    useEffect(() => {
-        console.log(playlist)
-    }, [playlist])
-    function setPlaylistFromUrl(url){
-        setPlaylist(url)
+    function playPrevious() {
+        let currentSongIndex = playlist.playlist_tracks.findIndex(({track_id}) => track_id === song.track_id)
+        let previousSong = currentSongIndex - 1 
+        let getPreviousTrack = playlist.playlist_tracks[previousSong]
+        if(getPreviousTrack !== undefined){
+            setSong(getPreviousTrack)
+        } else {
+            const getLastSong = playlist.playlist_tracks[playlist.playlist_tracks.length - 1]
+            setSong(getLastSong)
+        }
     }
-  
+   
 
     return [
         [song, playlist, play, userPlaylist, at],
-        [setSong, setPlaylist, setPlay, setUserPlaylist, playNext, setAt]
+        [setSong, setPlaylist, setPlay, setUserPlaylist, playNext, setAt, playPrevious]
     ]
 }
 

@@ -26,7 +26,7 @@ function formHandler(e, closeModal) {
     }
     const data = {playlistName: inputValue}
     
-    axios.post('http://192.168.1.210:5055/playlist/create', data, config).then((res)  => {
+    axios.post(`${process.env.REACT_APP_ENV}/playlist/create`, data, config).then((res)  => {
         const playlistData = res.data
         setUserPlaylists(playlistData)
         setLoading(false)
@@ -50,7 +50,7 @@ function formHandlerDelete(e, closeModal) {
     }
     console.log(selectedPlaylists)
    
-    axios.post('http://192.168.1.210:5055/playlist/delete', data, config).then((res) => {
+    axios.post(`${process.env.REACT_APP_ENV}/playlist/delete`, data, config).then((res) => {
     const retrievePlaylist = res.data 
     setUserPlaylists(retrievePlaylist)
     })

@@ -17,6 +17,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <>
+  
   <BrowserRouter>
     <Routes>
         <Route exact path='/*' element={<Guard> <App /> </Guard>} />
@@ -26,6 +27,7 @@ root.render(
         <Route path='/register' element={<Redirector><Register /></Redirector>} />
     </Routes>
   </BrowserRouter>
+  
   
   </>
 );

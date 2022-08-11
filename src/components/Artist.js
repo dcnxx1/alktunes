@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef, useContext} from 'react';
 import { useLocation } from 'react-router-dom';
-import {Search, Icon, MoreWhite, Pause, AddPlaylist, CheckNo, CloseWhite, Modal, Plus, CheckYes} from '../imports';
+import {Search, Icon, MoreWhite, Pause, AddPlaylist, CheckNo, CloseWhite, Modal, Plus, Logo, CheckYes} from '../imports';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import statics from '../static/statics';
@@ -35,7 +35,7 @@ function Artist() {
         type: location.state.type
       }
     }
-    axios.get('http://192.168.1.210:5055/tracks/artist', data, config).then((res) => {
+    axios.get(`${process.env.REACT_APP_ENV}/tracks/artist`, data, config).then((res) => {
     setArtist(res.data)
     console.log(res.data)
     })
@@ -167,7 +167,7 @@ function ArtistModal({modalRef, setModal, uploadTrack}){
     {userPlaylists && userPlaylists.map((playlist) => (
       <Track onClick={() => handlePlaylist(playlist.playlist_id)} key={playlist.playlist_id}>
         <Track.Holder  className="track-holder">
-          <img src="https://unsplash.it/200/200" />
+          <img src={Logo} />
         </Track.Holder>
         <Track.Holder className="track-holder f-1">
           <span>{playlist.playlist_name}</span>
@@ -177,7 +177,6 @@ function ArtistModal({modalRef, setModal, uploadTrack}){
         </Track.Holder>}
         <Track.Holder className="track-holder f-1">
           <span  className="playlists__box">
-          {console.log(userPlaylists)}
           {playlistSelect.some(({id}) => id === playlist.playlist_id) && <span className="addbox"></span>}
           </span>
         </Track.Holder>

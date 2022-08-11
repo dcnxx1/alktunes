@@ -3,27 +3,21 @@ import 'swiper/css'
 import Feature from '../compound/Feature'
 import React from 'react'
 
-function Roller() {
+function Roller({children}) {
   return (
-    <Swiper
-    spaceBetween={20}
-    className="Roller"
-    initialSlide={1}
-    init={false}
-   centeredSlides={true}
-   slidesPerView={2}
-    >
-  <SwiperSlide className='item-roller'>
-    <Feature  pathToImg='https://unsplash.it/200/200' artist={"Michael Jackson"} feel="light"/> 
-  </SwiperSlide>
-  <SwiperSlide defaultChecked className='item-roller'>
-    <Feature  pathToImg='https://unsplash.it/200/200' artist={"Drake"} feel="dark"/> 
-  </SwiperSlide>
-  <SwiperSlide className='item-roller'>
-    <Feature pathToImg='https://unsplash.it/200/200' artist={"NLE Choppa"} feel="dark"/> 
-  </SwiperSlide>
-</Swiper>
+    <Swiper spaceBetween={0} className="Roller" initialSlide={0} init={false} centeredSlides={true} slidesPerView={2}>
+      {children}
+    </Swiper>
   )
 }
+
+Roller.Sweep = function Sweep({features}){
+  const {feature} = features
+  return <SwiperSlide className="item-roller">
+    
+     <Feature pathToImg={feature.track_cover} artist={feature.track_artist} feel={feature.track_feel}/>
+    </SwiperSlide>
+}
+
 
 export default Roller

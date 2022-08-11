@@ -1,11 +1,5 @@
 .Controller {
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.31);
-
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(7.3px);
-    -webkit-backdrop-filter: blur(7.3px);
+    
     width: 100%;
     height: 100%;
     position: absolute;
@@ -14,13 +8,38 @@
     bottom: 30px;
 }
 
+.moment-timer{
+ 
+    padding-left: .1rem;
+    padding-right: .1rem;
+    min-width: 1rem;
+    max-width: 2.5rem;
+}
+.feel-dark{
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.31);
+
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.3px);
+    -webkit-backdrop-filter: blur(7.3px);
+}
+
+.feel-light{
+/* From https://css.glass */
+background: rgba(0, 0, 0, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+}
 
 .controller-setting{
     width: 100%;
     height: 100%;
     display: flex;
     font-size: 10pt;
-  
+   justify-content: space-evenly;
     flex-direction: column;
 }
 
@@ -48,6 +67,7 @@
 .controller-holder{
     width: 100%;
     text-align: center;
+   
 }
 
 .controller-song{
@@ -62,8 +82,9 @@
 
 .controller-action{
     width: 100%;
-    height: 100%;
+    height: 40%;
     display: flex;
+    min-width: 100%;
 
     justify-content: center;
     align-items: center;

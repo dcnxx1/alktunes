@@ -4,9 +4,12 @@ import {Icon,Controller,  PlaylistWhite } from '../imports'
 import useOutsideClick from '../hooks/useOutsideClick'
 import useMediaQuery from '../hooks/useMediaQuery'
 import ContextController from '../Context/ControllerContext'
+
 function Playing() {
   const [showMiniPlayer, setShowMiniPlayer] = useState(false)  
   const [showNexton, setNexton] = useState(false)
+
+
   const playlistRef = useRef(null)
   const miniPlayerRef = useRef(null)
   const {song, playlist, setSong} = useContext(ContextController)
@@ -18,7 +21,7 @@ function Playing() {
  
 
   return (
-    // ${showMiniPlayer == true ? "showMiniPlayer" : "" <- inslide player
+   
     <div  ref={miniPlayerRef} className={`Playing ${showMiniPlayer == true ? "showMiniPlayer" : ""}`}>
       <span onClick={() => setShowMiniPlayer(prevValue => !prevValue)} className='arrow-up'></span>
       <span className='line'></span>
@@ -28,7 +31,7 @@ function Playing() {
           </div>
         <div className='playing-track'>
         {playlist.playlist_tracks ? playlist.playlist_tracks.map((track) => (
-          <Track onClick={() => setSong(track)}>
+          <Track key={track.track_id} onClick={() => setSong(track)}>
           <Track.Holder className="track-holder">
             <img className='img-track' src={track.track_cover} />
           </Track.Holder>
@@ -48,8 +51,8 @@ function Playing() {
 
       <div className='Player'>
     
-        <div style={{background: `url(${song.track_cover}) center no-repeat`, objectFit : 'contain'}} className='player-holder'>
-        {/* image cover */}
+        <div className='player-holder'>
+        <img src={song.track_cover} />
         </div>
         <Controller />
         <div className='show-playlist '>

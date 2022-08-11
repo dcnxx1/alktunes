@@ -16,17 +16,9 @@ export default function usePlaylistForm(trackUpload,showModal, setUserPlaylists)
         const data = {
             playlistName : input.trim()
         }
-        // axios.post('http://192.168.1.210:5055/playlist/create', config)
-       
         
-        // if(checkInput() === true ){
-        //     console.log("true")
-        // } else {
-        //     console.log("false")
-        // }
-
         if(checkInput() === true ){
-            axios.post('http://192.168.1.210:5055/playlist/create', data, config).then((res) => {
+            axios.post(`${process.env.REACT_APP_ENV}/playlist/create`, data, config).then((res) => {
                 setUserPlaylists(res.data)
                 setPlaylistCreate(false)
             })
@@ -71,7 +63,7 @@ export default function usePlaylistForm(trackUpload,showModal, setUserPlaylists)
             track: trackUpload
         }
         if(playlistSelect.length !== 0 ){
-            axios.post('http://192.168.1.210:5055/tracks/upload', data, config).then((res) => {
+            axios.post(`${process.env.REACT_APP_ENV}/tracks/upload`, data, config).then((res) => {
             })
             showModal(false)
         }
