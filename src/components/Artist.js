@@ -82,7 +82,8 @@ function Artist() {
                   {handleSelectMore(track.track_id) && <div key={track.track_id} ref={moreRef} className="more-options-artist">
                     <div className="options-holder">
                       <div onClick={() => {
-                          setSong(track)            
+                          setSong(track)
+                          setPlay(prevValue => !prevValue)            
                       }} className="options-option">
                       <div className='option-icon'>
                         <Icon  path={song.track_id === track.track_id && play === true ? Pause : Play} className="Icon" />
