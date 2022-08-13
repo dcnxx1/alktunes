@@ -32,7 +32,6 @@ function useMusicComponent() {
 
 
     function playNext(){
-        // let getNextSong = playlist.playlist_tracks.splice(0, 1)[0]
         let currentSongIndex = playlist.playlist_tracks.findIndex(({track_id}) => track_id === song.track_id)
         let nextSong = currentSongIndex + 1 
         let getNextTrack = playlist.playlist_tracks[nextSong]

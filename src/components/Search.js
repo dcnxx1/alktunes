@@ -1,17 +1,19 @@
 import React, {useState, useRef, useMemo, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { Icon, SearchWhite, ArrowFullWhite, HomeWhite, QueueWhite, PlaylistWhite, LogoutWhite, Pause, MoreWhite , AddPlaylist } from '../imports'
+import { Icon, SearchWhite, ArrowFullWhite, Nav } from '../imports'
 import useOutsideClick from '../hooks/useOutsideClick'
 import useSearch from '../hooks/useSearch'
 import Track from '../compound/Track'
 import ContextController from '../Context/ControllerContext'
+
 function Search({buttonRef = {}}) {
     const {searchRef} = buttonRef
     const [showMenu, setMenu] = useState(false)
     const resultRef = useRef()
     const {setSong} = useContext(ContextController)
     const ref = useRef(null)
+    const [escape, showEscape] = useState(false)
     const [
       [search, searchInput, showResults],
       [handleSubmit, handleSearchInput, setResults]
@@ -38,12 +40,12 @@ function Search({buttonRef = {}}) {
           <Link to="/" className='mobile-link'>Home</Link>
           <Link to="/playlist" className='mobile-link'>Playlist</Link>
 
-          <Link to="/logout" className='mobile-link'>Logout</Link>
+          <span className="mobile-link" onClick={ e => showEscape(prevValue => !prevValue)}>Logout</span>
        
       </div> 
       {showResults && <div ref={resultRef} className="search-results">
         <ul className="list-results">
-          {search.map(({name, type, searchResults}) => (
+          {search && search.map(({name, type, searchResults}) => (
            <div key={name} className='result-wrapper'>
             {name && 
             <Link state={{name, type}} className="link-primary" 
@@ -81,6 +83,7 @@ function Search({buttonRef = {}}) {
           ))}
         </ul>
       </div>}
+      {escape && <Nav.Escape escapeShow={{escape, showEscape}} />}
     </form>
   )
 }

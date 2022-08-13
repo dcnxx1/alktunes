@@ -20,7 +20,7 @@ function Nav() {
         <Icon className="Icon tooltip"  path={PlaylistWhite} /> 
       </Link>
       <Icon onClick={e => showEscape(prevValue => !prevValue)} className="Icon tooltip"  path={LogoutWhite} />
-      {escape && <EscapeModal escapeShow={{showEscape}}/> }
+      {escape && <Nav.Escape escapeShow={{showEscape}}/> }
     </nav>
   )
 }
@@ -29,13 +29,14 @@ function Nav() {
 export default Nav
 
 
-function EscapeModal({escapeShow}){
+Nav.Escape = function ModalEscape({escapeShow}){
  const {showEscape} = escapeShow
   const [cookies, setCookies, removeCookie] = useCookies(statics.USR_COOKIE)
 let navigation = useNavigate()
 
 function logOut(){
-  removeCookie(cookies.USRCOOKIEE)
+  removeCookie(statics.USR_COOKIE)
+  console.log(cookies)
   navigation('/entrance', {replace: true})
 }
 
