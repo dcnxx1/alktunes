@@ -1,15 +1,16 @@
-import React, {useState, useRef, useMemo} from 'react'
+import React, {useState, useRef, useMemo, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Icon, SearchWhite, ArrowFullWhite, HomeWhite, QueueWhite, PlaylistWhite, LogoutWhite, Pause, MoreWhite , AddPlaylist } from '../imports'
 import useOutsideClick from '../hooks/useOutsideClick'
 import useSearch from '../hooks/useSearch'
 import Track from '../compound/Track'
-
+import ContextController from '../Context/ControllerContext'
 function Search({buttonRef = {}}) {
     const {searchRef} = buttonRef
     const [showMenu, setMenu] = useState(false)
     const resultRef = useRef()
+    const {setSong} = useContext(ContextController)
     const ref = useRef(null)
     const [
       [search, searchInput, showResults],
@@ -50,15 +51,17 @@ function Search({buttonRef = {}}) {
               pathname: `/artist/${name.replace(' ', '').replace(' ', '')}`,
             }}><span className="search-name">{name}</span></Link>}
             {searchResults && searchResults.map((resultObj) => (
-              <Track className="Track">
+              <Track onClick={() => setSong(resultObj)} className="Track">
                 <Track.Holder className="track-holder">
                   <img className="search-cover" src={resultObj.track_cover} />
                 </Track.Holder>
-                <Track.Holder className="track-holder f-1">
+                <Track.Holder style={{textAlign: "center"}} className="tr-holder-search f-1  t-flex-col">
                   <span>
                   {resultObj.track_name}
                   </span>
-                  <span>
+                </Track.Holder>
+                <Track.Holder>
+                <span>
                     {resultObj.track_artist}
                   </span>
                 </Track.Holder>
@@ -67,14 +70,9 @@ function Search({buttonRef = {}}) {
                   {resultObj.track_album}
                 </span>
                 </Track.Holder>
-                <Track.Holder className="track-hodler f-1">
+                <Track.Holder className="track-holder f-1">
                 <span>
                   {resultObj.track_length}
-                </span>
-                </Track.Holder>
-                <Track.Holder>
-                <span className="more-options">
-                                    
                 </span>
                 </Track.Holder>
               </Track>

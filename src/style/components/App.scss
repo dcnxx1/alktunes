@@ -6,12 +6,8 @@
     color: $pink1;
     font-family: $pt-regular;
     display: grid;
-    grid-template-columns: minmax(105px, 5%) minmax(400px, 75%) minmax(20%, 350px);
-    grid-template-rows: 100%;
-    grid-template-areas: 
-    "Nav Home Playing"
-    ;
-   min-height: 845px;
+  
+    min-height: 925px;
 
 }
 
@@ -25,6 +21,23 @@
 .b-test {
     border: 2px solid white;
 }
+
+.playlist-not-playing{
+ grid-template-columns: minmax(105px, 10%) minmax(400px, 90%);    
+ grid-template-rows: 100%;
+ grid-template-areas: 
+ "Nav Home"
+ ;
+}
+
+.playlist-playing{
+    grid-template-columns: minmax(105px, 5%) minmax(400px, 75%) minmax(20%, 350px); 
+    grid-template-rows: 100%;
+    grid-template-areas: 
+    "Nav Home Playing"
+    ;
+}
+
 
 @media only screen and (max-width: 1200px){
     .App{

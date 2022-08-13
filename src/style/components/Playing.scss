@@ -13,6 +13,7 @@
    display: flex;
    flex-direction: column;
    flex: 1;
+
 }
 
 .playing-track{
@@ -23,7 +24,7 @@
  overflow-x: hidden;
  border-radius: 10px;
  padding: 0.5rem;
-
+ max-height: 520px;
 
  .img-track{
    width: 55px;
@@ -45,6 +46,7 @@
    flex: 0 1 350px;
    height: 100%;
    position: relative;
+  
 }
 
 .player-holder{
@@ -197,7 +199,7 @@
       flex-direction: column-reverse;
       max-height: 85%;
       border-radius: 10px;
-      border: 2px solid white;
+     
 
       
       .line{

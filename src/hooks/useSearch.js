@@ -19,7 +19,6 @@ function useSearch() {
             if(handleIllegalInput() === false) return
             const config = { params : { search: searchInput.trim() } }
             axios.get(`${process.env.REACT_APP_ENV}/search/`, config).then((res) => {   
-                console.log(res.data)
             setSearch(res.data)
             })
         }, REFRESH_TIMEOUT)

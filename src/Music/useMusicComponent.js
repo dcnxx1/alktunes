@@ -5,7 +5,6 @@ import axios from 'axios'
 import statics from '../static/statics'
 function useMusicComponent() {
     const [cookie, setCookie, removeCookie] = useCookies(statics.USR_COOKIE)
-    const [loading, setLoading] = useState(false)
     const [song, setSong] = useState({})
     const [playlist, setPlaylist] = useState({})
     const [at, setAt] = useState(0)
@@ -15,20 +14,22 @@ function useMusicComponent() {
     
 
     useEffect(() => {
-        if(song){
+        if(song.hasOwnProperty('track_id')){
             document.title = `${song.track_name}`
         } else {
-            console.log('no song now')
             document.title = "Alktunes"
         }
+        setPlay(true)
     }, [song])
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_ENV}/playlist/`, config).then((res) => {
-            const userPlaylistArray = res.data    
+            const userPlaylistArray = res.data   
             setUserPlaylist(userPlaylistArray)
         })
     }, [])
+
+
 
     function playNext(){
         // let getNextSong = playlist.playlist_tracks.splice(0, 1)[0]

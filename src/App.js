@@ -40,13 +40,20 @@ function App() {
   }
 
   const searchRef = createRef()
-  
+ 
+  function playlistCheck() {
+    if(song.hasOwnProperty('track_id') === true) {
+      return "playlist-playing"
+    } else {
+      return "playlist-not-playing"
+    }
+  }
 
   
 
   return (
 
-    <div className="App">
+    <div className={`App ${playlistCheck()}`}>
       <Nav />
       <ControllerContext.Provider value={formatOptions}>
       <Routes>
@@ -54,11 +61,9 @@ function App() {
         <Route  exact path='/playlist/:id' element={<APlaylist refSearch={{searchRef}} />} />
         <Route  path="/artist/:id" element={<Artist />} />
         <Route  path='/' element={<Home features={{homeFeatures}} />} />
-      
       </Routes>
-       <Playing />
-      
-     
+      {playlistCheck() === "playlist-playing" && <Playing  />}
+
       </ControllerContext.Provider>
     </div>
     

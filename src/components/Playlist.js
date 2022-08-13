@@ -16,11 +16,11 @@ function Playlist() {
   
   const [
     // states
-    [options, inputValue, selectedPlaylists, loading],
+    [options, inputValue, selectedPlaylists, loading, errors],
     // function
     [handlePlusButton, optionHandler, 
      formHandler, setInput, selectedPlaylistsHandler, 
-     formHandlerDelete, deleteHandler]
+     formHandlerDelete, deleteHandler, setErrors]
   ] = usePlaylist(setUserPlaylists) 
 
   const setSelected = (playlist_id_user) => selectedPlaylists.some(({playlist_id}) => playlist_id == playlist_id_user) == true && 'playlists__selected'
@@ -58,9 +58,6 @@ function Playlist() {
             <div className='playlists__name_holder'>
               <span className='playlists__name'>{playlistObj.playlist_name}</span>
             </div>
-            <div className='playlists__length'>
-              <span className='playlists__name'>2:15</span>
-            </div>
             <div className='playlists__select'>
              {options == true &&  <span className='playlists__box'>
               {selectedPlaylists.some(({playlist_id}) => playlist_id == playlistObj.playlist_id ) && <span className='addbox'></span>}
@@ -72,7 +69,7 @@ function Playlist() {
         </ul>
       </div>
      </div>
-     {addPlaylistModal && <ShowModalAddPlaylist mRef={modalRef} inputValue={inputValue} setInput={setInput} formHandler={formHandler} close={setAddModal} />}
+     {addPlaylistModal && <ShowModalAddPlaylist errorHandler={{errors, setErrors}} mRef={modalRef} inputValue={inputValue} setInput={setInput} formHandler={formHandler} close={setAddModal} />}
     {deleteModal && <ShowModalDeletePlaylists  formHandler={formHandlerDelete} hideModal={setDeleteModal} playlist={selectedPlaylists} mRef={modalRef} />}
     </div>
   )
@@ -81,13 +78,18 @@ function Playlist() {
 export default Playlist
 
 
-function ShowModalAddPlaylist({mRef, close, formHandler, setInput, inputValue}){
+function ShowModalAddPlaylist({mRef, close, formHandler, setInput, inputValue, errorHandler}){
+  const {errors, setErrors} = errorHandler
   return (
     <Modal className="portal" ref={mRef} header="New playlist">
     <form onSubmit={e => formHandler(e, close)} className='playlist-form' method='POST'>
       <input  value={inputValue} onChange={e => setInput(e.target.value)} type="text" className="playlist-input" placeholder="Playlist Name" />
+      {errors && <span style={{color: "red"}}>{errors[0]?.message}</span>}
       <div className='modal-options'>
-        <input onClick={() => close(false)} type='button' className='modal-button' value="No"/>
+        <input onClick={() => {
+          close(false)
+          setErrors([])
+        }} type='button' className='modal-button' value="No"/>
         <input type='submit' className='modal-button' value="Ok"/>
       </div>
       </form>
@@ -103,7 +105,7 @@ function ShowModalDeletePlaylists({mRef, formHandler, playlist, hideModal}) {
       <span>Are you sure you want to delete {playlist.length} playlist(s)</span>
       <div>
       <input onClick={() => hideModal(false)} type="button" className="modal-button" value="No" />
-      <input type="submit"  className='modal-button' value="Yes"/>
+      <input  type="submit"  className='modal-button' value="Yes"/>
       </div>
     </div>
   </form>

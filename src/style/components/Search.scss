@@ -40,7 +40,13 @@
     display: none;
 }
 
+.tr-search{
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
 
+}
 .show-menu{
     background: $full-white;
     position: absolute;

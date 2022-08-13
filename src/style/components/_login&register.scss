@@ -2,18 +2,17 @@
     display: flex;
     width: 100%;
     height: 100vh;
-    min-height: 900px;
+    min-height: 450px;
     background: $dark1;
     justify-content: center;
     align-items: center;
-    
+    overflow-x: hidden;
     .form-control{
         display: flex;
         flex-direction: column;
-        background: $pink1;
+        background: $full-white;
         width: 550px;
         height: fit-content;
-        
         border-radius: 20px;
         animation: fadeIn 0.3s ease-in;
         padding: 1rem;
@@ -21,19 +20,30 @@
         gap: 1rem;
         font-family: $poppins;
         .logo {
-            width: 100%;
+            background: black;
+            padding: .5rem;
+            width: fit-content;
+            align-self: flex-end;
+            border-radius: 15px;
             text-align: right;
             img {
                 width: 150px;
             }
         }
 
+        .link-primary{
+            color: black;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
         .form-type{
             padding-bottom: 1rem;
             font-size: $f-m;
             width: 90%;
-            border-bottom: 2px solid $dark1;
+            border-bottom: 2px solid black;
             text-align: center;
+            color: black;
         }
 
         .form-register{
@@ -42,10 +52,12 @@
             height: 70%;
             
             
+        
+
             .input-message{
                 display: flex;
                 flex-direction: column;
-              
+                
                 height: fit-content;
                 &:not(p){
                     align-items: center;
@@ -63,10 +75,10 @@
                 max-width: 80%;
                 font-family: $poppins;
                 height: 50px;
-             
-                border: 2px solid grey;
+                color: $full-black;
+                
                 border-radius: 0.5rem;
-                background: $pink1;
+                background: white;
 
                 &:not(input[type=submit]){
                     text-indent: 1rem;

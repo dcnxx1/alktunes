@@ -58,7 +58,14 @@
 }
 
 
-
+.tr-holder-search{
+    
+    width: 100px;
+    font-size: 10pt;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
 
 @keyframes show-options-more{
     to{

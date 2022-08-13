@@ -4,13 +4,14 @@ import { useCookies } from 'react-cookie'
 import codesRequest from '../errors/codes.request'
 import statics from '../static/statics'
 
-export default function usePlaylistForm(trackUpload,showModal, setUserPlaylists){
+export default function usePlaylistForm(trackUpload, showModal, setUserPlaylists, userPlaylists, setPlaylist, playlist){
     const [errors, setErrors] = useState([])
     const [playlistSelect, setPlaylistSelected] = useState([])
     const [input, setInput] = useState('')
     const [createPlaylist, setPlaylistCreate] = useState(false)
     const [cookies, setCookies, removeCookies] = useCookies(statics.USR_COOKIE)
     const config = {headers: {Authorization: `Bearer ${cookies.USRCOOKIEE}`}}
+
     function formSubmit(e) {
         e.preventDefault()
         const data = {
@@ -58,17 +59,31 @@ export default function usePlaylistForm(trackUpload,showModal, setUserPlaylists)
    
     function submitTrack(e) {
         e.preventDefault()
+        
         const data = {
             playlist_id : playlistSelect,
             track: trackUpload
         }
-        if(playlistSelect.length !== 0 ){
-            axios.post(`${process.env.REACT_APP_ENV}/tracks/upload`, data, config).then((res) => {
-            })
-            showModal(false)
+     
+            if(playlistSelect.length !== 0 ){
+                axios.post(`${process.env.REACT_APP_ENV}/tracks/upload`, data, config).then((res) => {
+                   
+                    setUserPlaylists(
+                    userPlaylists.map((playlist) => {
+                        
+                       return playlist.playlist_id === data.playlist_id[0].id ? 
+                        {...playlist, playlist_tracks : res.data} : playlist
+                    })
+                   ) 
+                   setPlaylist(prevValue => ({
+                    ...prevValue,
+                    playlist_tracks : res.data
+                  }))
+                    
+                })
+                showModal(false)
+            }
         }
-        
-    }
     
  
     

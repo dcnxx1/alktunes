@@ -23,7 +23,7 @@ function Home({features}) {
         <div className='feature-holder'>
         <Swiper spaceBetween={20} className="Roller" initialSlide={1} init={false} centeredSlides={true} slidesPerView={2}>
          {homeFeatures.features && homeFeatures.features.type.track_artists.map((feature) => (
-          <SwiperSlide className='item-roller'>
+          <SwiperSlide key={feature.track_artist}  className='item-roller'>
           <Link className="link-home" state={{name : feature.track_artist, type: 'artist'}} to={`/artist/${feature.track_artist.replace(' ', '').replace(' ', '')}`}>
             <Feature pathToImg={feature.track_cover} artist={feature.track_artist} feel={feature.track_feel} />
           </Link> 
@@ -31,8 +31,8 @@ function Home({features}) {
          ))}
         </Swiper>
         {homeFeatures.features && homeFeatures.features.type.track_artists.map((feature) => (
-            <div className='item-holder'>
-            <Link key={feature.track_artist} state={{name : feature.track_artist, type: 'artist'}} className="link-home" to={`/artist/${feature.track_artist.replace(' ', '').replace(' ', '')}`}>
+            <div key={feature.track_artist} className='item-holder'>
+            <Link  state={{name : feature.track_artist, type: 'artist'}} className="link-home" to={`/artist/${feature.track_artist.replace(' ', '').replace(' ', '')}`}>
               <Feature artist={feature.track_artist} feel={feature.track_feel} pathToImg={feature.track_cover}></Feature>
           </Link>
            </div>
@@ -53,7 +53,7 @@ function Home({features}) {
               </Track.Holder>
               <Track.Holder className="track-holder f-1 t-flex-col">
                 <span>{trending.track_name}</span>
-                <span>Artist name</span>
+                <span>{trending.track_artist}</span>
               </Track.Holder>
               <Track.Holder className="track-holder f-1">
                 <span>{trending.track_album}</span>
@@ -62,7 +62,7 @@ function Home({features}) {
                 <span>{trending.track_length}</span>
               </Track.Holder>
             </Track>
-            )) }
+            ))}
           </ul>
         </div>
       </div>

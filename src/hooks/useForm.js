@@ -32,7 +32,6 @@ function useForm(typeOfForm) {
     function insertError(errorCode){
             // if error doesnt exist, add the error
              if(error.some(findErr => findErr.ERR == errorCode.ERR) == false){ 
-                console.log("this has run even after the same error is found")
                 removeOfTheSameType(errorCode?.FOR)
                 setErrors(prevValue => ([...prevValue, {ERR : errorCode.ERR, FOR: errorCode.FOR, message: errorCode.message}]))
             } 

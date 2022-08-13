@@ -125,7 +125,6 @@ function useForm(typeOfForm, inputData) {
   }
 
   (0, _react.useEffect)(function () {
-    console.log(error);
   }, [error]);
 
   function formControl(e) {
@@ -137,7 +136,6 @@ function useForm(typeOfForm, inputData) {
 
       case _statics["default"].FORM.REGISTER:
         inputValidation(_statics["default"].FORM.REGISTER);
-        console.log(inputFields);
         break;
     }
   }

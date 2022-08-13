@@ -85,6 +85,7 @@ function APlaylist({refSearch}) {
 
 function DeleteModal({options, updateTracks, songLength, cookie, modalRefDelete, modalShow, playlistId}) {
   const {selectTrack, setSelectTracks} = songLength
+  const {setUserPlaylists, setPlaylist, playlist} = useContext(ContextController)
   const {modalRef} = modalRefDelete
   const {showModal} = modalShow
   const {id} = playlistId.params
@@ -100,12 +101,23 @@ function DeleteModal({options, updateTracks, songLength, cookie, modalRefDelete,
     }
     axios.post(`${process.env.REACT_APP_ENV}/tracks/delete`, data, config).then((res) => {
       const updatedTracks = res.data
-    console.log(updatedTracks)
       setTracks(prevValue => ({
         ...prevValue,
         playlist_tracks: updatedTracks
       }))
+    
+      setUserPlaylists(prevValue => prevValue.map((playlist) => {
+        return playlist.playlist_id === id ? {
+          ...playlist, playlist_tracks: updatedTracks
+        } : playlist
+      }))
+      setPlaylist(prevValue => ({
+        ...prevValue,
+        playlist_tracks : updatedTracks
+      }))
     })
+    
+    
     showModal(false)
     setSelectTracks(prevValue => prevValue = [])
     setOptions(prevValue => !prevValue)

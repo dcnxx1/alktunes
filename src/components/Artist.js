@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef, useContext} from 'react';
 import { useLocation } from 'react-router-dom';
-import {Search, Icon, MoreWhite, Pause, AddPlaylist, CheckNo, CloseWhite, Modal, Plus, Logo, CheckYes} from '../imports';
+import {Search, Icon, MoreWhite, Pause, AddPlaylist, CheckNo, CloseWhite, Modal, Plus, Logo, CheckYes, Play} from '../imports';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import statics from '../static/statics';
@@ -20,6 +20,8 @@ function Artist() {
   const location = useLocation()
   const [modal, showModal] = useState(false)
   const moreRef = useRef()
+  const {song, setSong, setPlay, play} = useContext(ContextController)
+
   const modalRef = useRef()
   const handleSelectMore = (selectedId) => {
 
@@ -37,7 +39,6 @@ function Artist() {
     }
     axios.get(`${process.env.REACT_APP_ENV}/tracks/artist`, data, config).then((res) => {
     setArtist(res.data)
-    console.log(res.data)
     })
   }, [location.state.name])
 
@@ -80,11 +81,13 @@ function Artist() {
                   <Icon id="option-artist" onClick={() => setTrack([{id: track.track_id}])} className="Icon" path={MoreWhite} />
                   {handleSelectMore(track.track_id) && <div key={track.track_id} ref={moreRef} className="more-options-artist">
                     <div className="options-holder">
-                      <div className="options-option">
+                      <div onClick={() => {
+                          setSong(track)            
+                      }} className="options-option">
                       <div className='option-icon'>
-                        <Icon path={Pause} className="Icon" />
+                        <Icon  path={song.track_id === track.track_id && play === true ? Pause : Play} className="Icon" />
                       </div>
-                        <span>Play</span>
+                        <span>{song.track_id === track.track_id && play === true ?  "Pause" : "Play"}</span>
                       </div>
                       <div className="options-option" onClick={() => prepareTrack(track)}>
                       <div className="option-icon">
@@ -114,20 +117,26 @@ function Artist() {
 export default Artist
 
 function ArtistModal({modalRef, setModal, uploadTrack}){
-  const {userPlaylists, setUserPlaylists} = useContext(ContextController)
+  const {userPlaylists, setUserPlaylists, setPlaylist, playlist} = useContext(ContextController)
   const {showModal} = setModal
   const {trackUpload} = uploadTrack
-  const [options, setOptions] = useState(false)
   const [
     [input, errors, createPlaylist, playlistSelect],
     [setInput, formSubmit, setErrors,  setPlaylistCreate, setPlaylistSelected, submitTrack]
-  ] = usePlaylistForm(trackUpload, showModal, setUserPlaylists)
+  ] = usePlaylistForm(trackUpload, showModal, setUserPlaylists, userPlaylists, setPlaylist, playlist)
   
+  function checkSongAlreadyExists(playlistId){
+    let findPlaylist = userPlaylists.find((playlist) => playlist.playlist_id === playlistId)
+    return findPlaylist.playlist_tracks.some((track) => track.track_id === uploadTrack.trackUpload.track_id)
+  }
+
   function handlePlaylist(playlist_id) {
     if(playlistSelect.some(({id}) => id === playlist_id) === true){
       setPlaylistSelected([])
     } else {
-      setPlaylistSelected([{id: playlist_id}])
+      if(checkSongAlreadyExists(playlist_id) !== true){
+        setPlaylistSelected([{id: playlist_id}])
+      } 
     }
   }
 
@@ -172,20 +181,17 @@ function ArtistModal({modalRef, setModal, uploadTrack}){
         <Track.Holder className="track-holder f-1">
           <span>{playlist.playlist_name}</span>
         </Track.Holder>
-        {playlist.playlist_tracks.length !== 0 && <Track.Holder className="track-holde f-1">
-          2:16
-        </Track.Holder>}
         <Track.Holder className="track-holder f-1">
-          <span  className="playlists__box">
-          {playlistSelect.some(({id}) => id === playlist.playlist_id) && <span className="addbox"></span>}
-          </span>
+          {checkSongAlreadyExists(playlist.playlist_id) === true ? "Song exists" : <span  className="playlists__box">
+          {playlistSelect.some(({id}) => id === playlist.playlist_id) && <span className="addbox"></span> }
+          </span> }
         </Track.Holder>
       </Track>
     ))}
     </div>  : "Loading ...."}
     <form className='artist-track-add' onSubmit={e => submitTrack(e)}>  
       <input onClick={() => showModal(false)} type="button" value="Cancel" /> 
-      <input type="submit" value="Add" /> 
+      <input  type="submit" value="Add" /> 
     </form>
   </div>
   </Modal>
