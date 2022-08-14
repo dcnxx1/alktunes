@@ -6,8 +6,10 @@ function useSearch() {
   const [searchInput, setInput] = useState('')
   const [showResults, setResults] = useState(false)
   const handleSearchInput = e => setInput(e.target.value)
+
   const REFRESH_TIMEOUT = 100  
-    const handleIllegalInput = () => 
+  
+  const handleIllegalInput = () => 
     searchInput === "" || 
     searchInput.length == 0 === true ? false: true
     function handleSubmit(e){
@@ -37,7 +39,7 @@ function useSearch() {
         // state
         [search, searchInput, showResults],
         // handler / functions
-        [handleSubmit, handleSearchInput, setResults]
+        [handleSubmit, handleSearchInput, setResults, setInput]
     ]
 )
 }

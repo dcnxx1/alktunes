@@ -16,7 +16,7 @@ function Search({buttonRef = {}}) {
     const [escape, showEscape] = useState(false)
     const [
       [search, searchInput, showResults],
-      [handleSubmit, handleSearchInput, setResults]
+      [handleSubmit, handleSearchInput, setResults, setInput]
     ] = useSearch()
 
 
@@ -53,7 +53,10 @@ function Search({buttonRef = {}}) {
               pathname: `/artist/${name.replace(' ', '').replace(' ', '')}`,
             }}><span className="search-name">{name}</span></Link>}
             {searchResults && searchResults.map((resultObj) => (
-              <Track onClick={() => setSong(resultObj)} className="Track">
+              <Track onClick={() => {
+                setInput('')
+                setSong(resultObj)
+              }} className="Track">
                 <Track.Holder className="track-holder">
                   <img className="search-cover" src={resultObj.track_cover} />
                 </Track.Holder>

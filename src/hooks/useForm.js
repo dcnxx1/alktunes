@@ -60,6 +60,7 @@ function useForm(typeOfForm) {
                     password: inputFields.password
                 }).then((res) => {
                     const {data} = res
+                    console.log(data)
                     if(data.statusCode == 500){
                         setErrors(prevValue => ([...prevValue, {ERR: ERRORS.ERR_USR_NOT_EXIST.ERR, message: ERRORS.ERR_USR_NOT_EXIST.message}])) 
                     } else {
