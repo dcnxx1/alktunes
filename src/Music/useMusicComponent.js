@@ -42,7 +42,7 @@ function useMusicComponent() {
            const firstSong = playlist.playlist_tracks[0]
            setSong(firstSong)
         }
-        // setSong(getNextSong)E
+
         setPlay(true)
     }
 

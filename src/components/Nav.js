@@ -32,11 +32,13 @@ export default Nav
 Nav.Escape = function ModalEscape({escapeShow}){
  const {showEscape} = escapeShow
   const [cookies, setCookies, removeCookie] = useCookies(statics.USR_COOKIE)
-let navigation = useNavigate()
+  let navigation = useNavigate()
 
 function logOut(){
-  removeCookie(statics.USR_COOKIE)
-  console.log(cookies)
+  removeCookie(statics.USR_COOKIE, {path: '/'})
+  removeCookie(statics.USR_COOKIE, {path: '/playlist'})
+  removeCookie(statics.USR_COOKIE, {path: '/entrance'})
+  removeCookie(statics.USR_COOKIE, {path: '/artist'})
   navigation('/entrance', {replace: true})
 }
 

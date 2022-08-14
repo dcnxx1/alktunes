@@ -54,7 +54,7 @@ function useForm(typeOfForm) {
                 insertError(FORM_ERR.ERR_NO_INPUT)
             } else {
                removeError(FORM_ERR.ERR_NO_INPUT)
-                 
+              
                 axios.post(`${process.env.REACT_APP_ENV}/entrance/login`, {
                     username : inputFields.username,
                     password: inputFields.password
