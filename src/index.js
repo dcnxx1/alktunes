@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './style/main/main.css';
 import Guard from './auth/Guard'
 import Redirector from './auth/Redirector';
-import ReactPlayer from 'react-player';
 import App from './App';
 import Entrance from './components/Entrance';
 import Login from './compound/Login';
@@ -21,7 +20,6 @@ root.render(
   <BrowserRouter>
     <Routes>
         <Route exact path='/*' element={<Guard> <App /> </Guard>} />
-        
         <Route path='/entrance' element={ <Redirector><Entrance/></Redirector> } />  
         <Route path='/login' element={ <Redirector><Login /></Redirector>} />
         <Route path='/register' element={<Redirector><Register /></Redirector>} />
