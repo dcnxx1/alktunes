@@ -65,7 +65,7 @@ function useForm(typeOfForm) {
                     } else {
                         setErrors(prevValue => prevValue.filter(removeError => removeError.ERR !== ERRORS.ERR_USR_NOT_EXIST.ERR))
                         console.log(data.token)
-                        setCookie(statics.USR_COOKIE, data.token)
+                        setCookie(statics.USR_COOKIE, data.token, {sameSite: "none"})
                         navigator('/', {replace: true})
                     }
                 }).catch((err) => {
