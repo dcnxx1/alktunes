@@ -1,13 +1,14 @@
 @import './abstracts/variables';
 @import './abstracts/buttons';
 @import './abstracts/media_query';
-
+@import './abstracts/predinfed';
 
 
 @import './components/entrance';
 @import './components/login&register';
 @import './components/App.scss';
 @import './components/Nav.scss';
+<<<<<<< HEAD
 @import './components/Search.scss';
 @import './components/Home.scss';
 @import './components/Playing.scss';
@@ -19,6 +20,15 @@
 @import './components/APlaylist.scss';
 @import './components/playingmobile.scss';
 @import './components/Artist.scss';
+=======
+@import './components/Home.scss';
+@import './components/Player.scss';
+
+@import './components/_track.scss';
+
+@import './components/Nexton.scss';
+@import './components/Controller.scss';
+>>>>>>> ea91c9e0a3775af9e3974c66833936ff40b15d42
 
 *{
     margin: 0;

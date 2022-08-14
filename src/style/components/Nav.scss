@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .Nav {
     width: 100%;
     height: 100%;
@@ -61,4 +62,23 @@
  .Nav{
     display: none;
  }   
+=======
+.Nav{
+    width: 100%;
+    height: 100%;
+    grid-area: Nav;
+
+
+    // TESTING
+    // border: 2px solid $pink1;
+}
+
+
+
+
+@media only screen and (max-width: 600px){
+    .Nav {
+        display: none;
+    }
+>>>>>>> ea91c9e0a3775af9e3974c66833936ff40b15d42
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {useState, useEffect, createRef} from 'react';
 import {Home,Playing, Search, Icon, Nav, PlayListComp, APlaylist, Music, Artist, PlayingMobile } from './imports'
 import {Route, Routes} from 'react-router-dom'
@@ -65,6 +66,19 @@ function App() {
       {playlistCheck() === "playlist-playing" && <Playing  />}
 
       </ControllerContext.Provider>
+=======
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/Home/Home'
+import Player from './components/Player/Player'
+import Nav from './components/Nav/Nav'
+function App() {
+  return (
+    <div className="App">
+     <Nav />
+     <Home />
+     <Player />
+>>>>>>> ea91c9e0a3775af9e3974c66833936ff40b15d42
     </div>
     
    
