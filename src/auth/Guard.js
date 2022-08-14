@@ -21,7 +21,7 @@ function Guard({children}) {
   useEffect(() => {
     validator()
   }, [])
-  return Object.keys(cookies).length !== 0 ? (
+  return cookies.USRCOOKIEE !== undefined ? (
     <div>{children}</div>
   ) : <Navigate replace={true} to="/entrance" state={{from: `${location.pathname}${location.search}`}} /> 
 }
