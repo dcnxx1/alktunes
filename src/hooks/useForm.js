@@ -60,13 +60,12 @@ function useForm(typeOfForm) {
                     password: inputFields.password
                 }).then((res) => {
                     const {data} = res
-                    console.log(data)
+                 
                     if(data.statusCode == 500){
                         setErrors(prevValue => ([...prevValue, {ERR: ERRORS.ERR_USR_NOT_EXIST.ERR, message: ERRORS.ERR_USR_NOT_EXIST.message}])) 
                     } else {
                         setErrors(prevValue => prevValue.filter(removeError => removeError.ERR !== ERRORS.ERR_USR_NOT_EXIST.ERR))
-                        console.log(data.token)
-                        setCookie(statics.USR_COOKIE, data.token, {sameSite: "none", secure: true})
+                        setCookie(statics.USR_COOKIE, data.token)
                         navigator('/', {replace: true})
                     }
                 }).catch((err) => {

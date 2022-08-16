@@ -24,7 +24,7 @@ function Playing() {
   return (
    
     <div ref={miniPlayerRef} className={`Playing ${showMiniPlayer == true ? "showMiniPlayer" : ""}`}>
-      <span onClick={() => setShowMiniPlayer(prevValue => !prevValue)} className='arrow-up'></span>
+      <span onClick={() => setShowMiniPlayer(prevValue => !prevValue)} className={`${showMiniPlayer === true ? 'arrow-down' : 'arrow-up'}`}></span>
       <span className='line'></span>
       <div ref={playlistRef} className={`nexton ${showNexton == true ? 'show-nexton' : ""}`}>
           {playlist.hasOwnProperty('playlist_tracks') === true && <div className='playing-header'>
