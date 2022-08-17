@@ -65,7 +65,7 @@ function useForm(typeOfForm) {
                         setErrors(prevValue => ([...prevValue, {ERR: ERRORS.ERR_USR_NOT_EXIST.ERR, message: ERRORS.ERR_USR_NOT_EXIST.message}])) 
                     } else {
                         setErrors(prevValue => prevValue.filter(removeError => removeError.ERR !== ERRORS.ERR_USR_NOT_EXIST.ERR))
-                        setCookie(statics.USR_COOKIE, data.token, {sameSite: "none", secure: true, maxAge: 7200000})
+                        setCookie(statics.USR_COOKIE, data.token, {sameSite: "none", secure: true})
                         navigator('/', {replace: true})
                     }
                 }).catch((err) => {
@@ -106,7 +106,7 @@ function useForm(typeOfForm) {
                 if(data.statusCode == 500){
                     insertError(ERRORS.ERR_EMAIL_EXIST)
                 } else {
-                    setCookie(statics.USR_COOKIE, data.token, {sameSite: "none", secure: true, maxAge: 7200000})
+                    setCookie(statics.USR_COOKIE, data.token, {sameSite: "none", secure: true})
                     navigator('/', {replace : true})
                 }
             }).catch((err) => {
