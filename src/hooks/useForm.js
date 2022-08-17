@@ -3,13 +3,14 @@ import {useNavigate, useLocation} from 'react-router-dom'
 import statics from '../static/statics'
 import codesRequest from '../errors/codes.request'
 import { useCookies } from 'react-cookie'
+import {useLocalStorage} from '../imports'
 import axios from 'axios'
 import {FORM_ERR, ERRORS} from '../errors/codes.request'
 function useForm(typeOfForm) {
     const [inputFields, setInputFields] = useState({})
     const [error, setErrors] = useState([])
-    const [cookie, setCookie, removeCookie] = useCookies([statics.USR_COOKIE])
-
+    const [cookie, setCookie, removeCookie] = useCookies(statics.USR_COOKIE)
+    // const [storage, setStorage, removeStorage] = useLocalStorage(statics.USR_COOKIE)
     const navigator = useNavigate()
 
     function setDataForLogin(e){

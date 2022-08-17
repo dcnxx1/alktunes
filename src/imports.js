@@ -42,6 +42,10 @@ export {default as AddPlaylist}    from './static/icons/add-list.png'           
 export {default as CheckYes}       from './static/icons/yes.png'                  ;
 export {default as CheckNo}        from './static/icons/no.png'                   ;
 export {default as Play}           from './static/icons/play.png'                 ;
+
+// Local storage
+export {default as useLocalStorage} from './hooks/useLocalStorage'                ; 
+
 // LOGO
 export {default as LogoFull}       from './static/logo_new/alktune_full_png.png'  ;
 export {default as LogoMedium}     from './static/logo_new/alktune_medium_png.png';

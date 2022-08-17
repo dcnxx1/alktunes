@@ -13,7 +13,7 @@ export default {
     },
 
     USR_COOKIE: "USRCOOKIEE",
-
+    USR_TOKEN: "USRTOOKEEN",
     SCREEN_SIZE: {
         DESKTOP_MEDIUM: "1200px",
         MOBILE: "600px"
