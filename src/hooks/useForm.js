@@ -106,7 +106,7 @@ function useForm(typeOfForm) {
                 if(data.statusCode == 500){
                     insertError(ERRORS.ERR_EMAIL_EXIST)
                 } else {
-                    setCookie(statics.USR_COOKIE, data.token)
+                    setCookie(statics.USR_COOKIE, data.token, {sameSite: "none", secure: true})
                     navigator('/', {replace : true})
                 }
             }).catch((err) => {
