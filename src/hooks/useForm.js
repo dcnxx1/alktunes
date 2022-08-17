@@ -8,7 +8,7 @@ import {FORM_ERR, ERRORS} from '../errors/codes.request'
 function useForm(typeOfForm) {
     const [inputFields, setInputFields] = useState({})
     const [error, setErrors] = useState([])
-    const [cookie, setCookie, removeCookie] = useCookies([statics.USR_COOKIE])
+    const [cookie, setCookie, removeCookie] = useCookies(statics.USR_COOKIE)
 
     const navigator = useNavigate()
 
@@ -106,7 +106,7 @@ function useForm(typeOfForm) {
                 if(data.statusCode == 500){
                     insertError(ERRORS.ERR_EMAIL_EXIST)
                 } else {
-                    setCookie(statics.USR_COOKIE, data.token)
+                    setCookie(statics.USR_COOKIE, data.token, {sameSite: 'none', secure: true})
                     navigator('/', {replace : true})
                 }
             }).catch((err) => {
