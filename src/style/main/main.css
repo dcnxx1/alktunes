@@ -707,11 +707,12 @@ body {
       position: static; }
       .showMiniPlayer .Player .player-holder {
         height: 90%;
-        width: 65%;
+        width: 80%;
+        max-width: 350px;
         flex: 2 1;
         text-align: center; }
         .showMiniPlayer .Player .player-holder img {
-          width: 85%; }
+          width: 100%; }
       .showMiniPlayer .Player .playing-track {
         height: 100%; }
       .showMiniPlayer .Player .controller-song {

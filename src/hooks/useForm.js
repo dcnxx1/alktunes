@@ -20,6 +20,13 @@ function useForm(typeOfForm) {
        }))
     }
 
+    useEffect(() => {
+        if(inputFields.password === inputFields.repeatPassword){
+            console.log("the same")
+        } else {
+            console.log("not the same")
+        }
+    }, [inputFields.repeatPassword])
 
     function findError(searchError){
         return error.some(errorObj => errorObj.ERR == searchError)
@@ -88,16 +95,17 @@ function useForm(typeOfForm) {
             username.length < 5 == true ? insertError(FORM_ERR.ERR_MIN_CHARS_USR) : removeError(FORM_ERR.ERR_MIN_CHARS_USR)
         }
         if(password){
-            password.length < 5 == true ? insertError(FORM_ERR.ERR_MIN_CHARS_PASS) : removeError(FORM_ERR.ERR_MIN_CHARS_PASS)
+            password.length < 5 == true ? insertError(FORM_ERR.ERR_MIN_CHARS_PASS) : removeError(FORM_ERR.ERR_MIN_CHARS_PASS)    
         }
-        repeatPassword !== password ? insertError(FORM_ERR.ERR_PASS_DONT_MATCH) : removeError(FORM_ERR.ERR_PASS_DONT_MATCH)
-        
+    
+        password !== repeatPassword  ? insertError(FORM_ERR.ERR_PASS_DONT_MATCH) : removeError(FORM_ERR.ERR_PASS_DONT_MATCH)
+
         email && email.length == 0 ? insertError(FORM_ERR.ERR_EMAIL_EMPTY) : removeError(FORM_ERR.ERR_EMAIL_EMPTY)
            
       
         // if there are no errors
        
-        if(error.length == 0 && username){
+        if(error.length === 0 && username && password === repeatPassword){
             axios.post(`${process.env.REACT_APP_ENV}/entrance/register`, {
                 username,
                 password,
