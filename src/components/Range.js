@@ -44,6 +44,4 @@ function Range({playedTime}) {
   )
 }
 
-// onEnded={e => console.log("song ended")} onProgress={e => setTimePlayed(e.playedSeconds)} 
-// range : value={timeSkipper}  onChange={e => setSkipper(prevValue => e.target.valueAsNumber)}
 export default Range

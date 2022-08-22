@@ -20,13 +20,7 @@ function useForm(typeOfForm) {
        }))
     }
 
-    useEffect(() => {
-        if(inputFields.password === inputFields.repeatPassword){
-            console.log("the same")
-        } else {
-            console.log("not the same")
-        }
-    }, [inputFields.repeatPassword])
+
 
     function findError(searchError){
         return error.some(errorObj => errorObj.ERR == searchError)
