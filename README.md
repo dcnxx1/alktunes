@@ -46,6 +46,7 @@ React is my go-to choice for building front-end applications because of it's sim
 
 I used SASS instead of normal css.
 
-Please visit https://www.alktunes.com to see the application
+Please view the demo here : 
+https://ik.imagekit.io/9r9n2dtpgk/alktunes_demo__pJgNz1Yk.mp4?ik-sdk-version=javascript-1.4.3&updatedAt=1664215211656
 
 See also the backend documentation : https://github.com/dcnxx1/alktunes_server
